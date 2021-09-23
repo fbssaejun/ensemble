@@ -3,11 +3,12 @@ const bodyParser = require('body-parser');
 const app = express();
 const PORT = process.env.PORT || 8080;
 const db = require("./db/index");
+const router = require("express").Router();
+
 
 // ROUTERS
 const usersRoutes = require("./routes/users");
 app.use('/api/users', usersRoutes(db));
-
 const genresRoutes = require("./routes/genres");
 app.use('/api/genres', genresRoutes(db));
 

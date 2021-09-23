@@ -1,5 +1,6 @@
 import React from 'react';
 import './Navbar.scss'
+import { Link } from 'react-router-dom';
 
 
 export default function Navbar(props) {
@@ -14,6 +15,7 @@ export default function Navbar(props) {
           </div>
           <div className="user">
             {false && <span>user-icon</span>}
+            <Link to="">About</Link>
             <a href="">Login</a>
             <a href="">Register</a>
             {/* <button>chat</button> */}

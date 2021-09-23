@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Navbar from "./components/Navbar";
+import {BrowserRouter as Router, Link, Route, Switch} from 'react-router-dom';
 
 function App() {
   const [state, setState] = useState({
@@ -16,8 +17,13 @@ function App() {
 
   return (
   <main className="layout">
-    <Navbar genres={state.genres}/>
-    
+    <Router>  
+      <Navbar genres={state.genres}/>
+      <Switch>
+        {/* <Route path="">
+        </Route> */}
+      </Switch>
+    </Router>
   </main>
   );
 }

@@ -1,0 +1,49 @@
+nav {
+  background-color: lightblue;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+  width: 100%;
+  height: 10vh;
+  position: fixed;
+  top:0;
+  border-bottom: 2px solid black;
+
+  a {
+    padding: 1rem;
+    margin: 1rem;
+    text-decoration: none;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  a:hover {
+    transform: scale(1.1);
+  }
+
+  .navAnchors {
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+  }
+
+  h2 {
+    margin-left: 1em;
+    font-weight: 900;
+    color: white;
+    &:hover{
+      color: goldenrod;
+    }
+  }
+
+  .search-bar {
+    padding-left: 6em;
+  }
+
+  button {
+    margin-right: 2em;
+  }
+
+}

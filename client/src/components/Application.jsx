@@ -18,6 +18,7 @@ export default function Application(props){
   return (
   <main className="layout">
     <Navbar genres={state.genres}/>
+    
   </main>
   );
 }

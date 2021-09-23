@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Navbar from "./Navbar";
+import Navbar from "./components/Navbar";
 
-export default function Application(props){
-  
+function App() {
   const [state, setState] = useState({
     genres: []
   })
@@ -22,3 +21,5 @@ export default function Application(props){
   </main>
   );
 }
+
+export default App;

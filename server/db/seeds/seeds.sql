@@ -9,7 +9,7 @@ VALUES ('Empty', 'User', 'none@none.com', 'somedude', '12345', 'USA', 'Orlando',
 ('David', 'Ellefson', 'poison_cure@hotmail.com', 'rustInPeace', '12345', 'USA', 'Los Angeles', 'California', '613 S Grand Ave', '90017'),
 ('Nick', 'Menza', 'hangar69@hotmail.com', '5magicx', '12345', 'USA', 'Los Angeles', 'California', '613 S Grand Ave', '90017'),
 ('Noel', 'Gallagher', 'liam_sucks@gmail.com', 'wonderwall', '12345', 'UK', 'Longsight', 'Manchester', '258 Stockport Rd', 'M13 0JY'),
-('Paul', 'Gilbert', 'ultimateGuitarist@techniques.com', 'lickz420', '12345', 'USA', 'Carbondale', 'Illinois', '101 W Monroe St', '62901'),;
+('Paul', 'Gilbert', 'ultimateGuitarist@techniques.com', 'lickz420', '12345', 'USA', 'Carbondale', 'Illinois', '101 W Monroe St', '62901');
 
 INSERT INTO bands (leader_id, name, featured)
 VALUES

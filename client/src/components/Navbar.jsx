@@ -8,17 +8,15 @@ export default function Navbar(props) {
   return (
     <header>
       <nav>
-          <h2>Ensemble</h2>
+          <Link to="/"><h2>Ensemble</h2></Link>
           <div className="search-bar">
             <input type="text" placeholder="Search Band" />
             <button>Search</button>
           </div>
           <div className="user">
             {false && <span>user-icon</span>}
-            <Link to="">About</Link>
-            <a href="">Login</a>
-            <a href="">Register</a>
-            {/* <button>chat</button> */}
+            <Link to="/login">Login</Link>
+            <Link to="/signup">Signup</Link>
           </div>
  
       </nav>

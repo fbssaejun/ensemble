@@ -3,20 +3,19 @@ const bodyParser = require('body-parser');
 const app = express();
 const PORT = process.env.PORT || 8081;
 const db = require("./db/index");
-const router = require("express").Router();
-
-
-// ROUTERS
-const usersRoutes = require("./routes/users");
-app.use('/api/users', usersRoutes(db));
-const genresRoutes = require("./routes/genres");
-app.use('/api/genres', genresRoutes(db));
 
 // Express Configuration
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
+// ROUTERS
+const loginRoutes = require('./routes/login');
+app.use('/login', loginRoutes(db));
+const usersRoutes = require("./routes/users");
+app.use('/api/users', usersRoutes(db));
+const genresRoutes = require("./routes/genres");
+app.use('/api/genres', genresRoutes(db));
 
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console

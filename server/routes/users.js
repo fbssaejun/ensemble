@@ -4,7 +4,7 @@ module.exports = (db) => {
   router.get('/', (req, res) => {
     db.query(
       `
-      SELECT * FROM users;
+      SELECT first_name FROM users;
     `
     ).then((results) => {
       res.json(results.rows);

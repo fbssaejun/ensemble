@@ -5,7 +5,7 @@ export default function Register(props) {
 
   return(
     <form>
-      <div class="form-group">
+      <div className="form-group">
         <input type="text" placeholder="Enter email"/>
         <button><Link to="/signup">Sign Up</Link></button>
       </div>

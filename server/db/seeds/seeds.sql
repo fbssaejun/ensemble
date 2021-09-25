@@ -14,6 +14,7 @@ VALUES ('Empty', 'User', 'none@none.com', 'somedude', '12345', 'USA', 'Orlando',
 INSERT INTO bands (leader_id, name, featured)
 VALUES
 (10, 'Oasis', TRUE),
+(2, 'Guns N'' Roses', TRUE),
 (1, 'Coldplay', FALSE),
 (1, 'AC/DC', TRUE),
 (1, 'Red Hot Chili Peppers', TRUE),
@@ -22,20 +23,18 @@ VALUES
 (11, 'Racer X', TRUE),
 (1, 'Chon', TRUE),
 (1, 'Periphery', FALSE),
-(2, 'Guns N'' Roses', TRUE),
 (6, 'Megadeth', FALSE);
 
 
 INSERT INTO instruments (name)
 VALUES
 ('Guitar'),
+('Vocal'),
 ('Bass'),
 ('Drums'),
 ('Piano'),
 ('Violin'),
-('Cello'),
-('Vocal');
-
+('Cello');
 
 INSERT INTO genres (name)
 VALUES
@@ -48,6 +47,12 @@ VALUES
 ('Progressive metal'),
 ('Djent');
 
+INSERT INTO spots (band_id, user_id, instrument_id, title, description)
+VALUES
+(2, 2, 1, 'Lead Guitarist', 'Cool dude with a hat'),
+(2, 3, 2, 'Vocalist', 'Sometimes kind of an asshole'),
+(2, 4, 3, 'Bassist', 'Cool dude'),
+(2, 5, 4, 'Drummer', 'Founding member of GnR');
 
 
 

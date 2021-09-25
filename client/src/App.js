@@ -41,7 +41,7 @@ function App() {
             <UserProfile users={state.users} />
           </Route>
           <Route path="/login">
-            <h1>This is for login</h1>
+            <h1>Sign In</h1>
             <Login setState={setState} />
           </Route>
           <Route path="/signup">

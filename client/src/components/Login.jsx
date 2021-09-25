@@ -2,7 +2,6 @@ import axios from 'axios';
 import { Link, useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import { chainPropTypes } from '@mui/utils';
-// import './Login.scss'
 
 export default function Login(props) {
   const [userEmail, setUserEmail] = useState();
@@ -25,14 +24,12 @@ export default function Login(props) {
     }).catch(e => console.log(e))
   }
 
-    
-
   return(
     <form onSubmit={loginCheck}>
-      <div class="form-group">
+      <div className="form-group">
         <input type="text" placeholder="Enter email" onChange={({ target }) => setUserEmail(target.value)}/> <br/>
         <input type="text" placeholder="Enter password" onChange={({ target }) => setUserPassword(target.value)}/> <br/>
-        <button type="submit"><Link to="/login"></Link>Login</button>
+        <button type="submit"><Link to="/login"></Link>Sign In</button>
       </div>
       {error && (
         <div className="error">

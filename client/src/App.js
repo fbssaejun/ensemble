@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 function App() {
   const [state, setState] = useState({
     genres: [],
+    currentUser: undefined
   });
 
   useEffect(() => {
@@ -22,12 +23,12 @@ function App() {
   return (
     <main className="layout">
       <Router>
-        <Navbar genres={state.genres} />
+        <Navbar user={state.currentUser} setState={setState} />
         <Switch>
           <Route path="/u/:userId" component={UserProfile} />
           <Route path="/login">
             <h1>This is for login</h1>
-            <Login />
+            <Login setState={setState} />
           </Route>
           <Route path="/signup">
             <h1>This is for signup</h1>

@@ -46,15 +46,15 @@ CREATE TABLE spots (
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   instrument_id INTEGER REFERENCES instruments(id) ON DELETE CASCADE,
   title VARCHAR(255) NOT NULL,
-  description TEXT,
-  accepted_status BOOLEAN DEFAULT FALSE
+  description TEXT
 );
 
 CREATE TABLE spot_applications (
   id SERIAL PRIMARY KEY NOT NULL,
   spot_id INTEGER REFERENCES spots(id) ON DELETE CASCADE,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  message TEXT
+  message TEXT,
+  accepted_status BOOLEAN DEFAULT NULL
 ); 
 
 

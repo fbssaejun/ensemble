@@ -10,13 +10,18 @@ import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 function App() {
   const [state, setState] = useState({
     genres: [],
+    users: [],
     currentUser: undefined
   });
 
   useEffect(() => {
-    axios.get('/api/genres').then((all) => {
-      const genres = all.data;
-      setState((prev) => ({ ...prev, genres }));
+    Promise.all([
+      axios.get('/api/genres'),
+      axios.get('/api/users')
+    ]).then((all) => {
+      const genres = all[0].data;
+      const users = all[1].data;
+      setState((prev) => ({ ...prev, genres, users }));
     });
   }, []);
 
@@ -25,7 +30,9 @@ function App() {
       <Router>
         <Navbar user={state.currentUser} setState={setState} />
         <Switch>
-          <Route path="/users/:userId" component={UserProfile} />
+          <Route path="/users/:userId">
+            <UserProfile users={state.users} />
+          </Route>
           <Route path="/login">
             <h1>This is for login</h1>
             <Login setState={setState} />

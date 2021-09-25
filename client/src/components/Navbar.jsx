@@ -1,13 +1,14 @@
 import React from 'react';
 import './Navbar.scss'
-import { Link, Switch, Route } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import UserProfile from './UserProfile';
 
 
 export default function Navbar(props) {
-
+  const history = useHistory();
   const logOut = () => {
     props.setState(prev => ({...prev, currentUser: undefined}))
+    history.push("/");
   }
 
   const goToProfile = () => {

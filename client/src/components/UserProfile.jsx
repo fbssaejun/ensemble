@@ -1,27 +1,30 @@
 import { useParams } from 'react-router-dom';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
-import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { Fragment } from 'react';
 
 export default function UserProfile(props) {
-  const [state, setState] = useState();
   const { userId } = useParams();
 
-  useEffect(() => {
-    axios.get(`/api/users/${userId}`).then((all) => {
-      const user = all.data;
-      setState((prev) => ({...prev, user: user}))
-    })
-  }, []);
 
-  return !state ? (
+  const getUser = (users) => {
+    for(const user of users) {
+      if (user.id === Number(userId)) {
+        return user;
+      }
+    }
+  }
+
+  const user = getUser(props.users)
+
+  return !user ? (
     <Box sx={{ display: 'flex' }}>
       <CircularProgress />
     </Box>
   ) : (
-    <h1>
-      {state.user.city}
-    </h1>
+    <Fragment>
+    <h1>{user.first_name} {user.last_name}</h1>   
+    <h1>{user.city}</h1>
+    </Fragment>
   ) 
 }

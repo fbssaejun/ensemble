@@ -26,13 +26,8 @@ export default function Login(props) {
   return(
     <form onSubmit={loginCheck}>
       <div class="form-group">
-<<<<<<< HEAD
-        <input type="text" placeholder="Enter id"/>
-        <button><Link to="/login">Login</Link></button>
-=======
         <input type="text" placeholder="Enter id" onChange={({ target }) => setUserId(target.value)}/>
         <button type="submit"><Link to="/login">Login</Link></button>
->>>>>>> 1f344b5e3864ee6a3025c341c79766d13b6b1a51
       </div>
     </form>
   );

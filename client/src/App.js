@@ -5,23 +5,30 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import UserProfile from './components/UserProfile';
 import NotFound from './components/NotFound';
+import Band from './components/Band/index'
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 
 function App() {
   const [state, setState] = useState({
     genres: [],
     users: [],
+    bands: [],
+    spots: [],
     currentUser: undefined
   });
 
   useEffect(() => {
     Promise.all([
       axios.get('/api/genres'),
-      axios.get('/api/users')
+      axios.get('/api/users'),
+      axios.get('/api/bands'),
+      axios.get('/api/spots')
     ]).then((all) => {
       const genres = all[0].data;
       const users = all[1].data;
-      setState((prev) => ({ ...prev, genres, users }));
+      const bands = all[2].data;
+      const spots = all[3].data;
+      setState((prev) => ({ ...prev, genres, users, bands, spots }));
     });
   }, []);
 
@@ -40,6 +47,9 @@ function App() {
           <Route path="/signup">
             <h1>This is for signup</h1>
             <Signup />
+          </Route>
+          <Route path="/bands/:bandId">
+            <Band bands={state.bands} spots={state.spots}/>
           </Route>
           <Route path="/" exact>
             <h1>Blank Homepage</h1>

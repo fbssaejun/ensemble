@@ -18,6 +18,9 @@ const genresRoutes = require("./routes/genres");
 app.use('/api/genres', genresRoutes(db));
 const bandsRoutes = require("./routes/bands");
 app.use('/api/bands', bandsRoutes(db));
+const spotsRoutes = require("./routes/spots");
+app.use('/api/spots', spotsRoutes(db));
+
 
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console

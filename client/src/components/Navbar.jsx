@@ -1,9 +1,18 @@
 import React from 'react';
 import './Navbar.scss'
-import { Link } from 'react-router-dom';
+import { Link, Switch, Route } from 'react-router-dom';
+import UserProfile from './UserProfile';
 
 
 export default function Navbar(props) {
+
+  const logOut = () => {
+    props.setState(prev => ({...prev, currentUser: undefined}))
+  }
+
+  const goToProfile = () => {
+
+  }
 
   return (
     <header>
@@ -13,13 +22,18 @@ export default function Navbar(props) {
             <input type="text" placeholder="Search Band" />
             <button>Search</button>
           </div>
-          <div className="user">
-            {false && <span>user-icon</span>}
+          {!props.user ? (<div className="user">
             <Link to="/login">Login</Link>
             <Link to="/signup">Signup</Link>
-          </div>
- 
+          </div>) : (
+          <React.Fragment>
+            <Link to={`/users/${props.user}`}> Profile {props.user} </Link>
+            <button type="submit" onClick={logOut}>Logout</button>
+          </React.Fragment>
+          )}
+
       </nav>
     </header>
   );
 }
+

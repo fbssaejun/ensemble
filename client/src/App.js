@@ -25,7 +25,7 @@ function App() {
       <Router>
         <Navbar user={state.currentUser} setState={setState} />
         <Switch>
-          <Route path="/u/:userId" component={UserProfile} />
+          <Route path="/users/:userId" component={UserProfile} />
           <Route path="/login">
             <h1>This is for login</h1>
             <Login setState={setState} />

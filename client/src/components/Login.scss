@@ -1,9 +1,7 @@
-
-
-.form-group{
+.form-group-login {
   padding: 10px 0;
-	position: relative;
-	z-index: 2;
+  position: relative;
+  z-index: 2;
 
   h2 {
     display: block;
@@ -12,148 +10,141 @@
     color: white;
   }
 
-  input{
-		display: block;
-		appearance: none;
-		outline: 0;
-		border: 1px solid rgba(245, 247, 249, 0.4);
+  input {
+    display: block;
+    appearance: none;
+    outline: 0;
+    border: 1px solid rgba(245, 247, 249, 0.4);
     background-color: rgba(245, 247, 249, 0.2);
-		width: 250px;
-		
-		border-radius: 3px;
-		padding: 10px 15px;
-		margin: 0 auto 10px auto;
-		text-align: center;
-		font-size: 18px;
-    
-		color: white;
-		
-		transition-duration: 0.25s;
-		font-weight: 300;
-		
-		&:hover{
-			background-color: rgba(245, 247, 249, 0.4);
-		}
-		
-		&:focus{
-			background-color: rgba(245, 247, 249, 0.4);
-			width: 300px;
-			
-			color: #53e3a6;
-		}
-	}
+    width: 250px;
 
-  button{
-		appearance: none;
-		outline: 0;
-		background-color: rgba(245, 247, 249, 0.4);;
-		border: 0;
-		padding: 10px 15px;
-		color: #53e3a6;
-		border-radius: 3px;
-		width: 250px;
-		cursor: pointer;
-		font-size: 18px;
-		transition-duration: 0.25s;
+    border-radius: 3px;
+    padding: 10px 15px;
+    margin: 0 auto 10px auto;
+    text-align: center;
+    font-size: 18px;
+
+    color: white;
+
+    transition-duration: 0.25s;
+    font-weight: 300;
+
+    &:hover {
+      background-color: rgba(245, 247, 249, 0.4);
+    }
+
+    &:focus {
+      background-color: rgba(245, 247, 249, 0.4);
+      width: 300px;
+
+      color: #53e3a6;
+    }
+  }
+
+  button {
+    appearance: none;
+    outline: 0;
+    background-color: rgba(245, 247, 249, 0.4);
+    border: 0;
+    padding: 10px 15px;
+    color: #53e3a6;
+    border-radius: 3px;
+    width: 250px;
+    cursor: pointer;
+    font-size: 18px;
+    transition-duration: 0.25s;
     text-align: center;
     display: block;
     margin: 0 auto 0 auto;
     box-sizing: content-box;
 
-		
-		&:hover{
-			background-color: rgb(245, 247, 249);
-		}
-	}
-
-
+    &:hover {
+      background-color: rgb(245, 247, 249);
+    }
+  }
 }
 
-.error{
+.error {
   position: relative;
-	z-index: 2;
+  z-index: 2;
   display: block;
   margin: 20px auto 10px auto;
   text-align: center;
   color: white;
 }
 
-
-
-
 // Folating box animation below
 
 .animation-area {
-	background: linear-gradient(to left, #4277a8, #2fba90);
-	width: 100%;
-	height: 100vh;
+  background: linear-gradient(to left, #4277a8, #2fba90);
+  width: 100%;
+  height: 100vh;
 }
 .box-area {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
-  margin: 0; /* To remove default bottom margin */ 
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin: 0; /* To remove default bottom margin */
   padding: 0; /* To remove default left padding */
 }
 .box-area li {
-	position: absolute;
-	display: block;
-	list-style: none;
-	width: 25px;
-	height: 25px;
-	background: rgba(255, 255, 255, 0.2);
-	animation: animate 20s linear infinite;
-	bottom: -150px;
+  position: absolute;
+  display: block;
+  list-style: none;
+  width: 25px;
+  height: 25px;
+  background: rgba(255, 255, 255, 0.2);
+  animation: animate 20s linear infinite;
+  bottom: -150px;
 }
 .box-area li:nth-child(1) {
-	left: 86%;
-	width: 80px;
-	height: 80px;
-	animation-delay: 0s;
+  left: 86%;
+  width: 80px;
+  height: 80px;
+  animation-delay: 0s;
 }
 .box-area li:nth-child(2) {
-	left: 12%;
-	width: 30px;
-	height: 30px;
-	animation-delay: 1.5s;
-	animation-duration: 10s;
+  left: 12%;
+  width: 30px;
+  height: 30px;
+  animation-delay: 1.5s;
+  animation-duration: 10s;
 }
 .box-area li:nth-child(3) {
-	left: 70%;
-	width: 100px;
-	height: 100px;
-	animation-delay: 5.5s;
+  left: 70%;
+  width: 100px;
+  height: 100px;
+  animation-delay: 5.5s;
 }
 .box-area li:nth-child(4) {
-	left: 42%;
-	width: 150px;
-	height: 150px;
-	animation-delay: 0s;
-	animation-duration: 15s;
+  left: 42%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 0s;
+  animation-duration: 15s;
 }
 .box-area li:nth-child(5) {
-	left: 65%;
-	width: 40px;
-	height: 40px;
-	animation-delay: 0s;
+  left: 65%;
+  width: 40px;
+  height: 40px;
+  animation-delay: 0s;
 }
 .box-area li:nth-child(6) {
-	left: 15%;
-	width: 110px;
-	height: 110px;
-	animation-delay: 3.5s;
+  left: 15%;
+  width: 110px;
+  height: 110px;
+  animation-delay: 3.5s;
 }
 @keyframes animate {
-	0% {
-		transform: translateY(0) rotate(0deg);
-		opacity: 1;
-	}
-	100% {
-		transform: translateY(-800px) rotate(360deg);
-		opacity: 0;
-	}
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-800px) rotate(360deg);
+    opacity: 0;
+  }
 }
-

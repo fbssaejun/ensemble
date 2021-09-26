@@ -37,7 +37,9 @@ CREATE TABLE bands (
   id SERIAL PRIMARY KEY NOT NULL,
   leader_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   name VARCHAR(255) NOT NULL,
-  featured BOOLEAN DEFAULT TRUE
+  description TEXT,
+  featured BOOLEAN DEFAULT FALSE,
+  band_image VARCHAR(255)
 );
 
 CREATE TABLE spots (

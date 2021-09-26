@@ -29,6 +29,7 @@ export default function Navbar(props) {
           </div>) : (
           <React.Fragment>
             <Link to={`/users/${props.user}`}> Profile {props.user} </Link>
+            <Link to="/bands/new">Create New Band</Link>
             <button type="submit" onClick={logOut}>Logout</button>
           </React.Fragment>
           )}

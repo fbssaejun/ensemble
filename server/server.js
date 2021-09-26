@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const PORT = process.env.PORT || 8081;
-const db = require("./db/index");
+const db = require('./db/index');
 
 // Express Configuration
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -12,15 +12,16 @@ app.use(express.static('public'));
 // ROUTERS
 const loginRoutes = require('./routes/login');
 app.use('/login', loginRoutes(db));
-const usersRoutes = require("./routes/users");
-app.use('/api/users', usersRoutes(db));
-const genresRoutes = require("./routes/genres");
-app.use('/api/genres', genresRoutes(db));
-const bandsRoutes = require("./routes/bands");
-app.use('/api/bands', bandsRoutes(db));
-const spotsRoutes = require("./routes/spots");
-app.use('/api/spots', spotsRoutes(db));
-
+const bandsRoutes = require('./routes/bands');
+app.use('/bands', bandsRoutes(db));
+const usersApiRoutes = require('./routes/api/users');
+app.use('/api/users', usersApiRoutes(db));
+const genresApiRoutes = require('./routes/api/genres');
+app.use('/api/genres', genresApiRoutes(db));
+const bandsApiRoutes = require('./routes/api/bands');
+app.use('/api/bands', bandsApiRoutes(db));
+const spotsApiRoutes = require('./routes/api/spots');
+app.use('/api/spots', spotsApiRoutes(db));
 
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console

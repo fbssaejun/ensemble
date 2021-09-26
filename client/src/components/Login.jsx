@@ -34,7 +34,7 @@ export default function Login(props) {
 
   return(
     <form onSubmit={loginCheck}>
-      <div className="form-group">
+      <div className="form-group-login">
         <h2>Login</h2>
         <input type="text" placeholder="Enter email" onChange={({ target }) => setUserEmail(target.value)}/> <br/>
         <input type="password" placeholder="Enter password" onChange={({ target }) => setUserPassword(target.value)}/> <br/>

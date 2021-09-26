@@ -37,7 +37,7 @@ export default function Login(props) {
       <div className="form-group">
         <h2>Login</h2>
         <input type="text" placeholder="Enter email" onChange={({ target }) => setUserEmail(target.value)}/> <br/>
-        <input type="text" placeholder="Enter password" onChange={({ target }) => setUserPassword(target.value)}/> <br/>
+        <input type="password" placeholder="Enter password" onChange={({ target }) => setUserPassword(target.value)}/> <br/>
         <button type="submit"><Link to="/login"></Link>Sign In</button>
       </div>
       <ul className="animation-area box-area">

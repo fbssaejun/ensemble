@@ -5,18 +5,25 @@ import { chainPropTypes } from '@mui/utils';
 import './Login.scss'
 
 export default function Login(props) {
-  const [userEmail, setUserEmail] = useState();
-  const [userPassword, setUserPassword] = useState();
+  const [userEmail, setUserEmail] = useState("");
+  const [userPassword, setUserPassword] = useState("");
   const [error, setError] = useState(undefined);
   const history = useHistory();
   
   const loginCheck = (event) => {
     event.preventDefault();
+    if (userEmail === "") {
+      setError(prev => "Please enter a valid email")
+      return
+    } 
+    if (userPassword === "") {
+      setError(prev => "Please enter a password")
+      return
+    }
     axios.post('/login', {email : userEmail, password: userPassword})
     .then(response => {
       if (!response.data.length) {
-        setError(prev => "bleh");
-        console.log("No user")
+        setError(prev => "Invalid Credentials");
       } else {
         props.setState((prev) => ({ ...prev, currentUser: response.data[0].id }));
         setError(prev => undefined)
@@ -43,7 +50,7 @@ export default function Login(props) {
       </ul>
       {error && (
         <div className="error">
-          <h4> Wrong Credentials </h4>
+          <h4>{error}</h4>
         </div>
         )}
     </form>     

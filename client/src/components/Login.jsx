@@ -2,6 +2,7 @@ import axios from 'axios';
 import { Link, useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import { chainPropTypes } from '@mui/utils';
+import './Login.scss'
 
 export default function Login(props) {
   const [userEmail, setUserEmail] = useState();
@@ -27,10 +28,19 @@ export default function Login(props) {
   return(
     <form onSubmit={loginCheck}>
       <div className="form-group">
+        <h2>Login</h2>
         <input type="text" placeholder="Enter email" onChange={({ target }) => setUserEmail(target.value)}/> <br/>
         <input type="text" placeholder="Enter password" onChange={({ target }) => setUserPassword(target.value)}/> <br/>
         <button type="submit"><Link to="/login"></Link>Sign In</button>
       </div>
+      <ul className="animation-area box-area">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
       {error && (
         <div className="error">
           <h4> Wrong Credentials </h4>

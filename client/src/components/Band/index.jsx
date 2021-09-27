@@ -1,20 +1,24 @@
 import { useParams } from 'react-router-dom';
-import { Fragment } from 'react'
+import { Fragment, useState, useEffect } from 'react'
+import axios from 'axios';
 import Spot from './Spot'
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 
 export default function Band (props) {
   const { bandId } = useParams();
-  const { bands, spots } = props;
+  const [band, setBand] = useState({})
+  const [spots, setSpots] = useState([])
 
-  const getBand = (bands) => {
-    for(const band of bands) {
-      if (band.id === Number(bandId)) {
-        return band;
-      }
-    }
-  }
+  useEffect(() => {
+    Promise.all([
+      axios.get(`/api/bands/${bandId}`),
+      axios.get("/api/spots")
+    ]).then((all) => {
+      setBand(all[0].data);
+      setSpots(all[1].data);
+    })
+  }, [])
 
   const getSpots = (spots) => {
     const spotsArr = []
@@ -26,10 +30,9 @@ export default function Band (props) {
     return spotsArr;
   }
 
-  const band = getBand(bands)
   const filledSpots = getSpots(spots);
   const bandSpots = filledSpots.map(spot => { 
-    return <Spot title={spot.description} />
+    return <Spot title={spot.title} />
   });
 
   // Checks that API data has loaded correctly

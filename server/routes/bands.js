@@ -14,7 +14,6 @@ module.exports = (db) => {
       req.body.featured,
       req.body.band_image,
     ]).then((results) => {
-      console.dir(results);
       return res.status(200).send({
         message: 'data inserted',
         result: results.rows[0],

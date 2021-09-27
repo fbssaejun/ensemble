@@ -8,12 +8,9 @@ export default function Band (props) {
   const { bandId } = useParams();
   const { bands, spots } = props;
 
-  console.log("WHERE THE PROPS AT", bands,"and spots", spots)
   const getBand = (bands) => {
     for(const band of bands) {
-      console.log("band", band, "bandId", bandId)
       if (band.id === Number(bandId)) {
-        console.log("HI")
         return band;
       }
     }

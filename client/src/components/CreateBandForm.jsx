@@ -26,17 +26,17 @@ export default function CreateBandForm(props) {
       const newBandId = response.data.result.id;
       history.push(`/bands/${newBandId}`)
     }).catch(e => console.log(e))
-  }
+  };
 
   const addSpot = () => {
     setSpotArr((prev) => [...prev, {title:"", username:""}]);
-  }
+  };
 
   const updateSpot = (index, changedSpot) => {
     const newSpots = [...spotArr]
     newSpots.splice(index, 1, changedSpot)
     setSpotArr((prev) => [...newSpots]);
-  }
+  };
 
   const deleteSpot = (index) => {
     const newSpots = [...spotArr];

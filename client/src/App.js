@@ -6,8 +6,10 @@ import Signup from './components/Signup';
 import UserProfile from './components/UserProfile';
 import NotFound from './components/NotFound';
 import Band from './components/Band/index';
-import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
+import Home from './components/Home'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import CreateBandForm from './components/CreateBandForm';
+import './App.scss'
 
 function App() {
   const [state, setState] = useState({
@@ -55,7 +57,7 @@ function App() {
             <Band bands={state.bands} spots={state.spots} />
           </Route>
           <Route path="/" exact>
-            <h1>Blank Homepage</h1>
+           <Home />
           </Route>
           <Route component={NotFound} />
         </Switch>

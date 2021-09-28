@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { Link, useHistory } from 'react-router-dom';
 import { useState } from 'react';
-import { chainPropTypes } from '@mui/utils';
 import './Login.scss'
 
 export default function Login(props) {
@@ -13,20 +12,20 @@ export default function Login(props) {
   const loginCheck = (event) => {
     event.preventDefault();
     if (userEmail === "") {
-      setError(prev => "Please enter a valid email")
+      setError("Please enter a valid email")
       return
     } 
     if (userPassword === "") {
-      setError(prev => "Please enter a password")
+      setError("Please enter a password")
       return
     }
-    axios.post('/login', {email : userEmail, password: userPassword})
+    axios.post('/api/login', {email : userEmail, password: userPassword})
     .then(response => {
       if (!response.data.length) {
-        setError(prev => "Invalid Credentials");
+        setError("Invalid Credentials");
       } else {
-        props.setState((prev) => ({ ...prev, currentUser: response.data[0].id }));
-        setError(prev => undefined)
+        props.setState((prev) => ({ ...prev, currentUser: {id: response.data[0].id, username: response.data[0].username} }));
+        setError(undefined)
         history.push('/');
       }
     }).catch(e => console.log(e))

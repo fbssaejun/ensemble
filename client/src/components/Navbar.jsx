@@ -14,8 +14,7 @@ export default function Navbar(props) {
       <nav>
           <Link to="/"><h2>Ensemble</h2></Link>
           <div className="search-bar">
-            <input type="text" placeholder="Search Band" />
-            <button>Search</button>
+            <Link to="/search">Begin Your Search</Link>
           </div>
           {!props.currentUser ? (<div className="user">
             <Link to="/login">Login</Link>

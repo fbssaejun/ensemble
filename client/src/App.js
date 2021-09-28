@@ -6,7 +6,8 @@ import Signup from './components/Signup';
 import UserProfile from './components/UserProfile';
 import NotFound from './components/NotFound';
 import Band from './components/Band/index';
-import Home from './components/Home'
+import Home from './components/Home';
+import Search from './components/Search';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import CreateBandForm from './components/CreateBandForm';
 import './App.scss'
@@ -49,6 +50,9 @@ function App() {
           <Route path="/signup">
             <h1>This is for signup</h1>
             <Signup />
+          </Route>
+          <Route path="/search">
+            <Search />
           </Route>
           <Route path="/bands/new">
             <CreateBandForm currentUser={state.currentUser} />

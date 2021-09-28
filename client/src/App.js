@@ -17,7 +17,7 @@ function App() {
     users: [],
     bands: [],
     spots: [],
-    currentUser: undefined,
+    currentUser: undefined
   });
 
   useEffect(() => {
@@ -38,7 +38,7 @@ function App() {
   return (
     <main className="layout">
       <Router>
-        <Navbar user={state.currentUser} setState={setState} />
+        <Navbar currentUser={state.currentUser} setState={setState} />
         <Switch>
           <Route path="/users/:userId">
             <UserProfile users={state.users} />

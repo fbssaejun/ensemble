@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import FormSpot from './FormSpot';
@@ -9,18 +9,27 @@ export default function CreateBandForm(props) {
   const [bandFeatured, setBandFeatured] = useState(false);
   const [bandImage, setBandImage] = useState("");
   const [spotArr, setSpotArr] = useState([]);
+  const [leaderSpot, setLeaderSpot] = useState({
+    title: "",
+    username: props.currentUser.username,
+    instrumentId: "",
+    description: ""
+  })
+
   const history = useHistory();
 
   const submitForm = (event) => {
     event.preventDefault();
 
-    axios.post('/bands/new', {
-      leader_id: props.currentUser,
+    const withLeaderSpot = [...spotArr, leaderSpot]
+
+    axios.post('/api/bands/new', {
+      leader_id: props.currentUser.id,
       name: bandName,
       description: bandDesc,
       band_image: bandImage,
       featured: bandFeatured,
-      spotData: spotConvert(spotArr)
+      spotData: spotConvert(withLeaderSpot)
     })
     .then(response => {
       const newBandId = response.data.result.band_id;
@@ -60,11 +69,15 @@ export default function CreateBandForm(props) {
       <h2>{JSON.stringify(spotConvert(spotArr))}</h2>
       <div className="form-group-band">
         <h2>Create a new Band</h2>
-        <input type="text" placeholder="Enter name of band" onChange={({ target }) => setBandName(target.value)}/> <br/>
+        <input type="text" placeholder="Enter name of band" onChange={({ target }) => setBandName(target.value)} required/> <br/>
         <textarea rows="10" cols="50" type="text" placeholder="Enter a band description" onChange={({ target }) => setBandDesc(target.value)}/> <br/>        
         <input type="text" placeholder="Link to picture" onChange={({ target }) => setBandImage(target.value)}/> <br/>
         <input type="checkbox" checked={bandFeatured} id="featuredCheck" onChange={() => setBandFeatured(!bandFeatured)}/>
         <label for="featuredCheck">Feature Band?</label> <br />
+        <h2>Your info</h2> 
+        <input placeholder="title" onChange={({ target }) => setLeaderSpot((prev)=> ({...prev, title: target.value}))} required/>
+        <input placeholder="instrument id" onChange={({ target }) => setLeaderSpot((prev)=> ({...prev, instrumentId: target.value}))} required/>
+        <input placeholder="description" onChange={({ target }) => setLeaderSpot((prev)=> ({...prev, description: target.value}))} required/>
         {spotArr.map((obj, index) => {
           return <FormSpot key={index} onDelete={() => {deleteSpot(index)}} onUpdate={updateSpot} index={index} spot={obj} />
         })}

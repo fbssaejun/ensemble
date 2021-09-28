@@ -20,6 +20,8 @@ const bandsApiRoutes = require('./routes/bands');
 app.use('/api/bands', bandsApiRoutes(db));
 const spotsApiRoutes = require('./routes/spots');
 app.use('/api/spots', spotsApiRoutes(db));
+const instrumentsApiRoutes = require('./routes/instruments');
+app.use('/api/instruments', instrumentsApiRoutes(db));
 
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console

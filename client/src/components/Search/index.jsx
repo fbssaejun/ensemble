@@ -4,10 +4,11 @@ import Options from './Options';
 
 
 export default function Search(props) {
-  const [selectedInst, setSelectedInst] = useState("0")
-  const [selectedGenre, setSelectedGenre] = useState("0")
-  const [genres, setGenres] = useState([])
-  const [instruments, setInstruments] = useState([])
+  const [selectedInst, setSelectedInst] = useState("0");
+  const [selectedGenre, setSelectedGenre] = useState("0");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [genres, setGenres] = useState([]);
+  const [instruments, setInstruments] = useState([]);
 
 
   useEffect(() => {
@@ -18,7 +19,6 @@ export default function Search(props) {
     .then((all) => {
       const genres = all[0].data
       const instruments = all[1].data
-      console.log(genres);
       setGenres(genres)
       setInstruments(instruments)
     })
@@ -31,7 +31,15 @@ export default function Search(props) {
     console.log("selected instrument:", selectedInst);
     console.log("selected genre:", selectedGenre);
 
+    const params = {
+      term: searchTerm
+    }
+
+    axios.get("/api/search/", { params })
+
   };
+
+
 
   const processedInst = instruments.map((instrument)=> {
     return <Options key={instrument.id} value={instrument.id} name={instrument.name} />
@@ -44,7 +52,7 @@ export default function Search(props) {
 
   return(
     <form onSubmit={searchField}>
-      <input type="text" placeholder="Find your Band" />
+      <input type="text" placeholder="Find your Band" onChange={({ target }) => setSearchTerm(target.value)}/>
       <select id="instruments" onChange={({ target }) => setSelectedInst(target.value)}>
         <option value="0">All</option>
         {processedInst}

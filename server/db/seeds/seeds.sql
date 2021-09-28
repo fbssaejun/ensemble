@@ -54,6 +54,27 @@ VALUES
 (2, 4, 3, 'Bassist', 'Cool dude'),
 (2, 5, 4, 'Drummer', 'Founding member of GnR');
 
+INSERT INTO user_instrument(user_id, instrument_id)
+VALUES
+(2, 1),
+(3, 2),
+(4, 3),
+(5, 4);
 
+
+
+INSERT INTO user_genre(user_id, genre_id)
+VALUES
+(2, 4),
+(3, 4),
+(4, 1),
+(5, 2);
+
+INSERT INTO band_genre(band_id, genre_id)
+VALUES
+(2, 4),
+(3, 4),
+(4, 1),
+(5, 4);
 
 

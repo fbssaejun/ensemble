@@ -10,15 +10,15 @@ app.use(bodyParser.json());
 app.use(express.static('public'));
 
 // ROUTERS
-const loginApiRoutes = require('./routes/api/login');
+const loginApiRoutes = require('./routes/login');
 app.use('/api/login', loginApiRoutes(db));
-const usersApiRoutes = require('./routes/api/users');
+const usersApiRoutes = require('./routes/users');
 app.use('/api/users', usersApiRoutes(db));
-const genresApiRoutes = require('./routes/api/genres');
+const genresApiRoutes = require('./routes/genres');
 app.use('/api/genres', genresApiRoutes(db));
-const bandsApiRoutes = require('./routes/api/bands');
+const bandsApiRoutes = require('./routes/bands');
 app.use('/api/bands', bandsApiRoutes(db));
-const spotsApiRoutes = require('./routes/api/spots');
+const spotsApiRoutes = require('./routes/spots');
 app.use('/api/spots', spotsApiRoutes(db));
 
 app.listen(PORT, () => {

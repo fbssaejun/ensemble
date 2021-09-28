@@ -10,10 +10,8 @@ app.use(bodyParser.json());
 app.use(express.static('public'));
 
 // ROUTERS
-const loginRoutes = require('./routes/login');
-app.use('/login', loginRoutes(db));
-const bandsRoutes = require('./routes/bands');
-app.use('/bands', bandsRoutes(db));
+const loginApiRoutes = require('./routes/api/login');
+app.use('/api/login', loginApiRoutes(db));
 const usersApiRoutes = require('./routes/api/users');
 app.use('/api/users', usersApiRoutes(db));
 const genresApiRoutes = require('./routes/api/genres');

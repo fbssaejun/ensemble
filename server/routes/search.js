@@ -36,8 +36,10 @@ module.exports = (db) => {
 
   return router;
 }
-
-
+//1. RE-SEED WITH CORRECT DATA
+//2. vvvvv
+//promise.all the db.queries, then(all) store the results of each db query into one fat object -> res.json(fatobject)
+//Promise.all([db.query(users_query),db.query(band_query)]).then(all)
 
 /*
 QUERY FOR USERS

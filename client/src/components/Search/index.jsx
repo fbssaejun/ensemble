@@ -1,25 +1,61 @@
-import { useEffect } from "react"
+import axios from "axios";
+import { useEffect, useState } from "react";
+import Options from './Options';
 
 
 export default function Search(props) {
+  const [selectedInst, setSelectedInst] = useState("0")
+  const [selectedGenre, setSelectedGenre] = useState("0")
+  const [genres, setGenres] = useState([])
+  const [instruments, setInstruments] = useState([])
+
+
+  useEffect(() => {
+    Promise.all([
+      axios.get("/api/genres"),
+      axios.get("/api/instruments")
+    ])
+    .then((all) => {
+      const genres = all[0].data
+      const instruments = all[1].data
+      console.log(genres);
+      setGenres(genres)
+      setInstruments(instruments)
+    })
+  }, [])
+
+
+  const searchField = (event)=>{
+    
+    event.preventDefault()
+    console.log("selected instrument:", selectedInst);
+    console.log("selected genre:", selectedGenre);
+
+  };
+
+  const processedInst = instruments.map((instrument)=> {
+    return <Options key={instrument.id} value={instrument.id} name={instrument.name} />
+  })
+
+  const processedGenre = genres.map((genre)=> {
+    return <Options key={genre.id} value={genre.id} name={genre.name} />
+  })
+ 
 
   return(
-    <form>
+    <form onSubmit={searchField}>
       <input type="text" placeholder="Find your Band" />
-      <button>Submit</button> <br/>
-      <select name="instruments">
-        <option value="1">Guitar</option>
-        <option value="2">Flute</option>
-        <option value="3">Bass</option>
-        <option value="4">Vocal</option>
+      <select id="instruments" onChange={({ target }) => setSelectedInst(target.value)}>
+        <option value="0">All</option>
+        {processedInst}
       </select>
-      <select name="genre">
-        <option value="1">Jazz</option>
-        <option value="2">Rock</option>
-        <option value="3">Blues</option>
-        <option value="4">Stuff</option>
+      <select id="genre" onChange={({ target }) => setSelectedGenre(target.value)}>
+        <option value="0">All</option>
+        {processedGenre}
       </select>
+      <button type="submit">Submit</button> <br/>
     </form>
   )
 
 }
+

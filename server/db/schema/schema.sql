@@ -15,11 +15,6 @@ CREATE TABLE users (
   email VARCHAR(255) NOT NULL,
   username VARCHAR(255) NOT NULL,
   password VARCHAR(255) NOT NULL,
-  country VARCHAR(255) NOT NULL,
-  city VARCHAR(255) NOT NULL,
-  province VARCHAR(255),
-  street VARCHAR(255),
-  post_code VARCHAR(255),
   profile_image VARCHAR(255)
 );
 

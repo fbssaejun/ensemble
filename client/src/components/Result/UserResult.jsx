@@ -5,9 +5,9 @@ export default function UserResult(props) {
 
 
   return (
+      <div className="user-results">
 
-
-
+      </div>
   );
 
 }

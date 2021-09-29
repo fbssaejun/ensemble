@@ -6,8 +6,9 @@ export default function UserResultList(props) {
 
 
   return (
-    
-
+    <div>
+      Hi
+    </div>
 
   );
 

@@ -24,11 +24,11 @@ module.exports = (db) => {
     
     // to find bands when term is user name, add band leader name to band schema, also update for createband
     const query_bands =`
-      SELECT genre_id, bands.*, spots.id AS spot_id, spots.user_id AS spot_user_id, spots.title AS spot_title, spots.description AS spot_description FROM band_genre
+      SELECT genre_id, bands.*, spots.instrument_id AS spot_instrument, spots.id AS spot_id, spots.user_id AS spot_user_id, spots.title AS spot_title, spots.description AS spot_description FROM band_genre
       LEFT JOIN bands ON bands.id = band_genre.band_id
       LEFT JOIN spots ON bands.id = spots.band_id
       WHERE LOWER(bands.name) LIKE $1
-      OR LOWER(bands.description) LIKE $1
+      OR LOWER(bands.description) LIKE $1;
     `;
 
     Promise.all([
@@ -76,17 +76,11 @@ LEFT JOIN spots ON bands.id = spots.band_id;
 /*
 TESTING TERMS
 
-SELECT genre_id, NULL AS instrument_id, users.* FROM user_genre
-      LEFT JOIN users ON users.id = user_genre.user_id
-      WHERE LOWER(users.first_name) LIKE '%mart%'
-      OR LOWER(users.last_name) LIKE '%mart%'
-      OR LOWER(users.username) LIKE '%mart%'
-      UNION
-      SELECT NULL AS genre_id, instrument_id, users.* FROM user_instrument
-      LEFT JOIN users ON users.id = user_instrument.user_id
-      WHERE LOWER(users.first_name) LIKE '%mart%'
-      OR LOWER(users.last_name) LIKE '%mart%'
-      OR LOWER(users.username) LIKE '%mart%';
+SELECT genre_id, bands.*, spots.instrument_id AS spot_instrument, spots.id AS spot_id, spots.user_id AS spot_user_id, spots.title AS spot_title, spots.description AS spot_description FROM band_genre
+      LEFT JOIN bands ON bands.id = band_genre.band_id
+      LEFT JOIN spots ON bands.id = spots.band_id
+      WHERE LOWER(bands.name) LIKE '%pol%'
+      OR LOWER(bands.description) LIKE '%pol%';
 
 */
 

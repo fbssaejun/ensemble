@@ -4,7 +4,6 @@ import axios from "axios";
 import Switch from '@mui/material/Switch';
 // import UserResultList from './UserResultList'
 import BandResultList from './BandResultList'
-import NewBandResultList from './NewBandResultList'
 import UserResultList from "./UserResultList";
 
 
@@ -69,7 +68,7 @@ export default function Results(props) {
               <option value={0}>All</option>
               {processedGenre}
             </select>
-            {props.bandResult.length !== 0 && <NewBandResultList bands={props.bandResult} instrument={selectedInstBand} genre={selectedGenreBand} />}
+            {props.bandResult.length !== 0 && <BandResultList bands={props.bandResult} instrument={selectedInstBand} genre={selectedGenreBand} />}
             
           </div>
           )}

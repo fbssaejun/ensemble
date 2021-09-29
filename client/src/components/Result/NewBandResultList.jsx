@@ -62,7 +62,6 @@ export default function BandResultList(props) {
     return <BandResult key={index} name={band.name} />
   })
 
-  console.log(rendered)
 
   return (
     <div>

@@ -5,6 +5,7 @@ import Switch from '@mui/material/Switch';
 // import UserResultList from './UserResultList'
 import BandResultList from './BandResultList'
 import NewBandResultList from './NewBandResultList'
+import UserResultList from "./UserResultList";
 
 
 export default function Results(props) {
@@ -54,7 +55,7 @@ export default function Results(props) {
               <option value={0}>All</option>
               {processedGenre}
             </select>
-            {/* <UserResultList users={props.userResult}/> */}
+            {props.userResult.length !== 0 && <UserResultList users={props.userResult} instrument={selectedInstUser} genre={selectedGenreUser} />}
           </div>) : (
           <div className="user-results">
             <h1>This is Bands</h1>

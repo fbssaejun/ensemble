@@ -53,19 +53,58 @@ export default function UserResultList(props) {
     return Object.values(stored);
   };
 
-  const genArr = filterGenreArr(users)
-  const instArr = filterInstArr(users)
-  console.log(removeCopy([...genArr, ...instArr]))
 
-  const filtered = removeCopy([...genArr, ...instArr]);
-  const rendered = filtered.map((user, index) => {
-    return <UserResult key={index} firstName={user.first_name} lastName={user.last_name} username={user.username} />
-  })
+  const resultRender = (arr) => {
+
+    if (genre === "0" && instrument === "0") {
+
+      const filtered = removeCopy(arr);
+      console.log(filtered);
+      const rendered = filtered.map((user, index) => {
+        return <UserResult key={index} firstName={user.first_name} lastName={user.last_name} username={user.username} />
+      })
+      return rendered
+
+    } else {
+      
+      const arr1 = filterGenreArr(filterInstArr(arr))
+      const arr2 = filterInstArr(filterGenreArr(arr))
+
+      if (arr1.length === 0) {
+        return [];
+      }
+
+      if (arr2.length === 0) {
+        return [];
+      }
+
+      const filtered = removeCopy([...arr1, ...arr2]);
+      const rendered = filtered.map((user, index) => {
+        return <UserResult key={index} firstName={user.first_name} lastName={user.last_name} username={user.username} />
+      })
+
+      return rendered
+    }
+
+  }
+  
+
+  const stuff = resultRender(users)
+
+
+  // const genArr = filterGenreArr(users)
+  // const instArr = filterInstArr(users)
+  // console.log(removeCopy([...genArr, ...instArr]))
+
+  // const filtered = removeCopy([...genArr, ...instArr]);
+  // const rendered = filtered.map((user, index) => {
+  //   return <UserResult key={index} firstName={user.first_name} lastName={user.last_name} username={user.username} />
+  // })
 
 
   return (
     <div>
-      {rendered}
+      {stuff}
     </div>
 
   );

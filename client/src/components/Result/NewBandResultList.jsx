@@ -7,7 +7,7 @@ export default function BandResultList(props) {
 
 
   const filterGenreArr = (bandArr) => {
-    
+
     if (genre === "0") {
       return bandArr;
     }
@@ -21,6 +21,7 @@ export default function BandResultList(props) {
       }
 
     }
+
     return retArr;
   }
 
@@ -53,19 +54,46 @@ export default function BandResultList(props) {
   };
   
 
-  const genArr = filterGenreArr(bands)
-  const instArr = filterInstArr(bands)
-  console.log(removeCopy([...genArr, ...instArr]))
+  const resultRender = (arr) => {
 
-  const filtered = removeCopy([...genArr, ...instArr]);
-  const rendered = filtered.map((band, index) => {
-    return <BandResult key={index} name={band.name} />
-  })
+    if (genre === "0" && instrument === "0") {
 
+      const filtered = removeCopy(arr);
+      console.log(filtered);
+      const rendered = filtered.map((band, index) => {
+        return <BandResult key={index} name={band.name}/>
+      })
+      return rendered
+
+    } else {
+      
+      const arr1 = filterGenreArr(filterInstArr(arr))
+      const arr2 = filterInstArr(filterGenreArr(arr))
+
+      if (arr1.length === 0) {
+        return [];
+      }
+
+      if (arr2.length === 0) {
+        return [];
+      }
+
+      const filtered = removeCopy([...arr1, ...arr2]);
+      const rendered = filtered.map((band, index) => {
+        return <BandResult key={index} name={band.name} />
+      })
+
+      return rendered
+    }
+
+  }
+  
+
+  const stuff = resultRender(bands)
 
   return (
     <div>
-      {rendered}
+      {stuff}
     </div>
   );
 }

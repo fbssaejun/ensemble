@@ -5,9 +5,7 @@ export default function BandResult(props) {
 
 
   return (
-    <div className="user-results">
-
-    </div>
+    <h1>{props.name}</h1>
   
   );
 }

@@ -10,6 +10,7 @@ export default function BandResultList(props) {
   console.log("before every filter", bands)
 
   useEffect(() => {
+    console.log("USE EFFECT TRIGGERED");
     if(genre > 0) {
       const genreFiltBands = bands.filter((band) => Number(band.genre_id) === Number(genre))
       setBands(() => [...genreFiltBands])
@@ -19,7 +20,6 @@ export default function BandResultList(props) {
       const instFiltBands = bands.filter((band) => Number(band.spot_instrument) === Number(instrument))
       setBands(() => [...instFiltBands])
     }
-
 
   },[genre, instrument])
 
@@ -51,7 +51,6 @@ export default function BandResultList(props) {
 
   return (
     <div>
-      
     </div>
   );
 }

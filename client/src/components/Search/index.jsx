@@ -1,6 +1,10 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Fragment } from "react";
 import Options from './Options';
+import UserResultList from './UserResultList';
+import BandResultList from './BandResultList';
+
+
 
 
 export default function Search(props) {
@@ -9,6 +13,8 @@ export default function Search(props) {
   const [searchTerm, setSearchTerm] = useState("");
   const [genres, setGenres] = useState([]);
   const [instruments, setInstruments] = useState([]);
+  const [userResult, setUserResult] = useState([]);
+  const [bandResult, setBandResult] = useState([]);
 
 
   useEffect(() => {
@@ -26,20 +32,19 @@ export default function Search(props) {
 
 
   const searchField = (event)=>{
-    
     event.preventDefault()
-    console.log("selected instrument:", selectedInst);
-    console.log("selected genre:", selectedGenre);
 
     const params = {
       term: searchTerm
     }
-
+    
     axios.get("/api/search/", { params })
+    .then(result => {
+      setUserResult(() => result.data.userResult);
+      setBandResult(() => result.data.bandResult);
+    })
 
   };
-
-
 
   const processedInst = instruments.map((instrument)=> {
     return <Options key={instrument.id} value={instrument.id} name={instrument.name} />
@@ -51,19 +56,31 @@ export default function Search(props) {
  
 
   return(
+    <Fragment>
     <form onSubmit={searchField}>
       <input type="text" placeholder="Find your Band" onChange={({ target }) => setSearchTerm(target.value)}/>
-      <select id="instruments" onChange={({ target }) => setSelectedInst(target.value)}>
+      <button type="submit">Submit</button> <br/>
+    </form>
+      {/* <select id="instruments" onChange={({ target }) => setSelectedInst(target.value)}>
         <option value="0">All</option>
         {processedInst}
       </select>
       <select id="genre" onChange={({ target }) => setSelectedGenre(target.value)}>
         <option value="0">All</option>
         {processedGenre}
-      </select>
-      <button type="submit">Submit</button> <br/>
-    </form>
-  )
+      </select> */}
+    <div className="search-results">
+      {isToggled && <div className="user-results">
+        <UserResultList users={userResult} />
+      </div>
+      }
+      {!isToggled && <div className="user-results">
+        <BandResultList users={bandResult} />
+      </div>
+      }
+    </div>
+    </Fragment>
 
+  )
 }
 

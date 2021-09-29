@@ -10,7 +10,7 @@ import Home from './components/Home';
 import Search from './components/Search';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import CreateBandForm from './components/CreateBandForm';
-import './App.scss'
+import './App.scss';
 
 function App() {
   const [state, setState] = useState({
@@ -18,7 +18,7 @@ function App() {
     users: [],
     bands: [],
     spots: [],
-    currentUser: undefined
+    currentUser: undefined,
   });
 
   useEffect(() => {
@@ -52,7 +52,7 @@ function App() {
             <Signup />
           </Route>
           <Route path="/search">
-            <Search />
+            <Search currentUser={state.currentUser} />
           </Route>
           <Route path="/bands/new">
             <CreateBandForm currentUser={state.currentUser} />
@@ -61,7 +61,7 @@ function App() {
             <Band bands={state.bands} spots={state.spots} />
           </Route>
           <Route path="/" exact>
-           <Home />
+            <Home />
           </Route>
           <Route component={NotFound} />
         </Switch>

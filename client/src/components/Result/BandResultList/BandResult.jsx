@@ -20,7 +20,7 @@ export default function BandResult(props) {
   return (
     <Fragment>
       <h1>{props.name}</h1>
-      <SpotList spots={spots}></SpotList>
+      <SpotList spots={spots} currentUser={props.currentUser}></SpotList>
     </Fragment>
   
   );

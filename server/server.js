@@ -24,7 +24,8 @@ const instrumentsApiRoutes = require('./routes/instruments');
 app.use('/api/instruments', instrumentsApiRoutes(db));
 const searchApiRoutes = require('./routes/search');
 app.use('/api/search', searchApiRoutes(db));
-
+const applicationsApiRoutes = require('./routes/applications');
+app.use('/api/applications', applicationsApiRoutes(db));
 
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console

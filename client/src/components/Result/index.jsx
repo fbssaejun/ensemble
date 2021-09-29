@@ -58,8 +58,6 @@ export default function Results(props) {
           </div>) : (
           <div className="user-results">
             <h1>This is Bands</h1>
-            <h1>{selectedInstBand}</h1>
-            <h1>{selectedGenreBand}</h1>
             <select value={selectedInstBand} onChange={({target}) => setSelectedInstBand(() => target.value)}>
               <option value={0}>All</option>
               {processedInst}
@@ -68,8 +66,7 @@ export default function Results(props) {
               <option value={0}>All</option>
               {processedGenre}
             </select>
-            {props.bandResult.length !== 0 && <BandResultList bands={props.bandResult} instrument={selectedInstBand} genre={selectedGenreBand} />}
-            
+            {props.bandResult.length !== 0 && <BandResultList bands={props.bandResult} instrument={selectedInstBand} genre={selectedGenreBand} currentUser={props.currentUser} />}
           </div>
           )}
         </div>

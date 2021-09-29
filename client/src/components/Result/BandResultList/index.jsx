@@ -61,7 +61,7 @@ export default function BandResultList(props) {
       const filtered = removeCopy(arr);
       const rendered = filtered.map((band, index) => {
 
-        return <BandResult key={index} name={band.name} bandId={band.id}/>
+        return <BandResult key={index} name={band.name} bandId={band.id} currentUser={props.currentUser}/>
       })
       return rendered
 
@@ -80,7 +80,7 @@ export default function BandResultList(props) {
 
       const filtered = removeCopy([...arr1, ...arr2]);
       const rendered = filtered.map((band, index) => {
-        return <BandResult key={index} name={band.name} bandId={band.id} />
+        return <BandResult key={index} name={band.name} bandId={band.id} currentUser={props.currentUser} />
       })
 
       return rendered

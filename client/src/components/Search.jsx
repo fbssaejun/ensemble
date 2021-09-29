@@ -39,7 +39,7 @@ export default function Search(props) {
       <input type="text" placeholder="Find your Band" onChange={({ target }) => setSearchTerm(target.value)}/>
       <button type="submit">Submit</button> <br/>
     </form>
-    <Result userResult={userResult} bandResult={bandResult} />
+    <Result userResult={userResult} bandResult={bandResult} currentUser={props.currentUser}/>
     </Fragment>
 
   )

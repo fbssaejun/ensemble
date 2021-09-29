@@ -59,9 +59,9 @@ export default function BandResultList(props) {
     if (genre === "0" && instrument === "0") {
 
       const filtered = removeCopy(arr);
-      console.log(filtered);
       const rendered = filtered.map((band, index) => {
-        return <BandResult key={index} name={band.name}/>
+
+        return <BandResult key={index} name={band.name} bandId={band.id}/>
       })
       return rendered
 
@@ -80,7 +80,7 @@ export default function BandResultList(props) {
 
       const filtered = removeCopy([...arr1, ...arr2]);
       const rendered = filtered.map((band, index) => {
-        return <BandResult key={index} name={band.name} />
+        return <BandResult key={index} name={band.name} bandId={band.id} />
       })
 
       return rendered

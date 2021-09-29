@@ -230,6 +230,7 @@ VALUES
 
 INSERT INTO band_genre(band_id, genre_id)
 VALUES
+(1, 4),
 (2, 4),
 (3, 6),
 (4, 1),

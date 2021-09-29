@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { Link, useHistory } from 'react-router-dom';
 import { useState } from 'react';
-import './Login.scss'
 
 export default function Login(props) {
   const [userEmail, setUserEmail] = useState("");

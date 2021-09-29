@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Navbar from './components/Navbar';
-import Login from './components/Login';
-import Signup from './components/Signup';
+import LoginRegister from './components/LoginRegister'
 import UserProfile from './components/UserProfile';
 import NotFound from './components/NotFound';
 import Band from './components/Band/index';
@@ -39,17 +38,13 @@ function App() {
   return (
     <main className="layout">
       <Router>
-        <Navbar currentUser={state.currentUser} setState={setState} />
+        <Navbar currentUser={state.currentUser} setState={setState}  />
         <Switch>
           <Route path="/users/:userId">
             <UserProfile users={state.users} />
           </Route>
-          <Route path="/login">
-            <Login setState={setState} />
-          </Route>
-          <Route path="/signup">
-            <h1>This is for signup</h1>
-            <Signup />
+          <Route path="/auth">
+            <LoginRegister setState={setState} />
           </Route>
           <Route path="/search">
             <Search currentUser={state.currentUser} />

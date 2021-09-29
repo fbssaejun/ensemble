@@ -26,6 +26,10 @@ const searchApiRoutes = require('./routes/search');
 app.use('/api/search', searchApiRoutes(db));
 const applicationsApiRoutes = require('./routes/applications');
 app.use('/api/applications', applicationsApiRoutes(db));
+const signupApiRoutes = require('./routes/signup');
+app.use('/api/signup', signupApiRoutes(db));
+
+
 
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console

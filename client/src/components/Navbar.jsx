@@ -17,8 +17,7 @@ export default function Navbar(props) {
             <Link to="/search">Begin Your Search</Link>
           </div>
           {!props.currentUser ? (<div className="user">
-            <Link to="/login">Login</Link>
-            <Link to="/signup">Signup</Link>
+            <Link to="/auth">Get Started</Link>
           </div>) : (
           <React.Fragment>
             <Link to={`/users/${props.currentUser.id}`}> Profile {props.currentUser.username} </Link>

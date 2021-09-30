@@ -6,7 +6,7 @@ import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 
 
-export default function Navbar(props) {
+export default function UserEdit(props) {
   const { userId } = useParams();
   const history = useHistory();
 
@@ -74,8 +74,6 @@ export default function Navbar(props) {
 
   const submitOptions = (event) => {
     event.preventDefault();
-    console.log(userInst);
-    console.log(userGenre);
 
     axios.post(`/api/users/${userId}/edit`, {userInst, userGenre})
     .then(results => {

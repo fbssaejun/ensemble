@@ -226,7 +226,10 @@ VALUES
 (42, 1),
 (43, 1),
 (45, 2),
-(47, 3);
+(47, 3),
+(1, 4),
+(1, 1),
+(1, 6);
 
 INSERT INTO user_genre(user_id, genre_id)
 VALUES
@@ -238,7 +241,10 @@ VALUES
 (7, 1),
 (8, 3),
 (9, 8),
-(10, 6);
+(10, 6),
+(1, 11),
+(1, 3),
+(1, 8);
 
 INSERT INTO band_genre(band_id, genre_id)
 VALUES

@@ -8,6 +8,7 @@ import Band from './components/Band/index';
 import Home from './components/Home';
 import Search from './components/Search';
 import ApplicationList from './components/Application/ApplicationList';
+import UserEdit from './components/UserEdit'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import CreateBandForm from './components/CreateBandForm';
 import BandManage from './components/BandManage/index';
@@ -44,6 +45,9 @@ function App() {
         <Switch>
           <Route path="/users/:userId/app">
             <ApplicationList />
+          </Route>
+          <Route path="/users/:userId/edit">
+            <UserEdit />
           </Route>
           <Route path="/users/:userId">
             <UserProfile users={state.users} />

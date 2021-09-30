@@ -24,11 +24,15 @@ module.exports = (db) => {
   router.get('/:id/edit', (req,res) => {
 
     query_inst = `
-    SELECT * FROM uesr_instrument
+    SELECT user_instrument.user_id AS user_id,instruments.name AS user_instrument
+    FROM user_instrument
+    LEFT JOIN instruments ON instruments.id = user_instrument.instrument_id
     WHERE user_id = $1;
     `
     query_genre = `
-    SELECT * FROM user_genre
+    SELECT user_genre.user_id AS user_id, genres.name AS user_genre 
+    FROM user_genre
+    LEFT JOIN genres ON genres.id = user_genre.genre_id
     WHERE user_id = $1;
     `
 

@@ -40,6 +40,9 @@ function App() {
       <Router>
         <Navbar currentUser={state.currentUser} setState={setState}  />
         <Switch>
+          <Route path="/users/:userId/app">
+            <UserProfile users={state.users} />
+          </Route>
           <Route path="/users/:userId">
             <UserProfile users={state.users} />
           </Route>

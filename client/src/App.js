@@ -10,6 +10,7 @@ import Search from './components/Search';
 import ApplicationList from './components/Application/ApplicationList';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import CreateBandForm from './components/CreateBandForm';
+import BandManage from './components/BandManage/index';
 import './App.scss';
 
 function App() {
@@ -57,7 +58,7 @@ function App() {
             <CreateBandForm currentUser={state.currentUser} />
           </Route>
           <Route path="/bands/manage">
-            
+            <BandManage currentUser={state.currentUser}/>
           </Route>
           <Route path="/bands/:bandId">
             <Band bands={state.bands} spots={state.spots} />

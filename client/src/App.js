@@ -7,6 +7,7 @@ import NotFound from './components/NotFound';
 import Band from './components/Band/index';
 import Home from './components/Home';
 import Search from './components/Search';
+import ApplicationList from './components/Application/ApplicationList';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import CreateBandForm from './components/CreateBandForm';
 import './App.scss';
@@ -41,7 +42,7 @@ function App() {
         <Navbar currentUser={state.currentUser} setState={setState}  />
         <Switch>
           <Route path="/users/:userId/app">
-            <UserProfile users={state.users} />
+            <ApplicationList />
           </Route>
           <Route path="/users/:userId">
             <UserProfile users={state.users} />

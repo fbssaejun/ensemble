@@ -10,6 +10,14 @@ module.exports = (db) => {
       })
   });
 
+  router.get('/users/:id', (req, res) => {
+    const query = `SELECT bands.* FROM bands JOIN spots ON spots.band_id = bands.id WHERE spots.user_id = $1;`;
+    db.query(query, [req.params.id])
+      .then((results) => {
+        res.json(results.rows);
+      })
+  });
+
   router.post('/new', (req, res) => {
     const spot = req.body.spotData;
     const length = spot.title.length;
@@ -61,10 +69,8 @@ module.exports = (db) => {
 
   router.get('/:id', (req, res) => {
     const query = `SELECT * FROM bands WHERE id = $1;`
-    db.query(query, [req.params.id]
-      
-      ).then((results) => {
-        res.json(results.rows[0]);
+    db.query(query, [req.params.id]).then((results) => {
+      res.json(results.rows);
       });
     });
     

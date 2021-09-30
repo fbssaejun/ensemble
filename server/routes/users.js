@@ -60,5 +60,64 @@ module.exports = (db) => {
     })
   })
 
+  router.post('/:id/edit', (req, res) => {
+
+    const userId = req.params.id
+
+    const userInst = req.body.userInst;
+    const userGenre = req.body.userGenre;
+
+    let insert_inst = `
+    INSERT INTO user_instrument(user_id, instrument_id)
+    VALUES 
+    `;
+    
+    // Add instruments to insert statement
+    for (const inst of userInst) {
+      insert_inst += `(${userId}, ${inst.id}), `
+    }
+
+    insert_inst = insert_inst.substring(0, insert_inst.length - 2) + ';';
+
+    // If no instrument is added, set insert statement to empty string
+    if (userInst.length === 0) {
+      insert_inst = ""
+    }
+
+    let insert_genre = `
+    INSERT INTO user_genre(user_id, genre_id)
+    VALUES
+    `;
+
+    // Add genres to insert statement
+    for (const genre of userGenre) {
+      insert_genre += `(${userId}, ${genre.id}), `
+    }
+
+    insert_genre = insert_genre.substring(0, insert_genre.length - 2) + ';';
+
+    // If no genre is added, set insert statement to empty string
+    if (userGenre.length === 0) {
+      insert_genre = ""
+    }
+
+    Promise.all([
+      db.query(`DELETE FROM user_instrument WHERE user_id = $1;`, [userId]),
+      db.query(`DELETE FROM user_genre WHERE user_id = $1;`, [userId])
+    ]).then(all => {
+      Promise.all([
+        db.query(insert_inst),
+        db.query(insert_genre)
+      ])
+      .then(all => {
+        res.json({
+          inst: all[0].rows,
+          genre: all[1].rows
+        })
+      })
+    })
+  })
+
+
   return router;
 };

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState, Fragment } from 'react';
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
@@ -8,6 +8,7 @@ import Stack from '@mui/material/Stack';
 
 export default function Navbar(props) {
   const { userId } = useParams();
+  const history = useHistory();
 
   // defaultInst and defaultGenre is to get initial user
   // genre and instrument info
@@ -16,8 +17,8 @@ export default function Navbar(props) {
 
   // userInst and userGenre are to obtain the input information
   // from Autocomplete component
-  const [userInst, setUserInst] = useState();
-  const [userGenre, setUserGenre] = useState();
+  const [userInst, setUserInst] = useState([]);
+  const [userGenre, setUserGenre] = useState([]);
   const [allInst, setAllInst] = useState();
   const [allGenre, setAllGenre] = useState();
 
@@ -58,7 +59,6 @@ export default function Navbar(props) {
     const userOptionsObj = userOptions.reduce(
     (obj, item) => Object.assign(obj, { [item.id]: item.name }), {});
 
-    
     // Then, use for loop to check which of allOptions is already
     // in the userOptionsObj by looking for the id value.
 
@@ -76,6 +76,11 @@ export default function Navbar(props) {
     event.preventDefault();
     console.log(userInst);
     console.log(userGenre);
+
+    axios.post(`/api/users/${userId}/edit`, {userInst, userGenre})
+    .then(results => {
+      history.push(`/users/${userId}`)
+    })
 
   }
 

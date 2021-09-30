@@ -9,7 +9,7 @@ export default function BandResult(props) {
 
   //axios get all the spots for this band
   useEffect(() => {
-    axios.get(`/api/spots/${bandId}`).then((results) => {
+    axios.get(`/api/spots/bands/${bandId}`).then((results) => {
       console.log("what we got back in band result:", results)
       setSpots(() => [...results.data]);
     }).catch((e)=>{console.log("wtf error", e)})

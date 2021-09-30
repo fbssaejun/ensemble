@@ -46,7 +46,8 @@ export default function Dashboard(props) {
         
         <MenuItem onClick={()=> history.push(`/users/${props.currentUser.id}`)}>Profile</MenuItem>
         <MenuItem onClick={()=> history.push(`/bands/new`)}>Create New Band</MenuItem>
-        <MenuItem onClick={()=> history.push(`/users/${props.currentUser.id}/app`)}>Applications</MenuItem>
+        <MenuItem onClick={()=> history.push(`/users/${props.currentUser.id}/app`)}>My Applications</MenuItem>
+        <MenuItem onClick={()=> history.push(`/bands/manage`)}>My Bands</MenuItem>
         <MenuItem onClick={logOut}>Logout</MenuItem>
       </Menu>
     </div>

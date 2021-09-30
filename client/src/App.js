@@ -56,6 +56,9 @@ function App() {
           <Route path="/bands/new">
             <CreateBandForm currentUser={state.currentUser} />
           </Route>
+          <Route path="/bands/manage">
+            
+          </Route>
           <Route path="/bands/:bandId">
             <Band bands={state.bands} spots={state.spots} />
           </Route>

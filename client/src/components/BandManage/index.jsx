@@ -3,24 +3,24 @@ import { Fragment, useEffect, useState } from 'react';
 import MyBandList from './MyBandList';
 
 export default function BandManage(props) {
-  const [myBands, setMyBands] = useState([]);
+  const [cachedBands, setCachedBands] = useState([]);
 
   const { currentUser } = props;
 
   useEffect(() => {
     axios.get(`/api/bands/users/${currentUser.id}`).then((results) => {
-      setMyBands(results.data)
+      setCachedBands(results.data)
     })
   }, [])
   
-  const leaderBands = myBands.filter((band) => {
+  const leaderBands = cachedBands.filter((band) => {
     return band.leader_id === currentUser.id;
   })
 
   return (
     <Fragment>
       {/* <MyBand> -> <SpotsList> -> <Spot> */ }
-      <MyBandList bands={leaderBands} currentUser={currentUser} /> 
+      <MyBandList cachedBands={cachedBands} setCachedBands={setCachedBands} bands={leaderBands} currentUser={currentUser} />
       {/* This is for spots, with the band name  -> <BandIAmIn> -> <Spot> */}
       {/* <MyBandList /> */}
     </Fragment>

@@ -3,8 +3,9 @@ import { useState, useEffect, Fragment } from 'react';
 import axios from 'axios';
 
 export default function MyBandList (props) {
-  const { bands, currentUser } = props;
-  // const [spots, setSpots] = useState([]);  
+  const { bands, currentUser, cachedBands, setCachedBands } = props;
+  console.log("inside my band list", cachedBands);
+  // const [spots, setSpots] = useState([]); 
 
   // useEffect(() => {
 
@@ -18,7 +19,7 @@ export default function MyBandList (props) {
 
   //map myband components
   const myBandArr = bands.map(band => {
-    return <MyBand bandId={band.id} name={band.name} description={band.description} image={band.band_image} currentUser={currentUser} />
+    return <MyBand cachedBands={cachedBands} setCachedBands={setCachedBands} bandId={band.id} name={band.name} description={band.description} image={band.band_image} currentUser={currentUser} featured={band.featured}/>
   })
 
 

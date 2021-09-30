@@ -16,5 +16,20 @@ module.exports = (db) => {
     });
   });
 
+  router.get('/:id', (req, res) => {
+    const userId = req.params.id;
+    const query = `
+    SELECT bands.name AS band_name, spots.description, spots.title, instruments.name AS instrument, spot_applications.* FROM spot_applications
+    LEFT JOIN spots ON spots.id = spot_applications.spot_id
+    LEFT JOIN bands ON bands.id = spots.band_id
+    LEFT JOIN instruments ON spots.instrument_id = instruments.id
+    WHERE spot_applications.user_id = $1;
+    `
+
+    db.query(query, [userId]).then((results) => {
+      console.log("GOT BACK FROM QUERY")
+      res.json(results.rows)
+      });
+    });
   return router;
 };

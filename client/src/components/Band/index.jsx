@@ -15,7 +15,7 @@ export default function Band (props) {
       axios.get(`/api/bands/${bandId}`),
       axios.get("/api/spots")
     ]).then((all) => {
-      setBand(all[0].data);
+      setBand(all[0].data[0]);
       setSpots(all[1].data);
     })
   }, [])

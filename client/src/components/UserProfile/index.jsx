@@ -13,7 +13,7 @@ export default function UserProfile(props) {
   useEffect(() => {
     //axios get all user info
     axios.get(`/api/users/${userId}`).then((results) => {
-      // console.log("RIGHT HERE!!!", results)
+
       setUserInfo(results.data)
     })
   },[])

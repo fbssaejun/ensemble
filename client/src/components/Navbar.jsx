@@ -1,13 +1,9 @@
 import React from 'react';
 import './Navbar.scss'
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import Dashboard from './Dashboard';
 
 export default function Navbar(props) {
-  const history = useHistory();
-  const logOut = () => {
-    props.setState(prev => ({...prev, currentUser: undefined}))
-    history.push("/");
-  }
 
   return (
     <header>
@@ -20,9 +16,8 @@ export default function Navbar(props) {
             <Link to="/auth">Get Started</Link>
           </div>) : (
           <React.Fragment>
-            <Link to={`/users/${props.currentUser.id}`}> Profile {props.currentUser.username} </Link>
-            <Link to="/bands/new">Create New Band</Link>
-            <button type="submit" onClick={logOut}>Logout</button>
+            <Dashboard currentUser={props.currentUser} setState={props.setState}/>
+            
           </React.Fragment>
           )}
 
@@ -30,4 +25,3 @@ export default function Navbar(props) {
     </header>
   );
 }
-

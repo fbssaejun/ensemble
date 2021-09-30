@@ -45,8 +45,8 @@ VALUES ('Empty', 'User', 'none@none.com', 'somedude', '12345'),
 ('NoBandUser2', 'LastName', 'noband2@email.com', 'noband2', '12345'),
 ('NoBandUser3', 'LastName', 'noband3@email.com', 'noband3', '12345'),
 ('NoBandUser4', 'LastName', 'noband4@email.com', 'noband4', '12345'),
-('NoBandUser5', 'LastName', 'noband5@email.com', 'noband5', '12345');
-
+('NoBandUser5', 'LastName', 'noband5@email.com', 'noband5', '12345'),
+('Mega', 'User', 'a@a.com', 'multiowner', '12345'); -- Test user with own multiple bands, in multiple bands
 
 
 
@@ -61,7 +61,9 @@ VALUES
 (26, 'Racer X', TRUE),
 (30, 'Chon', TRUE),
 (34, 'Periphery', FALSE),
-(6, 'Megadeth', FALSE);
+(6, 'Megadeth', FALSE),
+(48, 'test1', FALSE),
+(48, 'test2', FALSE);
 
 
 INSERT INTO instruments (name)
@@ -141,6 +143,7 @@ VALUES
 (8, 33, 3, 'Bassist', 'Bassist of Racer X'),
 (8, null, 2, 'Vocalist', 'Need a vocalist'),
 (8, null, 1, 'Rhythm Guitarist', 'Need a rhythm guitar'),
+(8, 48, 1, 'test guitar', 'blahblah'),
 
 --Periphery
 (9, 34, 1, 'Lead Guitarist', 'I play guitar fast good tones'),
@@ -148,6 +151,7 @@ VALUES
 (9, 36, 4, 'Drummer', 'Drummer of Periphery'),
 (9, 37, 2, 'Vocalist', 'Vocalist of Periphery'),
 (9, 38, 1, 'Lead Guitarist', 'I play guitar fast good tones'),
+(9, 48, 1, 'test guitar', 'blahblah'),
 
 --AC/DC
 (4, 16, 1, 'Lead Guitarist', 'Co-founder, lead guitarist, songwriter and only constant original member of ACDC.'),
@@ -160,7 +164,15 @@ VALUES
 (5, 39, 2, 'Lead Vocalist', 'Takes his shirt off in every music videos'),
 (5, 40, 3, 'Lead Bassist', 'Best bass slapper in the world'),
 (5, 41, 4, 'Lead Drummer', 'Drummer who looks like a mafia boss'),
-(5, 42, 1, 'Lead Guitarist', 'Album generator, released 12 solo albums and seven EPs.');
+(5, 42, 1, 'Lead Guitarist', 'Album generator, released 12 solo albums and seven EPs.'),
+
+--Test Spots
+(11, 48, 1, 'test guitar', 'blahblah'),
+(11, 12, 1, 'test guitar2', 'haha guitar tim henson'),
+(11, null, 1, 'test guitar3', 'we want a third guitarist hehe'),
+(12, 48, 1, 'test guitar', 'blahblah'),
+(12, 13, 1, 'test guitar2', 'haha guitar scott'),
+(12, null, 1, 'test guitar3', 'we want a third guitarist haha');
 
 
 

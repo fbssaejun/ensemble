@@ -44,10 +44,10 @@ export default function Dashboard(props) {
         }}
       >
         
-        <MenuItem onClick={handleClose}><Link to={`/users/${props.currentUser.id}`}>Profile</Link></MenuItem>
-        <MenuItem onClick={handleClose}><Link to={`/bands/new`}>Create New Band</Link></MenuItem>
-        <MenuItem onClick={handleClose}><Link to={`/users/${props.currentUser.id}/app`}>Applications</Link></MenuItem>
-        <MenuItem onClick={handleClose}><button type="submit" onClick={logOut}>Logout</button></MenuItem>
+        <MenuItem onClick={()=> history.push(`/users/${props.currentUser.id}`)}>Profile</MenuItem>
+        <MenuItem onClick={()=> history.push(`/bands/new`)}>Create New Band</MenuItem>
+        <MenuItem onClick={()=> history.push(`/users/${props.currentUser.id}/app`)}>Applications</MenuItem>
+        <MenuItem onClick={logOut}>Logout</MenuItem>
       </Menu>
     </div>
   );

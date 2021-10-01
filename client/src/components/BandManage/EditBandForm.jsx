@@ -19,8 +19,8 @@ export default function EditBandForm(props) {
           updatedBandIndex = i;
         }
       }
-      cachedBands.splice(updatedBandIndex, 1, updatedBand);
       const newBands = [...cachedBands]
+      newBands.splice(updatedBandIndex, 1, updatedBand);
       setCachedBands(() => newBands);
     })
   }

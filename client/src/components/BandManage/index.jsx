@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { Fragment, useEffect, useState } from 'react';
-import MyBandList from './MyBandList';
+import LeaderBandList from './LeaderBandList';
 
 export default function BandManage(props) {
   const [cachedBands, setCachedBands] = useState([]);
@@ -20,7 +20,7 @@ export default function BandManage(props) {
   return (
     <Fragment>
       {/* <MyBand> -> <SpotsList> -> <Spot> */ }
-      <MyBandList cachedBands={cachedBands} setCachedBands={setCachedBands} bands={leaderBands} currentUser={currentUser} />
+      <LeaderBandList cachedBands={cachedBands} setCachedBands={setCachedBands} bands={leaderBands} currentUser={currentUser} />
       {/* This is for spots, with the band name  -> <BandIAmIn> -> <Spot> */}
       {/* <MyBandList /> */}
     </Fragment>

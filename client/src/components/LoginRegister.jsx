@@ -48,7 +48,9 @@ export default function LoginRegister(props) {
       if (!response.data.length) {
         console.log("Invalid Credentials");
       } else {
-        props.setState((prev) => ({ ...prev, currentUser: {id: response.data[0].id, username: response.data[0].username} }));
+        sessionStorage.setItem("id", response.data[0].id);
+        sessionStorage.setItem("username", response.data[0].username);
+        props.setState((prev) => ({ ...prev, currentUser: {id: Number(sessionStorage.getItem('id')), username: sessionStorage.getItem('username')} }));
         history.push('/');
       }
     }).catch(e => console.log(e))
@@ -67,6 +69,8 @@ export default function LoginRegister(props) {
     })
     .then((response) => {
       props.setState((prev) => ({ ...prev, currentUser: {id: response.data[0].id, username: newUsername} }));
+      sessionStorage.setItem("id", response.data[0].id);
+      sessionStorage.setItem("username", response.data[0].username);
       history.push(`/`);
     })
 

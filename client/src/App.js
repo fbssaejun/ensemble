@@ -15,9 +15,10 @@ import './App.scss';
 
 function App() {
   const [state, setState] = useState({
-    currentUser: undefined
+    currentUser: sessionStorage.length
+      ? { id: Number(sessionStorage.id), username: sessionStorage.username }
+      : undefined,
   });
-
 
   return (
     <main className="layout">

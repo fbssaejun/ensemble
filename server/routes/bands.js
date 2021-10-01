@@ -59,7 +59,8 @@ module.exports = (db) => {
     const query = `
     UPDATE bands
     SET name = $1, description = $2, band_image = $3, featured = $4
-    WHERE id = $5;
+    WHERE id = $5
+    RETURNING *;
     `;
 
     db.query(query, [

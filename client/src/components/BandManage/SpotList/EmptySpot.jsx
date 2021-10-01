@@ -1,4 +1,4 @@
-import { Fragment, useState, useEffect } from "react";
+import { Fragment, useState  } from "react";
 import axios from 'axios';
 import ShowSpotApplications from "./ShowSpotApplications";
  

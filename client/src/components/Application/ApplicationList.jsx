@@ -9,7 +9,6 @@ export default function ApplicationList (props) {
 
   useEffect(() => {
     axios.get(`/api/applications/${userId}`).then((results) => {
-      console.log("application get back", results);
       setApplications(() => [...results.data]);
     })
 

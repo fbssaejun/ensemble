@@ -70,7 +70,7 @@ export default function LoginRegister(props) {
     .then((response) => {
       props.setState((prev) => ({ ...prev, currentUser: {id: response.data[0].id, username: newUsername} }));
       sessionStorage.setItem("id", response.data[0].id);
-      sessionStorage.setItem("username", response.data[0].username);
+      sessionStorage.setItem("username", newUsername);
       history.push(`/`);
     })
 

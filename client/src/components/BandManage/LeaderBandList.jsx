@@ -4,7 +4,6 @@ import axios from 'axios';
 
 export default function LeaderBandList (props) {
   const { bands, currentUser, cachedBands, setCachedBands } = props;
-  console.log("inside my band list", cachedBands);
   // const [spots, setSpots] = useState([]); 
 
   // useEffect(() => {

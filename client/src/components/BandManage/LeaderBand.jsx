@@ -9,10 +9,8 @@ export default function LeaderBand(props) {
   const [showEditBandForm, setShowEditBandForm] = useState(false);
   const { name, description, image, bandId, currentUser, featured, bands } = props;
 
-  console.log("inside my band", bands)
   useEffect(()=> {
     axios.get(`/api/spots/bands/${bandId}`).then((results) => {
-      console.log("my band:", results.data)
       setSpots(results.data)
     })
   }, [])

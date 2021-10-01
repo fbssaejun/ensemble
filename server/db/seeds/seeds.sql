@@ -63,7 +63,8 @@ VALUES
 (34, 'Periphery', FALSE),
 (6, 'Megadeth', FALSE),
 (48, 'test1', FALSE),
-(48, 'test2', FALSE);
+(48, 'test2', FALSE),
+(48, 'all empty spots', FALSE);
 
 
 INSERT INTO instruments (name)
@@ -97,6 +98,14 @@ VALUES
 
 INSERT INTO spots (band_id, user_id, instrument_id, title, description)
 VALUES
+
+--ALL empty spots
+(13, 48, 1, 'guitar', 'asdf'),
+(13, null, 2, 'guitar2', 'asdf'),
+(13, null, 3, 'guitar3', 'asdf'),
+(13, null, 4, 'guitar4', 'asdf'),
+(13, null, 5, 'guitar5', 'asdf'),
+
 -- Oasis
 (1, 10, 1, 'Lead Guitar', 'A guy who babysits his brother'),
 (1, 11, 2, 'Lead Vocal', 'A guy who likes to drink and smoke on stage'),
@@ -173,7 +182,6 @@ VALUES
 (12, 48, 1, 'test guitar', 'blahblah'),
 (12, 13, 1, 'test guitar2', 'haha guitar scott'),
 (12, null, 1, 'test guitar3', 'we want a third guitarist haha');
-
 
 
 INSERT INTO user_instrument(user_id, instrument_id)
@@ -266,6 +274,16 @@ VALUES
 (9, 8),
 (9, 15),
 (10, 4);
+
+
+INSERT INTO spot_applications(spot_id, user_id, message)
+VALUES
+(3, 13, 'please accept'),
+(3, 14, 'please accept'),
+(2, 15, 'please accept'),
+(2, 16, 'please accept'),
+(2, 17, 'please accept');
+
 
 -- 1('Classic'),
 -- 2('Jazz'),

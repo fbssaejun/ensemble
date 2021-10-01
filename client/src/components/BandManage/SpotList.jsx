@@ -1,12 +1,14 @@
-import { Fragment } from "react";
-import SpotListItem from "./SpotListItem";
+import EmptySpot from "./EmptySpot";
+import FilledSpot from "./FilledSpot";
 import AddSpotItem from "./AddSpotItem";
 
 export default function SpotList (props) {
 const { spots, setSpots, bandId } = props;
 const mappedSpots = spots.map((spot) => {
-  return <SpotListItem spots={spots} spot={spot} setSpots={setSpots} currentUser={props.currentUser}/>
-})
+    return spot.user_id !== null ? (<FilledSpot key={spot.id} spots={spots} spot={spot} setSpots={setSpots} currentUser={props.currentUser}/>) : (<EmptySpot key={spot.id} spots={spots} spot={spot} setSpots={setSpots} currentUser={props.currentUser}/>)
+  })
+
+
   return (
     <div>
       {mappedSpots}

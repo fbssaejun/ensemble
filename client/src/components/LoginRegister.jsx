@@ -67,7 +67,7 @@ export default function LoginRegister(props) {
     })
     .then((response) => {
       props.setState((prev) => ({ ...prev, currentUser: {id: response.data[0].id, username: newUsername} }));
-      history.push(`/users/${response.data[0].id}/edit`);
+      history.push(`/`);
     })
 
   }

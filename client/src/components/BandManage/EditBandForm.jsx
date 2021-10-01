@@ -12,22 +12,15 @@ export default function EditBandForm(props) {
     // event.preventDefault();
 
     axios.patch(`/api/bands/${bandId}`, {name: nameVal, description: descrVal, band_image: imageVal, featured: featuredVal}).then((results) => {
-      console.log(results)
-      console.log("cached bands:", cachedBands)
       const updatedBand = results.data.result.rows[0];
-      console.log("updated band", updatedBand)
       let updatedBandIndex = 0;
       for (let i=0; i < cachedBands.length; i++) {
-        console.log("cachedBands[i]", cachedBands[i])
         if (cachedBands[i].id === updatedBand.id) {
-          console.log("found the band at", i)
           updatedBandIndex = i;
         }
       }
-      console.log("updatedBandIndex", updatedBandIndex)
       cachedBands.splice(updatedBandIndex, 1, updatedBand);
       const newBands = [...cachedBands]
-      console.log("after update:", cachedBands)
       setCachedBands(() => newBands);
     })
   }

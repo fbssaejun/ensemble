@@ -73,7 +73,7 @@ export default function CreateBandForm(props) {
         <textarea rows="10" cols="50" type="text" placeholder="Enter a band description" onChange={({ target }) => setBandDesc(target.value)}/> <br/>        
         <input type="text" placeholder="Link to picture" onChange={({ target }) => setBandImage(target.value)}/> <br/>
         <input type="checkbox" checked={bandFeatured} id="featuredCheck" onChange={() => setBandFeatured(!bandFeatured)}/>
-        <label for="featuredCheck">Feature Band?</label> <br />
+        <label htmlFor="featuredCheck">Feature Band?</label> <br />
         <h2>Your info</h2> 
         <input placeholder="title" onChange={({ target }) => setLeaderSpot((prev)=> ({...prev, title: target.value}))} required/>
         <input placeholder="instrument id" onChange={({ target }) => setLeaderSpot((prev)=> ({...prev, instrumentId: target.value}))} required/>

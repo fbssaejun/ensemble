@@ -2,9 +2,8 @@ import { useState, useEffect, Fragment } from "react";
 import Options from './Options';
 import axios from "axios";
 import Switch from '@mui/material/Switch';
-// import UserResultList from './UserResultList'
 import BandResultList from './BandResultList'
-import UserResultList from "./UserResultList";
+import UserResultList from './UserResultList';
 
 
 export default function Results(props) {
@@ -14,6 +13,7 @@ export default function Results(props) {
   const [selectedGenreUser, setSelectedGenreUser] = useState("0");
   const [selectedInstBand, setSelectedInstBand] = useState("0");
   const [selectedGenreBand, setSelectedGenreBand] = useState("0");
+  const [checkAvailable, setCheckAvailable] = useState(false);
   const [isToggled, setIsToggled] = useState(true);
   
   useEffect(() => {
@@ -54,7 +54,11 @@ export default function Results(props) {
               <option value={0}>All</option>
               {processedGenre}
             </select>
-            {props.userResult.length !== 0 && <UserResultList users={props.userResult} instrument={selectedInstUser} genre={selectedGenreUser} />}
+            {props.userResult.length !== 0 && <UserResultList
+              users={props.userResult}
+              instrument={selectedInstUser}
+              genre={selectedGenreUser}
+            />}
           </div>) : (
           <div className="user-results">
             <h1>This is Bands</h1>
@@ -66,7 +70,14 @@ export default function Results(props) {
               <option value={0}>All</option>
               {processedGenre}
             </select>
-            {props.bandResult.length !== 0 && <BandResultList bands={props.bandResult} instrument={selectedInstBand} genre={selectedGenreBand} currentUser={props.currentUser} />}
+            <input type="checkbox" checked={checkAvailable} onChange={() => setCheckAvailable(!checkAvailable)}/>
+            {props.bandResult.length !== 0 && <BandResultList
+              bands={props.bandResult}
+              instrument={selectedInstBand}
+              genre={selectedGenreBand}
+              checkAvailable={checkAvailable}
+              currentUser={props.currentUser}
+            />}
           </div>
           )}
         </div>

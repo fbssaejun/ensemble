@@ -3,18 +3,18 @@ import BandResult from './BandResult';
 
 
 export default function BandResultList(props) {
-  const { genre, instrument, bands } = props;
+  const { genre, instrument, bands, checkAvailable } = props;
 
 
   const filterGenreArr = (bandArr) => {
 
-    if (genre === "0") {
+    if(genre === "0") {
       return bandArr;
     }
 
     const retArr = [];
 
-    for (const band of bandArr) {
+    for(const band of bandArr) {
 
       if (band.genre_id === Number(genre)) {
         retArr.push(band)
@@ -27,13 +27,13 @@ export default function BandResultList(props) {
 
   const filterInstArr = (bandArr) => {
 
-    if (instrument === "0") {
+    if(instrument === "0") {
       return bandArr;
     }
 
     const retArr = [];
 
-    for (const band of bandArr) {
+    for(const band of bandArr) {
 
       if (band.spot_instrument === Number(instrument)) {
         retArr.push(band)
@@ -41,6 +41,25 @@ export default function BandResultList(props) {
     }
     return retArr;
   }
+
+  const filterAvailable = (bandArr) => {
+
+    if(!checkAvailable) {
+      return bandArr
+    }
+
+    const retArr = [];
+
+    for(const band of bandArr) {
+
+      if(band.spot_user_id === null) {
+        retArr.push(band)
+      }
+    }
+
+    return retArr;
+
+  };
 
   const removeCopy = (bandArr) => {
 
@@ -58,7 +77,8 @@ export default function BandResultList(props) {
 
     if (genre === "0" && instrument === "0") {
 
-      const filtered = removeCopy(arr);
+      const available = filterAvailable(arr)
+      const filtered = removeCopy(available);
       const rendered = filtered.map((band, index) => {
 
         return <BandResult key={index} name={band.name} bandId={band.id} currentUser={props.currentUser}/>
@@ -78,7 +98,8 @@ export default function BandResultList(props) {
         return [];
       }
 
-      const filtered = removeCopy([...arr1, ...arr2]);
+      const available = filterAvailable([...arr1, ...arr2]);
+      const filtered = removeCopy(available);
       const rendered = filtered.map((band, index) => {
         return <BandResult key={index} name={band.name} bandId={band.id} currentUser={props.currentUser} />
       })

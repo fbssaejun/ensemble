@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import Navbar from './components/Navbar';
 import LoginRegister from './components/LoginRegister';
 import UserProfile from './components/UserProfile';
@@ -8,7 +7,7 @@ import Band from './components/Band/index';
 import Home from './components/Home';
 import Search from './components/Search';
 import ApplicationList from './components/Application/ApplicationList';
-import UserEdit from './components/UserEdit';
+import UserEdit from './components/UserProfile/UserEdit';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import CreateBandForm from './components/CreateBandForm';
 import BandManage from './components/BandManage/index';
@@ -16,27 +15,9 @@ import './App.scss';
 
 function App() {
   const [state, setState] = useState({
-    genres: [],
-    users: [],
-    bands: [],
-    spots: [],
-    currentUser: undefined,
+    currentUser: undefined
   });
 
-  useEffect(() => {
-    Promise.all([
-      axios.get('/api/genres'),
-      axios.get('/api/users'),
-      axios.get('/api/bands'),
-      axios.get('/api/spots'),
-    ]).then((all) => {
-      const genres = all[0].data;
-      const users = all[1].data;
-      const bands = all[2].data;
-      const spots = all[3].data;
-      setState((prev) => ({ ...prev, genres, users, bands, spots }));
-    });
-  }, []);
 
   return (
     <main className="layout">
@@ -46,11 +27,8 @@ function App() {
           <Route path="/users/:userId/app">
             <ApplicationList />
           </Route>
-          <Route path="/users/:userId/edit">
-            <UserEdit />
-          </Route>
           <Route path="/users/:userId">
-            <UserProfile users={state.users} />
+            <UserProfile />
           </Route>
           <Route path="/auth">
             <LoginRegister setState={setState} />
@@ -65,7 +43,7 @@ function App() {
             <BandManage currentUser={state.currentUser} />
           </Route>
           <Route path="/bands/:bandId">
-            <Band bands={state.bands} spots={state.spots} />
+            <Band />
           </Route>
           <Route path="/" exact>
             <Home />

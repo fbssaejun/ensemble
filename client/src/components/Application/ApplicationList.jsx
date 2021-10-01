@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 export default function ApplicationList (props) {
   const [applications, setApplications] = useState([]);
   const { userId } = useParams();
-  console.log("whats userId:", userId)
+
   useEffect(() => {
     axios.get(`/api/applications/${userId}`).then((results) => {
       console.log("application get back", results);

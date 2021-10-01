@@ -1,0 +1,29 @@
+@import '../appVariables.scss';
+
+.home-container {
+  display:flex;
+  justify-content:  space-evenly;
+  width: 60%;
+  margin: 10em auto;
+  align-items: center;
+  text-align: center;
+  background-color: #fff;
+	border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+	0 10px 10px rgba(0,0,0,0.22);
+  max-width: 100%;
+	min-height: 480px;
+ 
+  .picture {
+    color: red;
+    width: 40%;
+  }
+
+  .content {
+    color:black;
+    width: 40%;
+
+  }
+
+
+}

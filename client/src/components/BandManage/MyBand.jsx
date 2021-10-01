@@ -12,6 +12,7 @@ export default function MyBand(props) {
   console.log("inside my band", bands)
   useEffect(()=> {
     axios.get(`/api/spots/bands/${bandId}`).then((results) => {
+      console.log("my band:", results.data)
       setSpots(results.data)
     })
   }, [])
@@ -22,7 +23,7 @@ export default function MyBand(props) {
       <h2>Band: {name}</h2>
       <button onClick={() => setShowEditBandForm((prev) => !prev)}>edit band</button>
       {showEditBandForm && <EditBandForm setCachedBands={props.setCachedBands} onClose={() => setShowEditBandForm((prev) => !prev)} bandInfo={props}></EditBandForm>}
-      <SpotList currentUser={currentUser} spots={spots}/>
+      <SpotList bandId={bandId} currentUser={currentUser} spots={spots} setSpots={setSpots}/>
       
 
     </Fragment>

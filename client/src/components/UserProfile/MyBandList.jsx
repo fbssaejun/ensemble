@@ -14,6 +14,7 @@ export default function MyBandList (props) {
   
   const deleteBand = (bandId) => {
     axios.delete(`/api/bands/${bandId}`).then((results) => {
+      console.log("WHAT THE HELL IS RESULTS", results)
       const newBands = bands.filter((band) => band.id !== results.data.result.rows[0].id)
       setBands(() => [...newBands])
     });

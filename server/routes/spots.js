@@ -32,6 +32,34 @@ module.exports = (db) => {
     });
   });
 
+  router.delete('/:id', (req, res) => {
+    const spotId = req.params.id;
+    const query = `DELETE FROM spots WHERE spots.id = $1 RETURNING *;`;
+
+    db.query(query, [spotId]).then((results) => {
+      return res.status(200).send({
+        message: `spot ${spotId} removed`,
+        result: results,
+      });
+    });
+  });
+
+  router.post('/new', (req, res) => {
+    const { bandId, username, instrumentId, title, description } = req.body;
+    console.log('inside spots/new', bandId, username, instrumentId, title, description);
+    const query = `
+      INSERT INTO spots (band_id, user_id, instrument_id, title, description)
+      VALUES ($1, (SELECT id AS user_id FROM users WHERE users.username = $2), $3, $4, $5) 
+      RETURNING *;
+    `;
+
+    db.query(query, [bandId, username, instrumentId, title, description]).then((results) => {
+      return res.status(200).send({
+        message: `spot added`,
+        result: results,
+      });
+    });
+  });
 
   return router;
 };

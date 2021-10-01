@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Navbar from './components/Navbar';
-import LoginRegister from './components/LoginRegister'
+import LoginRegister from './components/LoginRegister';
 import UserProfile from './components/UserProfile';
 import NotFound from './components/NotFound';
 import Band from './components/Band/index';
 import Home from './components/Home';
 import Search from './components/Search';
 import ApplicationList from './components/Application/ApplicationList';
-import UserEdit from './components/UserEdit'
+import UserEdit from './components/UserEdit';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import CreateBandForm from './components/CreateBandForm';
 import BandManage from './components/BandManage/index';
@@ -41,7 +41,7 @@ function App() {
   return (
     <main className="layout">
       <Router>
-        <Navbar currentUser={state.currentUser} setState={setState}  />
+        <Navbar currentUser={state.currentUser} setState={setState} />
         <Switch>
           <Route path="/users/:userId/app">
             <ApplicationList />
@@ -62,7 +62,7 @@ function App() {
             <CreateBandForm currentUser={state.currentUser} />
           </Route>
           <Route path="/bands/manage">
-            <BandManage currentUser={state.currentUser}/>
+            <BandManage currentUser={state.currentUser} />
           </Route>
           <Route path="/bands/:bandId">
             <Band bands={state.bands} spots={state.spots} />

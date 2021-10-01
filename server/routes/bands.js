@@ -1,6 +1,14 @@
 const router = require('express').Router();
 
 module.exports = (db) => {
+  
+  router.get('/featured', (req, res) => {
+    const query = `SELECT * FROM bands WHERE featured = true;`;
+    db.query(query).then((results) => {
+      res.json(results.rows);
+    });
+  });
+
   router.get('/leader-bands/:id', (req, res) => {
     const query = `SELECT * FROM bands WHERE bands.leader_id = $1;`;
     db.query(query, [req.params.id]).then((results) => {

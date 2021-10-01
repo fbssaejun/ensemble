@@ -23,20 +23,20 @@ function App() {
     currentUser: undefined,
   });
 
-  useEffect(() => {
-    Promise.all([
-      axios.get('/api/genres'),
-      axios.get('/api/users'),
-      axios.get('/api/bands'),
-      axios.get('/api/spots'),
-    ]).then((all) => {
-      const genres = all[0].data;
-      const users = all[1].data;
-      const bands = all[2].data;
-      const spots = all[3].data;
-      setState((prev) => ({ ...prev, genres, users, bands, spots }));
-    });
-  }, []);
+  // useEffect(() => {
+  //   Promise.all([
+  //     axios.get('/api/genres'),
+  //     axios.get('/api/users'),
+  //     axios.get('/api/bands'),
+  //     axios.get('/api/spots'),
+  //   ]).then((all) => {
+  //     const genres = all[0].data;
+  //     const users = all[1].data;
+  //     const bands = all[2].data;
+  //     const spots = all[3].data;
+  //     setState((prev) => ({ ...prev, genres, users, bands, spots }));
+  //   });
+  // }, []);
 
   return (
     <main className="layout">

@@ -1,7 +1,7 @@
 import React from 'react';
-import './Navbar.scss'
+import '../Navbar.scss'
 import { Link } from 'react-router-dom';
-import Dashboard from './Dashboard';
+import Dashboard from '../Dashboard';
 
 export default function Navbar(props) {
 

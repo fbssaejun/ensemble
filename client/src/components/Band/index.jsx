@@ -32,7 +32,7 @@ export default function Band (props) {
 
   const filledSpots = getSpots(spots);
   const bandSpots = filledSpots.map(spot => { 
-    return <Spot title={spot.title} />
+    return <Spot key={spot.id} title={spot.title} />
   });
 
   // Checks that API data has loaded correctly

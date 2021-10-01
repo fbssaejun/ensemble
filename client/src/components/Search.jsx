@@ -22,6 +22,8 @@ export default function Search(props) {
     const params = {
       term: searchTerm
     }
+
+    console.log("new search triggered")
     
     axios.get("/api/search/", { params })
     .then(result => {
@@ -30,8 +32,6 @@ export default function Search(props) {
     })
 
   };
-
-
 
   return(
     <Fragment>

@@ -13,7 +13,7 @@ export default function BandResult(props) {
       console.log("what we got back in band result:", results)
       setSpots(() => [...results.data]);
     }).catch((e)=>{console.log("wtf error", e)})
-  }, [])
+  }, [bandId])
  
 
   

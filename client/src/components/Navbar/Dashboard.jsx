@@ -12,6 +12,8 @@ export default function Dashboard(props) {
   const open = Boolean(anchorEl);
 
   const logOut = () => {
+    sessionStorage.removeItem("id");
+    sessionStorage.removeItem("username");
     props.setState(prev => ({...prev, currentUser: undefined}))
     history.push("/");
   }

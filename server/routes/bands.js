@@ -1,7 +1,6 @@
 const router = require('express').Router();
 
 module.exports = (db) => {
-  
   router.get('/featured', (req, res) => {
     const query = `SELECT * FROM bands WHERE featured = true;`;
     db.query(query).then((results) => {
@@ -63,7 +62,6 @@ module.exports = (db) => {
   router.patch('/:id', (req, res) => {
     const bandId = req.params.id;
     const { name, description, band_image, featured } = req.body;
-    console.log('inside patch band id', bandId, name, description, band_image, featured);
     const query = `
     UPDATE bands
     SET name = $1, description = $2, band_image = $3, featured = $4

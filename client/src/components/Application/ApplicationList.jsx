@@ -20,6 +20,7 @@ export default function ApplicationList (props) {
     return <Application 
       key={application.id}
       bandName={application.band_name} 
+      bandId={application.band_id}
       description={application.description}
       title={application.title}
       instrument={application.instrument}

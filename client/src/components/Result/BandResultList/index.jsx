@@ -113,7 +113,7 @@ export default function BandResultList(props) {
   const stuff = resultRender(bands)
 
   return (
-    <div>
+    <div className="band-results-container">
       {stuff}
     </div>
   );

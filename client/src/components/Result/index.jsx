@@ -4,6 +4,7 @@ import axios from "axios";
 import Switch from '@mui/material/Switch';
 import BandResultList from './BandResultList'
 import UserResultList from './UserResultList';
+import './Result.scss';
 
 
 export default function Results(props) {
@@ -60,7 +61,7 @@ export default function Results(props) {
               genre={selectedGenreUser}
             />}
           </div>) : (
-          <div className="user-results">
+          <div className="band-results">
             <h1>This is Bands</h1>
             <select value={selectedInstBand} onChange={({target}) => setSelectedInstBand(() => target.value)}>
               <option value={0}>All</option>

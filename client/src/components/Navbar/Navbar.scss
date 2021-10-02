@@ -1,5 +1,5 @@
 nav {
-  background-color: lightblue;
+  background-color: white;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -7,15 +7,16 @@ nav {
   z-index: 400;
   width: 100%;
   height: 10vh;
-  position: relative;
+  position: fixed;
   top: 0;
+  color: black;
   border-bottom: 2px solid black;
 
   a {
     padding: 1rem;
     margin: 1rem;
     text-decoration: none;
-    color: white;
+    color: black;
     font-family: 'Montserrat', sans-serif;
   }
 
@@ -32,7 +33,7 @@ nav {
   h2 {
     margin-left: 1em;
     font-weight: 900;
-    color: white;
+    color: black;
     &:hover {
       color: goldenrod;
     }
@@ -44,6 +45,14 @@ nav {
 
   button {
     margin-right: 2em;
+  }
+
+  img {
+    width: 5em;
+    height: 5em;
+    border-radius: 50%;
+    border: 1px solid black;
+    background-color: lightblue;
   }
 }
 

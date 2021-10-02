@@ -1,24 +1,27 @@
+/* eslint-disable no-unused-vars */
 import LeaderBand from './LeaderBand';
-import { useState, useEffect, Fragment } from 'react';
-import axios from 'axios';
+import { Fragment } from 'react';
 
 export default function LeaderBandList (props) {
-  const { bands, currentUser, cachedBands, setCachedBands } = props;
-  // const [spots, setSpots] = useState([]); 
+  const { currentUser, cachedBands, setCachedBands } = props;
 
-  // useEffect(() => {
-
-  //   axios.get(`/api/spots/users/${currentUser.id}`).then((results) => {
-  //     console.log("This is the result from MYBANDLIST API CALL", results)
-  //     setSpots(results.data)
-  //   })
-  // }, [])
-  
-  // console.log("AFTER SETSPOTS", spots)
+  const leaderBands = cachedBands.filter((band) => {
+    return band.leader_id === currentUser.id;
+  })
 
   //map myband components
-  const myBandArr = bands.map(band => {
-    return <LeaderBand cachedBands={cachedBands} setCachedBands={setCachedBands} bandId={band.id} name={band.name} description={band.description} image={band.band_image} currentUser={currentUser} featured={band.featured}/>
+  const myBandArr = leaderBands.map(band => {
+    return <LeaderBand 
+      key={band.id} 
+      cachedBands={cachedBands} 
+      setCachedBands={setCachedBands} 
+      bandId={band.id} 
+      name={band.name} 
+      description={band.description} 
+      image={band.band_image} 
+      currentUser={currentUser} 
+      featured={band.featured}
+    />
   })
 
 

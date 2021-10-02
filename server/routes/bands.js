@@ -1,6 +1,14 @@
 const router = require('express').Router();
 
 module.exports = (db) => {
+  
+  router.get('/featured', (req, res) => {
+    const query = `SELECT * FROM bands WHERE featured = true;`;
+    db.query(query).then((results) => {
+      res.json(results.rows);
+    });
+  });
+
   router.get('/leader-bands/:id', (req, res) => {
     const query = `SELECT * FROM bands WHERE bands.leader_id = $1;`;
     db.query(query, [req.params.id]).then((results) => {
@@ -59,7 +67,8 @@ module.exports = (db) => {
     const query = `
     UPDATE bands
     SET name = $1, description = $2, band_image = $3, featured = $4
-    WHERE id = $5;
+    WHERE id = $5
+    RETURNING *;
     `;
 
     db.query(query, [

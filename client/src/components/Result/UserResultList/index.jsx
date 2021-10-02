@@ -1,11 +1,10 @@
 import { useState } from 'react';
 import UserResult from './UserResult'
+import Grid from '@mui/material/Grid';
 
 
 export default function UserResultList(props) {
   const { genre, instrument, users } = props;
-
-
 
   const filterGenreArr = (userArr) => {
     
@@ -90,23 +89,39 @@ export default function UserResultList(props) {
     if (genre === "0" && instrument === "0") {
 
       const filtered = removeCopy(arr);
-      const rendered = filtered.map((user, index) => {
-        return <UserResult key={index} firstName={user.first_name} lastName={user.last_name} username={user.username} />
+
+      let boxSize = (filtered.length === 1) ? 12 : 4;
+      boxSize = (filtered.length === 2) ? 6 : boxSize;
+
+      return filtered.map((user, index) => {
+        return (<Grid align="center" item xs={boxSize}>
+        <UserResult
+          key={index}
+          firstName={user.first_name}
+          lastName={user.last_name}
+          username={user.username}
+          profile_image={user.profile_image}/>
+        </Grid>)
       })
-      return rendered
 
     }
      else if ((genre !== "0" && instrument !== "0")) {
 
-
-
       const filtered = removeCopy(doubleFilter(arr));
-      console.log("Filtered array", filtered)
-      const rendered = filtered.map((user, index) => {
-        return <UserResult key={index} firstName={user.first_name} lastName={user.last_name} username={user.username} />
-      })
 
-      return rendered
+      let boxSize = (filtered.length === 1) ? 12 : 4;
+      boxSize = (filtered.length === 2) ? 6 : boxSize;
+
+      return filtered.map((user, index) => {
+        return (<Grid align="center" item xs={boxSize}>
+          <UserResult 
+            key={index}
+            firstName={user.first_name}
+            lastName={user.last_name}
+            username={user.username}
+            profile_image={user.profile_image}/>
+          </Grid>)
+      })
 
     }
     else {
@@ -116,25 +131,32 @@ export default function UserResultList(props) {
       console.log("Filtered Arr 1", arr1)
       console.log("Filtered Arr 2", arr2)
 
-
       const filtered = removeCopy([...arr1, ...arr2]);
-      console.log("Filtered array", filtered)
-      const rendered = filtered.map((user, index) => {
-        return <UserResult key={index} firstName={user.first_name} lastName={user.last_name} username={user.username} />
+
+      let boxSize = (filtered.length === 1) ? 12 : 4;
+      boxSize = (filtered.length === 2) ? 6 : boxSize;
+
+      return filtered.map((user, index) => {
+        return (<Grid align="center" item xs={boxSize}>
+          <UserResult
+            key={index}
+            firstName={user.first_name}
+            lastName={user.last_name}
+            username={user.username}
+            profile_image={user.profile_image}/>
+          </Grid>)
       })
 
-      return rendered
     }
-
   }
   
 
-  const stuff = resultRender(users)
+  const userSearchContent = resultRender(users)
 
   return (
-    <div>
-      {stuff}
-    </div>
+    <Grid container justify="center" alignItems="center" rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+      {userSearchContent}
+    </Grid>
 
   );
 

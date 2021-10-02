@@ -4,6 +4,7 @@ import SpotList from './SpotList'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
+import Divider from '@mui/material/Divider'
 import Typography from '@mui/material/Typography';
 
 
@@ -23,9 +24,17 @@ export default function BandResult(props) {
   return (
     <Card className="single-band-result" sx={{ maxWidth: 400, maxHeight:700 }}>
       <CardContent>
+        <CardMedia
+          component="img"
+          height="140"
+          image={
+            "https://image.freepik.com/free-photo/river-foggy-mountains-landscape_1204-511.jpg"
+          }
+          />
         <Typography gutterBottom variant="h5" component="div">
           {props.name}
         </Typography>
+        <Divider variant="middle" />
       <SpotList spots={spots} currentUser={props.currentUser}></SpotList>
       </CardContent>
     </Card>

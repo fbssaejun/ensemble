@@ -86,7 +86,7 @@ export default function BandResultList(props) {
       return filtered.map((band, index) => {
         return (<Grid align="center" item xs={boxSize}>
           <BandResult key={index} name={band.name} bandId={band.id} currentUser={props.currentUser} />
-        </Grid>)
+          </Grid>)
       })
 
 
@@ -111,18 +111,18 @@ export default function BandResultList(props) {
       return filtered.map((band, index) => {
         return (<Grid align="center" item xs={boxSize}>
           <BandResult key={index} name={band.name} bandId={band.id} currentUser={props.currentUser} />
-        </Grid>)
+          </Grid>)
       })
 
     }
 
   }
 
-  const stuff = resultRender(bands)
+  const bandSearchContent = resultRender(bands)
 
   return (
-    <Grid container justify="center" alignItems="center" rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-      {stuff}
+    <Grid container justify="center" alignItems="center" rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+      {bandSearchContent}
     </ Grid>
   );
 }

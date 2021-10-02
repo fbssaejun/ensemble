@@ -1,12 +1,10 @@
 import { useState, useEffect, Fragment } from "react";
-import Options from './Options';
 import axios from "axios";
 import BandResultList from './BandResultList'
 import UserResultList from './UserResultList';
 
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-import FormHelperText from '@mui/material/FormHelperText';
 import Checkbox from '@mui/material/Checkbox';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
@@ -37,15 +35,6 @@ export default function Results(props) {
       setInstruments(instruments)
     })
   }, [])
-
-
-  const processedInst = instruments.map((instrument)=> {
-    return <Options key={instrument.id} value={instrument.id} name={instrument.name} />
-  })
-
-  const processedGenre = genres.map((genre)=> {
-    return <Options key={genre.id} value={genre.id} name={genre.name} />
-  })
 
   const materialsInst = instruments.map((instrument) => {
     return <MenuItem key={instrument.id} value={instrument.id}>{instrument.name}</MenuItem>

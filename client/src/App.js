@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import LoginRegister from './components/LoginRegister';
 import UserProfile from './components/UserProfile';
@@ -7,7 +7,6 @@ import Band from './components/Band/index';
 import Home from './components/Home';
 import Search from './components/Search';
 import ApplicationList from './components/Application/ApplicationList';
-import UserEdit from './components/UserProfile/UserEdit';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import CreateBandForm from './components/CreateBandForm';
 import BandManage from './components/BandManage/index';

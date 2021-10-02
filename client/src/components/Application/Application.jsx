@@ -17,10 +17,12 @@ export default function Application (props) {
       <Link to={bandURL}>
         <span className="info-container">
           <h1 className="band-name">{bandName}</h1>
-          <h2>Applying for spot: {title}</h2>
-          <h3>Instrument: {instrument}</h3>
-          <h3>Spot Description: {description}</h3>
-          <h3>My application message: {message}</h3>
+          <h5 className="band-info">
+            Applying for spot: {title} <br/>
+            Instrument: {instrument} <br/>
+            Spot Description: {description} <br/>
+            My message: {message}
+          </h5>
         </span>
       </Link>
     </div>

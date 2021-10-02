@@ -7,13 +7,19 @@
   margin-bottom: 1em;
   background-color: whitesmoke;
   border-radius: 10px;
-  box-shadow: 2px 2px grey;
+  box-shadow: 0 0.25px 0.25px rgba(0, 0, 0, 0.12), 0 0.5px 0.5px rgba(0, 0, 0, 0.12),
+    0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12);
   transition: 0.1s ease-in;
   &:hover {
-    transform: scale(1.01);
+    transform: scale(1.05);
   }
 }
 
+// .user-application > .info-container {
+//   &:hover {
+//     transform: scale(0.8);
+//   }
+// }
 .info-container {
   display: flex;
   flex-direction: column;
@@ -25,6 +31,13 @@
 
 .band-name {
   color: $color-3;
+  margin-top: 0;
+}
+
+.band-info {
+  margin-top: 1em;
+  margin-bottom: 0;
+  text-align: left;
 }
 
 .application-status {
@@ -32,7 +45,6 @@
   flex-direction: column;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
-  background-color: yellow;
   justify-content: center;
   width: 2rem;
   flex-grow: 0;

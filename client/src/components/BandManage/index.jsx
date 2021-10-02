@@ -1,8 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import axios from 'axios';
-import { Fragment, useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import LeaderBandList from './LeaderBandList';
 import MyBandList from './MyBandList';
+
+import './BandManage.scss';
 
 export default function BandManage(props) {
   const [cachedBands, setCachedBands] = useState([]);
@@ -17,9 +19,13 @@ export default function BandManage(props) {
 
   
   return (
-    <Fragment>
-      <LeaderBandList cachedBands={cachedBands} setCachedBands={setCachedBands} currentUser={currentUser} />
-      <MyBandList cachedBands={cachedBands} setCachedBands={setCachedBands} currentUser={currentUser} />
-    </Fragment>
+    <div className="all-band-lists-container">
+      <span>
+        <LeaderBandList cachedBands={cachedBands} setCachedBands={setCachedBands} currentUser={currentUser} />
+      </span>
+      <span>
+        <MyBandList cachedBands={cachedBands} setCachedBands={setCachedBands} currentUser={currentUser} />
+      </span>
+    </div>
   );
 }

@@ -9,8 +9,6 @@ export default function EmptySpot (props) {
   const deleteSpot = (spotId) => {
     axios.delete(`/api/spots/${spotId}`).then((results) => {
       const newSpots = spots.filter((spot) => spot.id !== results.data.result.rows[0].id)
-      console.log("results", results)
-      console.log("newspots:", newSpots)
       setSpots((prev) => [...newSpots])
     })
   }

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import BandResult from './BandResult';
+import Grid from '@mui/material/Grid';
 
 
 export default function BandResultList(props) {
@@ -79,11 +80,15 @@ export default function BandResultList(props) {
 
       const available = filterAvailable(arr)
       const filtered = removeCopy(available);
-      const rendered = filtered.map((band, index) => {
 
-        return <BandResult key={index} name={band.name} bandId={band.id} currentUser={props.currentUser}/>
+      const boxSize = (filtered.length === 1) ? 12 : 6;
+      
+      return filtered.map((band, index) => {
+        return (<Grid align="center" item xs={boxSize}>
+          <BandResult key={index} name={band.name} bandId={band.id} currentUser={props.currentUser} />
+        </Grid>)
       })
-      return rendered
+
 
     } else {
       
@@ -100,21 +105,24 @@ export default function BandResultList(props) {
 
       const available = filterAvailable([...arr1, ...arr2]);
       const filtered = removeCopy(available);
-      const rendered = filtered.map((band, index) => {
-        return <BandResult key={index} name={band.name} bandId={band.id} currentUser={props.currentUser} />
+
+      const boxSize = (filtered.length === 1) ? 12 : 6;
+
+      return filtered.map((band, index) => {
+        return (<Grid align="center" item xs={boxSize}>
+          <BandResult key={index} name={band.name} bandId={band.id} currentUser={props.currentUser} />
+        </Grid>)
       })
 
-      return rendered
     }
 
   }
-  
 
   const stuff = resultRender(bands)
 
   return (
-    <div>
+    <Grid container justify="center" alignItems="center" rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
       {stuff}
-    </div>
+    </ Grid>
   );
 }

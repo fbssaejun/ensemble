@@ -7,6 +7,8 @@ export default function ApplicationForm(props) {
 
   const submitApplication = (event) => {
     event.preventDefault();
+    props.display()
+    props.onClick()
     axios.post(`/api/applications/${spotId}`, {message, userId:currentUser.id}).then((results)=>{
       console.log(results.data.message);
     })
@@ -18,7 +20,7 @@ export default function ApplicationForm(props) {
         <button type="button" onClick={props.onClick}>X</button>
         <label for="message">Why do you want to apply?</label>
         <textarea id="message" placeholder="Enter your application message" onChange={({ target }) => setMessage(target.value)} />
-        <button >Apply</button>
+        <button>Apply</button>
         <button type="button" onClick={props.onClick}>Cancel</button>
       </form>
 

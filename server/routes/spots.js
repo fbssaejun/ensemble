@@ -46,7 +46,6 @@ module.exports = (db) => {
 
   router.post('/new', (req, res) => {
     const { bandId, username, instrumentId, title, description } = req.body;
-    console.log('inside spots/new', bandId, username, instrumentId, title, description);
     const query = `
       INSERT INTO spots (band_id, user_id, instrument_id, title, description)
       VALUES ($1, (SELECT id AS user_id FROM users WHERE users.username = $2), $3, $4, $5) 

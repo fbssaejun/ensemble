@@ -5,6 +5,7 @@ import SpotList from './SpotList';
 import EditBandForm from './EditBandForm';
 import axios from 'axios';
 
+import './LeaderBand.scss';
 
 export default function LeaderBand(props) {
   const [spots, setSpots] = useState([]);
@@ -19,8 +20,7 @@ export default function LeaderBand(props) {
 
 
   return (
-    <Fragment>
-      
+    <div className="leader-band-item">
       <h2>Band Name: {name}</h2>
       <button onClick={() => setShowEditBandForm((prev) => !prev)}>edit band</button>
       {showEditBandForm && 
@@ -29,10 +29,10 @@ export default function LeaderBand(props) {
           onClose={() => setShowEditBandForm((prev) => !prev)} 
           bandInfo={props} 
         />}
-      <SpotList bandId={bandId} currentUser={currentUser} spots={spots} setSpots={setSpots}/>
+        <SpotList bandId={bandId} currentUser={currentUser} spots={spots} setSpots={setSpots}/>
       
 
-    </Fragment>
+    </div>
     
   )
 }

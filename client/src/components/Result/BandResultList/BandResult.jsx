@@ -12,7 +12,7 @@ export default function BandResult(props) {
     axios.get(`/api/spots/bands/${bandId}`).then((results) => {
       console.log("what we got back in band result:", results)
       setSpots(() => [...results.data]);
-    }).catch((e)=>{console.log("wtf error", e)})
+    })
   }, [bandId])
  
 

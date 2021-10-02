@@ -59,7 +59,6 @@ export default function UserResultList(props) {
     if (genre === "0" && instrument === "0") {
 
       const filtered = removeCopy(arr);
-      console.log(filtered);
       const rendered = filtered.map((user, index) => {
         return <UserResult key={index} firstName={user.first_name} lastName={user.last_name} username={user.username} />
       })

@@ -1,8 +1,10 @@
 import axios from "axios";
 import { useState } from "react";
 import Result from './Result'
-
+import TextField from '@mui/material/TextField';
+import FormControl from '@mui/material/FormControl';
 import './Search.scss';
+
 
 export default function Search(props) {
 
@@ -41,8 +43,15 @@ export default function Search(props) {
       </form>
       {searchOption !== undefined &&
       <form onSubmit={searchField} className="search-btn">
-        <input type="text" placeholder="Find your Band" onChange={({ target }) => setSearchTerm(target.value)}/>
-        <button type="submit" className="search-btn">Submit</button> <br/>
+        <FormControl sx={{ width: '40ch' }}>
+        <TextField
+          label="Your Search"
+          id="filled-size-normal"
+          onChange={({ target }) => setSearchTerm(target.value)}
+          variant="filled"
+        />
+        </FormControl>
+        {/* <button type="submit" className="search-btn">Submit</button> <br/> */}
       </form>}
       <Result 
         userResult={userResult}

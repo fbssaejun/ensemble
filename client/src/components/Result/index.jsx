@@ -3,6 +3,13 @@ import Options from './Options';
 import axios from "axios";
 import BandResultList from './BandResultList'
 import UserResultList from './UserResultList';
+
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormHelperText from '@mui/material/FormHelperText';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+
 import './Result.scss';
 
 
@@ -39,6 +46,14 @@ export default function Results(props) {
     return <Options key={genre.id} value={genre.id} name={genre.name} />
   })
 
+  const materialsInst = instruments.map((instrument) => {
+    return <MenuItem key={instrument.id} value={instrument.id}>{instrument.name}</MenuItem>
+  });
+
+  const materialsGenre = genres.map((genre)=> {
+    return <MenuItem key={genre.id} value={genre.id}>{genre.name}</MenuItem>
+  });
+
 
   return (
     <Fragment>
@@ -47,14 +62,33 @@ export default function Results(props) {
           {searchOption ? (
           <div className="user-results">
             <h1>This is Users</h1>
-            <select value={selectedInstUser} onChange={({target}) => setSelectedInstUser(() => target.value)}>
-              <option value={0}>All</option>
-              {processedInst}
-            </select>
-            <select value={selectedGenreUser} onChange={({target}) => setSelectedGenreUser(() => target.value)}>
-              <option value={0}>All</option>
-              {processedGenre}
-            </select>
+            <FormControl sx={{ m: 1, minWidth: 100 }}>
+              <InputLabel id="user-instrument-label">Instrument</InputLabel>
+              <Select
+                labelId="user-instrument-label"
+                id="user-instrument"
+                value={selectedInstUser}
+                label="Instrument"
+                onChange={({target}) => setSelectedInstUser(() => target.value)}
+              >
+              <MenuItem value={"0"}>All</MenuItem>
+              {materialsInst}
+              </Select>
+            </FormControl>
+
+            <FormControl sx={{ m: 1, minWidth: 100 }}>
+              <InputLabel id="user-genre-label">Genre</InputLabel>
+              <Select
+                labelId="user-genre-label"
+                id="user-genre"
+                value={selectedGenreUser}
+                label="Genre"
+                onChange={({target}) => setSelectedGenreUser(() => target.value)}
+              >
+              <MenuItem value={"0"}>All</MenuItem>
+              {materialsGenre}
+              </Select>
+            </FormControl>
             {userResult.length !== 0 && <UserResultList
               users={userResult}
               instrument={selectedInstUser}
@@ -88,12 +122,3 @@ export default function Results(props) {
  
 }
 
-
-// <Result>
-//   <UserResultList >
-    
-//   </UserResultList>
-//   <BandResultList >
-    
-//   </BandResultList>
-// </Result>

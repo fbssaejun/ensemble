@@ -53,22 +53,48 @@ export default function UserResultList(props) {
     return Object.values(stored);
   };
 
+  console.log("What we got before filter", users);
 
   const resultRender = (arr) => {
 
     if (genre === "0" && instrument === "0") {
 
       const filtered = removeCopy(arr);
-      console.log(filtered);
       const rendered = filtered.map((user, index) => {
         return <UserResult key={index} firstName={user.first_name} lastName={user.last_name} username={user.username} />
       })
       return rendered
 
-    } else {
+    }
+    //  else if ((genre !== "0" && instrument !== "0")) {
+    //   const arr1 = filterInstArr(arr);
+    //   const arr2 = filterGenreArr(arr);
+    //   console.log("Filtered Arr 1", arr1)
+    //   console.log("Filtered Arr 2", arr2)
+
+    //   if (arr1.length === 0) {
+    //     return [];
+    //   }
+
+    //   if (arr2.length === 0) {
+    //     return [];
+    //   }
+
+    //   const filtered = removeCopy([...arr1, ...arr2]);
+    //   console.log("Filtered array", filtered)
+    //   const rendered = filtered.map((user, index) => {
+    //     return <UserResult key={index} firstName={user.first_name} lastName={user.last_name} username={user.username} />
+    //   })
+
+    //   return rendered 
+
+    // }
+    else {
       
-      const arr1 = filterGenreArr(filterInstArr(arr))
-      const arr2 = filterInstArr(filterGenreArr(arr))
+      const arr1 = filterGenreArr(filterInstArr(arr));
+      const arr2 = filterInstArr(filterGenreArr(arr));
+      console.log("Filtered Arr 1", arr1)
+      console.log("Filtered Arr 2", arr2)
 
       if (arr1.length === 0) {
         return [];
@@ -79,6 +105,7 @@ export default function UserResultList(props) {
       }
 
       const filtered = removeCopy([...arr1, ...arr2]);
+      console.log("Filtered array", filtered)
       const rendered = filtered.map((user, index) => {
         return <UserResult key={index} firstName={user.first_name} lastName={user.last_name} username={user.username} />
       })

@@ -1,7 +1,6 @@
 import { useState, useEffect, Fragment } from "react";
 import Options from './Options';
 import axios from "axios";
-import Switch from '@mui/material/Switch';
 import BandResultList from './BandResultList'
 import UserResultList from './UserResultList';
 import './Result.scss';
@@ -15,7 +14,8 @@ export default function Results(props) {
   const [selectedInstBand, setSelectedInstBand] = useState("0");
   const [selectedGenreBand, setSelectedGenreBand] = useState("0");
   const [checkAvailable, setCheckAvailable] = useState(false);
-  const [isToggled, setIsToggled] = useState(true);
+
+  const { userResult, bandResult, currentUser, searchOption} = props;
   
   useEffect(() => {
     Promise.all([
@@ -42,9 +42,9 @@ export default function Results(props) {
 
   return (
     <Fragment>
-      <Switch onClick={() => setIsToggled((prev) => !prev)}/>
+      {searchOption !== undefined &&
         <div className="search-results">
-          {isToggled ? (
+          {searchOption ? (
           <div className="user-results">
             <h1>This is Users</h1>
             <select value={selectedInstUser} onChange={({target}) => setSelectedInstUser(() => target.value)}>
@@ -55,8 +55,8 @@ export default function Results(props) {
               <option value={0}>All</option>
               {processedGenre}
             </select>
-            {props.userResult.length !== 0 && <UserResultList
-              users={props.userResult}
+            {userResult.length !== 0 && <UserResultList
+              users={userResult}
               instrument={selectedInstUser}
               genre={selectedGenreUser}
             />}
@@ -72,16 +72,16 @@ export default function Results(props) {
               {processedGenre}
             </select>
             <input type="checkbox" checked={checkAvailable} onChange={() => setCheckAvailable(!checkAvailable)}/>
-            {props.bandResult.length !== 0 && <BandResultList
-              bands={props.bandResult}
+            {bandResult.length !== 0 && <BandResultList
+              bands={bandResult}
               instrument={selectedInstBand}
               genre={selectedGenreBand}
               checkAvailable={checkAvailable}
-              currentUser={props.currentUser}
+              currentUser={currentUser}
             />}
           </div>
           )}
-        </div>
+        </div>}
     </Fragment> 
 
   );

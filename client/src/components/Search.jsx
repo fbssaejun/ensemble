@@ -1,20 +1,15 @@
 import axios from "axios";
-import { useEffect, useState, Fragment } from "react";
-// import Options from './Result/Options';
+import { useState } from "react";
 import Result from './Result'
 
+import './Search.scss';
 
 export default function Search(props) {
 
   const [searchTerm, setSearchTerm] = useState("");
   const [userResult, setUserResult] = useState([]);
   const [bandResult, setBandResult] = useState([]);
-
-  useEffect(()=> {
-
-
-
-  },[searchTerm])
+  const [searchOption, setSearchOption] = useState();
   
   const searchField = (event)=>{
     event.preventDefault()
@@ -34,13 +29,28 @@ export default function Search(props) {
   };
 
   return(
-    <Fragment>
-    <form onSubmit={searchField}>
-      <input type="text" placeholder="Find your Band" onChange={({ target }) => setSearchTerm(target.value)}/>
-      <button type="submit">Submit</button> <br/>
-    </form>
-    <Result userResult={userResult} bandResult={bandResult} currentUser={props.currentUser}/>
-    </Fragment>
+    <div className="search-page">
+      <h1 className="searching-for">I am searching for a...</h1>
+      <form>
+        <input type="radio" name="rdo" id="yes" onClick={(prev) => {setSearchOption(true)}} />
+        <input type="radio" name="rdo" id="no" onClick={(prev) => {setSearchOption(false)}} />
+        <div className="switch">
+          <label for="yes">Player</label>
+          <label for="no">Band</label>
+        </div>
+      </form>
+      {searchOption !== undefined &&
+      <form onSubmit={searchField} className="search-btn">
+        <input type="text" placeholder="Find your Band" onChange={({ target }) => setSearchTerm(target.value)}/>
+        <button type="submit" className="search-btn">Submit</button> <br/>
+      </form>}
+      <Result 
+        userResult={userResult}
+        bandResult={bandResult}
+        currentUser={props.currentUser}
+        searchOption={searchOption}
+      />
+    </div>
 
   )
 }

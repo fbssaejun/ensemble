@@ -50,21 +50,21 @@ VALUES ('Empty', 'User', 'none@none.com', 'somedude', '12345'),
 
 
 
-INSERT INTO bands (leader_id, name, featured)
+INSERT INTO bands (leader_id, name, description, featured)
 VALUES
-(10, 'Oasis', TRUE),
-(3, 'Guns N'' Roses', TRUE),
-(1, 'Coldplay', FALSE),
-(16, 'AC/DC', TRUE),
-(1, 'Red Hot Chili Peppers', TRUE),
-(12, 'Polyphia', TRUE),
-(26, 'Racer X', TRUE),
-(30, 'Chon', TRUE),
-(34, 'Periphery', FALSE),
-(6, 'Megadeth', FALSE),
-(48, 'test1', FALSE),
-(48, 'test2', FALSE),
-(48, 'all empty spots', FALSE);
+(10, 'Oasis', 'WE LOVE FAMILY DRAMA',TRUE),
+(3, 'Guns N'' Roses', 'We shoot flowers',TRUE),
+(1, 'Coldplay', 'We have rainbow colored pianos',FALSE),
+(16, 'AC/DC', 'Highway to HEAVEN',TRUE),
+(1, 'Red Hot Chili Peppers', 'WE DO NOT LIKE SPICY FOOD',TRUE),
+(12, 'Polyphia', 'Polyester clothes are nice',TRUE),
+(26, 'Racer X', 'Racing to the top of the chart!',TRUE),
+(30, 'Chon', 'Idk this band',TRUE),
+(34, 'Periphery', 'This one either',FALSE),
+(6, 'Megadeth', 'People with short hair not accepted',FALSE),
+(48, 'test1', 'bleh',FALSE),
+(48, 'test2', 'bleh',FALSE),
+(48, 'all empty spots', 'empty',FALSE);
 
 
 INSERT INTO instruments (name)

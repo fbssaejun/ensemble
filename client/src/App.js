@@ -11,6 +11,7 @@ import UserEdit from './components/UserProfile/UserEdit';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import CreateBandForm from './components/CreateBandForm';
 import BandManage from './components/BandManage/index';
+import Footer from './components/Footer';
 import './App.scss';
 
 function App() {
@@ -51,6 +52,7 @@ function App() {
           </Route>
           <Route component={NotFound} />
         </Switch>
+        <Footer />
       </Router>
     </main>
   );

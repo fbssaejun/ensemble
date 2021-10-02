@@ -6,6 +6,8 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 
+import userIcon from './rockstar.png';
+
 export default function Dashboard(props) {
   const [anchorEl, setAnchorEl] = useState(null);
   const history = useHistory();
@@ -34,7 +36,7 @@ export default function Dashboard(props) {
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
       >
-        Dashboard
+        <img src={userIcon}/>
       </Button>
       <Menu
         id="basic-menu"

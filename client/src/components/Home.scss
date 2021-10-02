@@ -1,0 +1,88 @@
+@import '../appVariables.scss';
+
+
+.main {
+  margin-top: 8em;
+
+  .explore-text {
+    color:white;
+    width:100%;
+    padding: 5em;
+    background-color: burlywood;
+  }
+}
+
+.home-container {
+  display:flex;
+  justify-content:  space-evenly;
+  width: 60%;
+  height: 20em;
+  margin: 8em auto;
+  align-items: center;
+  text-align: center;
+  background-color: #fff;
+  max-width: 100%;
+ 
+  .picture {
+    color: red;
+    width: 40%;
+    height: 80%;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+    0 10px 10px rgba(0,0,0,0.22);
+  }
+
+  .content {
+    color:black;
+    width: 40%;
+  }
+
+}
+
+
+
+
+
+/* Slideshow */
+
+.slideshow {
+  margin: 100px auto;
+  overflow: hidden;
+  max-width: 500px;
+}
+
+.slideshowSlider {
+  white-space: nowrap;
+  transition: ease 1000ms;
+}
+
+.slide {
+  display: inline-block;
+  height: 10em;
+  width: 100%;
+  border-radius: 40px;
+  border: none;
+  background-color: blanchedalmond;
+}
+
+/* Buttons */
+
+.slideshowDots {
+  text-align: center;
+}
+
+.slideshowDot {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+
+  cursor: pointer;
+  margin: 15px 7px 0px;
+
+  background-color: #c4c4c4;
+}
+
+.slideshowDot.active {
+  background-color: black;
+}

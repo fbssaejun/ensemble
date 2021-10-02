@@ -1,3 +1,6 @@
+@import './appVariables.scss';
+
+
 main {
   text-align: center;
   align-items: center;
@@ -12,4 +15,12 @@ main {
   width:100%;
   height:100%;
   object-fit: fill;
+}
+
+footer {
+  background-color:burlywood;
+  color: white;
+  bottom: 0;
+  width: 100%;
+  height:10em;
 }

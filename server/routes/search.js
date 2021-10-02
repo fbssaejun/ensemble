@@ -20,7 +20,9 @@ module.exports = (db) => {
 
     // to find bands when term is user name, add band leader name to band schema, also update for createband
     const query_bands = `
-      SELECT genre_id, bands.*, spots.instrument_id AS spot_instrument, spots.id AS spot_id, spots.user_id AS spot_user_id, spots.title AS spot_title, spots.description AS spot_description FROM band_genre
+      SELECT genre_id, bands.*, spots.instrument_id AS spot_instrument, 
+        spots.id AS spot_id, spots.user_id AS spot_user_id, spots.title AS spot_title, 
+        spots.description AS spot_description FROM band_genre
       LEFT JOIN bands ON bands.id = band_genre.band_id
       LEFT JOIN spots ON bands.id = spots.band_id
       WHERE LOWER(bands.name) LIKE LOWER($1)

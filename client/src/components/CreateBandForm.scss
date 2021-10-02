@@ -154,3 +154,26 @@ $gray: #9b9b9b;
   &:focus { outline: 2px dotted #55d7dc; }
 }
 
+
+
+//Delete
+
+.delete-button {
+  border: none;
+  background: none;
+  background-color: none;
+
+  .far {
+    font-size: 25px;
+    color: rgba(221, 55, 55, 0.701);
+
+    &:hover {
+      transform: scale(1.1);
+      cursor: pointer;
+    }
+  }
+}
+
+
+
+

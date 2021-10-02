@@ -1,0 +1,12 @@
+@import '../../appVariables.scss';
+
+.all-band-lists-container {
+  display: flex;
+  margin-top: 12vh;
+}
+
+.all-band-lists-container > * {
+  border: 5px;
+  border-color: black;
+  border-style: solid;
+}

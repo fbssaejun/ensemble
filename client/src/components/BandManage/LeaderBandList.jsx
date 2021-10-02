@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import LeaderBand from './LeaderBand';
-import { Fragment } from 'react';
+
+import './LeaderBandList.scss'
 
 export default function LeaderBandList (props) {
   const { currentUser, cachedBands, setCachedBands } = props;
@@ -26,9 +27,9 @@ export default function LeaderBandList (props) {
 
 
   return (
-    <Fragment>
+    <div className="leader-band-list">
       <h1>BANDS OWNED</h1>
       {myBandArr}
-    </Fragment>
+    </div>
   )
 }

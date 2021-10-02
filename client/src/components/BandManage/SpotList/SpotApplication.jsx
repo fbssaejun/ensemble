@@ -22,7 +22,6 @@ export default function SpotApplication(props) {
       user_id: application.user_id, 
       spot_id: application.spot_id
     }).then((results) => {
-      console.log("after update status", results)
       const newStatus = results.data.result.rows[0].accepted_status;
       setAcceptedStatus(newStatus);
     })

@@ -2,6 +2,8 @@ import EmptySpot from "./EmptySpot";
 import FilledSpot from "./FilledSpot";
 import AddSpotItem from "./AddSpotItem";
 
+import './SpotList.scss';
+
 export default function SpotList (props) {
 const { spots, setSpots, bandId } = props;
 const mappedSpots = spots.map((spot) => {
@@ -10,7 +12,7 @@ const mappedSpots = spots.map((spot) => {
 
 
   return (
-    <div>
+    <div className="spot-list">
       {mappedSpots}
       <AddSpotItem bandId={bandId} spots={spots} setSpots={setSpots} />
     </div>

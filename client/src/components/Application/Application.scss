@@ -1,0 +1,56 @@
+@import '../../appVariables.scss';
+
+.user-application {
+  display: flex;
+  margin-left: 10em;
+  margin-right: 10em;
+  margin-bottom: 1em;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  box-shadow: 0 0.25px 0.25px rgba(0, 0, 0, 0.12), 0 0.5px 0.5px rgba(0, 0, 0, 0.12),
+    0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12);
+  transition: 0.1s ease-in;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 10;
+  align-items: start;
+  padding-left: 1rem;
+  padding-right: 3rem;
+}
+
+.band-name {
+  color: $color-3;
+  margin-top: 0;
+}
+
+.band-info {
+  margin-top: 1em;
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.application-status {
+  display: flex;
+  flex-direction: column;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  justify-content: center;
+  width: 2rem;
+  flex-grow: 0;
+
+  &--pending {
+    background-color: #f5c330;
+  }
+  &--accepted {
+    background-color: #30f558;
+  }
+  &--rejected {
+    background-color: #f55d30;
+  }
+}

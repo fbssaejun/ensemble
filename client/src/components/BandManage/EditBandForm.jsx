@@ -1,5 +1,8 @@
 import axios from "axios";
-import { Fragment, useState } from "react"
+import { useState } from "react"
+
+import './EditBandForm.scss'
+
 export default function EditBandForm(props) {
 
   const { name, description, image, bandId, featured, cachedBands, setCachedBands } = props.bandInfo;
@@ -33,14 +36,16 @@ export default function EditBandForm(props) {
   }
   
   return(
-    <Fragment>
+    <div className="edit-band-form">
       <h1>edit band form</h1>
       <button onClick={props.onClose}>X</button>
       <form>
-        <input value={nameVal} onChange={({target}) => setNameVal(target.value)}></input>
-        <input value={descrVal} onChange={({target}) => setDescrVal(target.value)}></input>
-        <input value={imageVal} onChange={({target}) => setImageVal(target.value)}></input>
-        <input type="checkbox" checked={featuredVal} onChange={() => setFeaturedVal((prev) => !prev)}></input>
+        <input placeholder="Enter new band name" value={nameVal} onChange={({target}) => setNameVal(target.value)}></input>
+        <input placeholder="Enter new description" value={descrVal} onChange={({target}) => setDescrVal(target.value)}></input>
+        <input placeholder="Enter new image URL" value={imageVal} onChange={({target}) => setImageVal(target.value)}></input>
+        <label> Featured
+          <input type="checkbox" checked={featuredVal} onChange={() => setFeaturedVal((prev) => !prev)}></input>
+        </label>
         <button type="button" onClick={(event) => {
           event.preventDefault();
           submitEditForm()
@@ -52,6 +57,6 @@ export default function EditBandForm(props) {
         }>Delete</button>
       </form>
       
-    </Fragment>
+    </div>
   )
 }

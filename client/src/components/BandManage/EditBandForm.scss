@@ -1,6 +1,8 @@
-.edit-band-form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+@import '../../appVariables.scss';
+
+.edit-band-form-inputs {
+  background-color: whitesmoke;
+}
+
+.edit-band-form-close-button {
 }

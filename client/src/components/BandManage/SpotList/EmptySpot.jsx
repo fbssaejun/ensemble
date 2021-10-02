@@ -15,12 +15,14 @@ export default function EmptySpot (props) {
   
   return (
     <Fragment>
-        <h1>Empty Spot: {spot.title}</h1>
-        <button onClick={() => setShowApplications((prev) => !prev)}> Applications </button>
-        {showApplications && <ShowSpotApplications spotId={spot.id} />}  
-        {currentUser.id !== spot.user_id && <button onClick={(event)=>{
-          event.preventDefault();
-          deleteSpot(spot.id)}}> x </button>}
-      </Fragment>
-    );
-  }
+      <h5>Empty Spot: {spot.title}</h5>
+      <button onClick={() => setShowApplications((prev) => !prev)}> Applications </button>
+      {showApplications && <ShowSpotApplications spotId={spot.id} />}  
+      {currentUser.id !== spot.user_id && 
+      <button onClick={(event)=>{
+        event.preventDefault();
+        deleteSpot(spot.id)}}> x 
+      </button>}
+    </Fragment>
+  );
+}

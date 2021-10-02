@@ -13,10 +13,12 @@ export default function FilledSpot(props) {
   
   return (
     <Fragment>
-      <h1>User Spot: {spot.user_id}</h1>
-      {currentUser.id !== spot.user_id && <button onClick={(event)=>{
+      <h5>User Spot: {spot.user_id}</h5>
+      {currentUser.id !== spot.user_id && 
+      <button onClick={(event)=>{
         event.preventDefault();
-        deleteSpot(spot.id)}}> x </button>}
+        deleteSpot(spot.id)}}> x 
+      </button>}
     </Fragment>
   );
 }

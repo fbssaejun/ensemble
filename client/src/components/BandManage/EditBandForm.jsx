@@ -36,26 +36,30 @@ export default function EditBandForm(props) {
   }
   
   return(
-    <div className="edit-band-form">
-      <h1>edit band form</h1>
-      <button onClick={props.onClose}>X</button>
-      <form>
-        <input placeholder="Enter new band name" value={nameVal} onChange={({target}) => setNameVal(target.value)}></input>
-        <input placeholder="Enter new description" value={descrVal} onChange={({target}) => setDescrVal(target.value)}></input>
-        <input placeholder="Enter new image URL" value={imageVal} onChange={({target}) => setImageVal(target.value)}></input>
-        <label> Featured
-          <input type="checkbox" checked={featuredVal} onChange={() => setFeaturedVal((prev) => !prev)}></input>
-        </label>
-        <button type="button" onClick={(event) => {
-          event.preventDefault();
-          submitEditForm()
-        }}>Submit</button>
-        <button onClick={(event) => {
-          event.preventDefault();
-          deleteBand(bandId);
-         }
-        }>Delete</button>
-      </form>
+    <div className="edit-band-container">
+      <button className="edit-band-form-close-button" onClick={props.onClose}>X</button>
+
+        <form className="edit-band-form-inputs">
+          <input placeholder="Enter new band name" value={nameVal} onChange={({target}) => setNameVal(target.value)}></input>
+          <input placeholder="Enter new description" value={descrVal} onChange={({target}) => setDescrVal(target.value)}></input>
+          <input placeholder="Enter new image URL" value={imageVal} onChange={({target}) => setImageVal(target.value)}></input>
+          <div className="featured-checkbox">
+            <input id="featured" type="checkbox" checked={featuredVal} onChange={() => setFeaturedVal((prev) => !prev)}></input>
+            <label for="featured"> Featured</label><br/>
+          </div>
+          <div className="band-form-bottom-buttons">
+            <button type="button" onClick={(event) => {
+              event.preventDefault();
+              submitEditForm()
+            }}>Submit</button>
+            <button onClick={(event) => {
+              event.preventDefault();
+              deleteBand(bandId);
+            }
+            }>Delete</button>
+          </div>
+        </form>
+
       
     </div>
   )

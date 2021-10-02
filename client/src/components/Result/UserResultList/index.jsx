@@ -131,17 +131,6 @@ export default function UserResultList(props) {
 
   const stuff = resultRender(users)
 
-
-  // const genArr = filterGenreArr(users)
-  // const instArr = filterInstArr(users)
-  // console.log(removeCopy([...genArr, ...instArr]))
-
-  // const filtered = removeCopy([...genArr, ...instArr]);
-  // const rendered = filtered.map((user, index) => {
-  //   return <UserResult key={index} firstName={user.first_name} lastName={user.last_name} username={user.username} />
-  // })
-
-
   return (
     <div>
       {stuff}

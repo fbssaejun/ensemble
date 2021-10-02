@@ -18,7 +18,7 @@ export default function SpotListItem (props) {
           if (props.currentUser === undefined) {
             history.push('/auth')
           }
-          // ref.current?.("Passed") // Add this to any click event that should trigger message
+          
           setShowApplication((prev) => !prev);
           setButtonIcon((prev)=>{
             return (prev === "+") ? "x" : "+" 

@@ -5,13 +5,20 @@ import FormSpot from './FormSpot';
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
 
+import FormControl from '@mui/material/FormControl';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
+import InputLabel from '@mui/material/InputLabel';
+
 export default function CreateBandForm(props) {
 
   // Options for instruments and genres in our db:
   const [allInst, setAllInst] = useState([]);
   const [allGenre, setAllGenre] = useState([]);
   const [bandGenre, setBandGenre] = useState([]);
-  const [leaderInst, setLeaderInst] = useState([]);
+
+  // Leader's instrument:
+  const [selectedInstLeader, setSelectedInstLeader] = useState("0");
 
   const [bandName, setBandName] = useState("");
   const [bandDesc, setBandDesc] = useState("");
@@ -56,6 +63,7 @@ export default function CreateBandForm(props) {
       description: bandDesc,
       band_image: bandImage,
       featured: bandFeatured,
+      band_genre: bandGenre,
       spotData: spotConvert(withLeaderSpot)
     })
     .then(response => {
@@ -92,7 +100,10 @@ export default function CreateBandForm(props) {
   };
 
 
-  console.log(bandGenre)
+
+  const materialsInst = allInst.map((instrument) => {
+    return <MenuItem key={instrument.id} value={instrument.id}>{instrument.name}</MenuItem>
+  });
 
 
   return(
@@ -122,7 +133,19 @@ export default function CreateBandForm(props) {
         <label htmlFor="featuredCheck">Feature Band?</label> <br />
         <h2>Your info</h2> 
         <input placeholder="title" onChange={({ target }) => setLeaderSpot((prev)=> ({...prev, title: target.value}))} required/>
-        <input placeholder="instrument id" onChange={({ target }) => setLeaderSpot((prev)=> ({...prev, instrumentId: target.value}))} required/>
+        <FormControl sx={{ m: 1, minWidth: 100 }} required >
+          <InputLabel id="leader-instrument-label">Instrument</InputLabel>
+          <Select
+            labelId="leader-instrument-label"
+            id="leader-instrument"
+            value={leaderSpot.instrumentId}
+            label="Instrument"
+            onChange={({ target }) => setLeaderSpot((prev)=> ({...prev, instrumentId: target.value}))}
+          >
+          {materialsInst}
+          </Select>
+        </FormControl>
+        {/* <input placeholder="instrument id" onChange={({ target }) => setLeaderSpot((prev)=> ({...prev, instrumentId: target.value}))} required/> */}
         <input placeholder="description" onChange={({ target }) => setLeaderSpot((prev)=> ({...prev, description: target.value}))} required/>
         {spotArr.map((obj, index) => {
           return <FormSpot key={index} onDelete={() => {deleteSpot(index)}} onUpdate={updateSpot} index={index} spot={obj} />

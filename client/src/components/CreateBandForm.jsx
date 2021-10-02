@@ -2,6 +2,7 @@ import {  useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import FormSpot from './FormSpot';
+import './CreateBandForm.scss';
 
 export default function CreateBandForm(props) {
   const [bandName, setBandName] = useState("");
@@ -65,15 +66,15 @@ export default function CreateBandForm(props) {
   };
 
   return(
+  <div className="create-band-form">
     <form onSubmit={submitForm}>
-      <h2>{JSON.stringify(spotConvert(spotArr))}</h2>
       <div className="form-group-band">
         <h2>Create a new Band</h2>
         <input type="text" placeholder="Enter name of band" onChange={({ target }) => setBandName(target.value)} required/> <br/>
         <textarea rows="10" cols="50" type="text" placeholder="Enter a band description" onChange={({ target }) => setBandDesc(target.value)}/> <br/>        
         <input type="text" placeholder="Link to picture" onChange={({ target }) => setBandImage(target.value)}/> <br/>
-        <input type="checkbox" checked={bandFeatured} id="featuredCheck" onChange={() => setBandFeatured(!bandFeatured)}/>
         <label htmlFor="featuredCheck">Feature Band?</label> <br />
+        <input type="checkbox" checked={bandFeatured} id="featuredCheck" onChange={() => setBandFeatured(!bandFeatured)}/>
         <h2>Your info</h2> 
         <input placeholder="title" onChange={({ target }) => setLeaderSpot((prev)=> ({...prev, title: target.value}))} required/>
         <input placeholder="instrument id" onChange={({ target }) => setLeaderSpot((prev)=> ({...prev, instrumentId: target.value}))} required/>
@@ -85,6 +86,7 @@ export default function CreateBandForm(props) {
         <button type="submit">Create band</button>
       </div>
     </form>
+  </div>
   );
 
 }

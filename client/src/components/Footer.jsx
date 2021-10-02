@@ -5,7 +5,19 @@ export default function Footer() {
   return (
     <Fragment>
     <footer>
-    <h1>This is Footer</h1>
+      <div>
+      <table>
+        <thead>
+          <tr>Contributors: </tr>
+        </thead>
+        <tbody>
+          <td>Anthony Kim</td>
+          <td>Drew Kang</td>
+          <td>Tim Zheng</td>
+        </tbody>
+
+      </table>
+      </div>
     </footer> 
     </Fragment>
   );

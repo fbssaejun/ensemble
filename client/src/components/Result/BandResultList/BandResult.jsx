@@ -21,7 +21,7 @@ export default function BandResult(props) {
   }, [bandId])
   
   return (
-    <Card className="single-band-result" sx={{ maxWidth: 400, maxHeight:300 }}>
+    <Card className="single-band-result" sx={{ maxWidth: 400, maxHeight:700 }}>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {props.name}

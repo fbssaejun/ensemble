@@ -104,7 +104,7 @@ export default function BandResultList(props) {
       const available = filterAvailable([...arr1, ...arr2]);
       const filtered = removeCopy(available);
       const rendered = filtered.map((band, index) => {
-        return (<Grid align="center" item xs={6}>
+        return (<Grid align="center" >
           <BandResult key={index} name={band.name} bandId={band.id} currentUser={props.currentUser} />
         </Grid>)
       })
@@ -113,7 +113,6 @@ export default function BandResultList(props) {
     }
 
   }
-  
 
   const stuff = resultRender(bands)
 

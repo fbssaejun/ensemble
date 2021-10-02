@@ -32,6 +32,10 @@ module.exports = (db) => {
     VALUES ($1, $2, $3, $4, $5)
     RETURNING id;
     `;
+
+    console.log(req.body.band_genre);
+    const bandGenreArr = req.body.band_genre;
+
     db.query(query, [
       req.body.leader_id,
       req.body.name,
@@ -51,9 +55,28 @@ module.exports = (db) => {
       RETURNING band_id;
       `;
       db.query(spotQuery).then((results) => {
-        return res.status(200).send({
-          message: 'data inserted',
-          result: results.rows[0],
+
+        let genreValues = "";
+        const band_id = results.rows[0].band_id
+        const genre_length = bandGenreArr.length;
+        for (let i = 0; i < genre_length; i ++) {
+          genreValues += `(${band_id}, ${bandGenreArr[i].id}), `
+        }
+
+        let genreQuery = `
+        INSERT INTO band_genre(band_id, genre_id)
+        VALUES
+        ${genreValues.substring(0, genreValues.length - 2)}
+        RETURNING band_id;
+        `;
+
+        console.log(genreQuery)
+
+        db.query(genreQuery).then((results) => {
+          return res.status(200).send({
+            message: 'data inserted',
+            result: results.rows[0],
+          });
         });
       });
     });

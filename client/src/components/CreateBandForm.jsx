@@ -1,9 +1,18 @@
-import {  useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import FormSpot from './FormSpot';
+import Autocomplete from '@mui/material/Autocomplete';
+import TextField from '@mui/material/TextField';
 
 export default function CreateBandForm(props) {
+
+  // Options for instruments and genres in our db:
+  const [allInst, setAllInst] = useState([]);
+  const [allGenre, setAllGenre] = useState([]);
+  const [bandGenre, setBandGenre] = useState([]);
+  const [leaderInst, setLeaderInst] = useState([]);
+
   const [bandName, setBandName] = useState("");
   const [bandDesc, setBandDesc] = useState("");
   const [bandFeatured, setBandFeatured] = useState(false);
@@ -17,6 +26,24 @@ export default function CreateBandForm(props) {
   })
 
   const history = useHistory();
+
+  useEffect(() => {
+    Promise.all([
+      axios.get('/api/instruments'),
+      axios.get('/api/genres')
+    ])
+    .then((all) => {
+      const inst = all[0].data;
+      const genre = all[1].data;
+
+      setAllInst([...inst]);
+      setAllGenre([...genre]);
+
+    })
+
+  },[]);
+
+
 
   const submitForm = (event) => {
     event.preventDefault();
@@ -64,13 +91,32 @@ export default function CreateBandForm(props) {
     setSpotArr((prev) => [...newSpots]);
   };
 
+
+  console.log(bandGenre)
+
+
   return(
     <form onSubmit={submitForm}>
       <h2>{JSON.stringify(spotConvert(spotArr))}</h2>
       <div className="form-group-band">
         <h2>Create a new Band</h2>
         <input type="text" placeholder="Enter name of band" onChange={({ target }) => setBandName(target.value)} required/> <br/>
-        <textarea rows="10" cols="50" type="text" placeholder="Enter a band description" onChange={({ target }) => setBandDesc(target.value)}/> <br/>        
+        <textarea rows="10" cols="50" type="text" placeholder="Enter a band description" onChange={({ target }) => setBandDesc(target.value)}/> <br/>
+        <Autocomplete
+            multiple
+            onChange={(event, value) => setBandGenre(value)}
+            id="tags-outlined"
+            options={allGenre}
+            getOptionLabel={(option) => option.name}
+            Genres
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                label="Genres"
+                placeholder="Add More Genres"
+              />
+            )}
+          />
         <input type="text" placeholder="Link to picture" onChange={({ target }) => setBandImage(target.value)}/> <br/>
         <input type="checkbox" checked={bandFeatured} id="featuredCheck" onChange={() => setBandFeatured(!bandFeatured)}/>
         <label htmlFor="featuredCheck">Feature Band?</label> <br />

@@ -7,6 +7,7 @@ import UserResultList from './UserResultList';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormHelperText from '@mui/material/FormHelperText';
+import Checkbox from '@mui/material/Checkbox';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
@@ -75,7 +76,6 @@ export default function Results(props) {
               {materialsInst}
               </Select>
             </FormControl>
-
             <FormControl sx={{ m: 1, minWidth: 100 }}>
               <InputLabel id="user-genre-label">Genre</InputLabel>
               <Select
@@ -97,15 +97,33 @@ export default function Results(props) {
           </div>) : (
           <div className="band-results">
             <h1>This is Bands</h1>
-            <select value={selectedInstBand} onChange={({target}) => setSelectedInstBand(() => target.value)}>
-              <option value={0}>All</option>
-              {processedInst}
-            </select>
-            <select value={selectedGenreBand} onChange={({target}) => setSelectedGenreBand(() => target.value)}>
-              <option value={0}>All</option>
-              {processedGenre}
-            </select>
-            <input type="checkbox" checked={checkAvailable} onChange={() => setCheckAvailable(!checkAvailable)}/>
+            <FormControl sx={{ m: 1, minWidth: 100 }}>
+              <InputLabel id="band-instrument-label">Instrument</InputLabel>
+              <Select
+                labelId="band-instrument-label"
+                id="band-instrument"
+                value={selectedInstBand}
+                label="Instrument"
+                onChange={({target}) => setSelectedInstBand(() => target.value)}
+              >
+              <MenuItem value={"0"}>All</MenuItem>
+              {materialsInst}
+              </Select>
+            </FormControl>
+            <FormControl sx={{ m: 1, minWidth: 100 }}>
+              <InputLabel id="band-genre-label">Genre</InputLabel>
+              <Select
+                labelId="band-genre-label"
+                id="band-genre"
+                value={selectedGenreBand}
+                label="Genre"
+                onChange={({target}) => setSelectedGenreBand(() => target.value)}
+              >
+              <MenuItem value={"0"}>All</MenuItem>
+              {materialsGenre}
+              </Select>
+            </FormControl>
+            <Checkbox checked={checkAvailable} onChange={() => setCheckAvailable(!checkAvailable)} />
             {bandResult.length !== 0 && <BandResultList
               bands={bandResult}
               instrument={selectedInstBand}

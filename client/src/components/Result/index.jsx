@@ -29,6 +29,8 @@ export default function Results(props) {
     })
   }, [])
 
+  
+
 
   const processedInst = instruments.map((instrument)=> {
     return <Options key={instrument.id} value={instrument.id} name={instrument.name} />

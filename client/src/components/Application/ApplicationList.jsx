@@ -3,6 +3,8 @@ import Application from "./Application";
 import { useState, useEffect, } from 'react';
 import { useParams } from 'react-router-dom';
 
+import './ApplicationList.scss'
+
 export default function ApplicationList (props) {
   const [applications, setApplications] = useState([]);
   const { userId } = useParams();
@@ -27,7 +29,7 @@ export default function ApplicationList (props) {
   })
 
   return (
-    <div>
+    <div className="application-list-container">
       {applicationArr}
     </div>
   );

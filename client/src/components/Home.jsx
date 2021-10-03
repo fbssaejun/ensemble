@@ -62,6 +62,7 @@ export default function Home() {
             style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
           >
             {featuredBands.map((bands, index) => (
+              <Fragment>
               <button
                 className="slide"
                 key={index}        
@@ -69,9 +70,13 @@ export default function Home() {
                   history.push(`/bands/${bands.id}`)
                 }}         
               >
+              <div>
+                <img src={bands.band_image} width="20px" height="20px"/>
                 <h2>{bands.name}</h2>
                 <h3>{bands.description}</h3>
+              </div>
               </button>
+              </Fragment>
             ))}
           </div>
 

@@ -1,42 +1,49 @@
 import { useParams } from 'react-router-dom';
-import CircularProgress from '@mui/material/CircularProgress';
-import Box from '@mui/material/Box';
 import { useEffect, useState, Fragment } from 'react';
 import MyBandList from './MyBandList';
+import Avatar from '@mui/material/Avatar';
 import axios from 'axios';
+import UserInfo from './UserInfo'
+
+import Paper from '@mui/material/Paper'
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+
+import './UserProfile.scss'
 
 export default function UserProfile(props) {
   const { userId } = useParams();
-  const [userInfo, setUserInfo] = useState({});
+  const [userInfo, setUserInfo] = useState();
 
 
   useEffect(() => {
-    //axios get all user info
     axios.get(`/api/users/${userId}`).then((results) => {
-
+      console.log(results.data)
       setUserInfo(results.data)
     })
   },[])
 
-  const getUser = (users) => {
-    for(const user of users) {
-      if (user.id === Number(userId)) {
-        return user;
-      }
-    }
-  }
+  return(
+    <div className="user-profile-content">
+      <Grid container alignItems="center" direction="row-reverse" spacing={4} columns={40}>
+        <Grid item xs={25}>
+          <MyBandList userId={userId} />
+        </Grid>
+        <Grid direction="column" item xs={15}>
+          <UserInfo/>
+        </Grid>
+        <Grid item xs={25}>
+          <h1>kek</h1>
+        </Grid>
+        <Grid item xs={15}>
+          <h1>kek</h1>
+        </Grid>
+      </Grid>
+    </div>
 
-  const user = getUser(props.users)
-
-  return !user ? (
-    <Box sx={{ display: 'flex' }}>
-      <CircularProgress />
-    </Box>
-  ) : (
-    <Fragment>
-      <h1>{user.first_name} {user.last_name}</h1>   
-      <h1>{user.city}</h1>
-      <MyBandList userId={userId} />
-    </Fragment>
-  ) 
+    // <div className="user-profile-content">
+    //   {userInfo && <h1>{userInfo.first_name} {userInfo.last_name}</h1>}
+    //   <MyBandList userId={userId} />
+    // </div>) 
+  )
 }

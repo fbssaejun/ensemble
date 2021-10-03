@@ -7,11 +7,12 @@ import Band from './components/Band/index';
 import Home from './components/Home';
 import Search from './components/Search';
 import ApplicationList from './components/Application/ApplicationList';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Route, Switch, useLocation } from 'react-router-dom';
 import CreateBandForm from './components/CreateBandForm';
 import BandManage from './components/BandManage/index';
 import Footer from './components/Footer';
 import './App.scss';
+import { AnimatePresence, motion } from 'framer-motion'
 
 function App() {
   const [state, setState] = useState({
@@ -20,39 +21,44 @@ function App() {
       : undefined,
   });
 
+  const location = useLocation();
+  console.log(location)
+
   return (
     <main className="layout">
-      <Router>
         <Navbar currentUser={state.currentUser} setState={setState} />
-        <Switch>
-          <Route path="/users/:userId/app">
-            <ApplicationList />
-          </Route>
-          <Route path="/users/:userId">
-            <UserProfile />
-          </Route>
-          <Route path="/auth">
-            <LoginRegister setState={setState} />
-          </Route>
-          <Route path="/search">
-            <Search currentUser={state.currentUser} />
-          </Route>
-          <Route path="/bands/new">
-            <CreateBandForm currentUser={state.currentUser} />
-          </Route>
-          <Route path="/bands/manage">
-            <BandManage currentUser={state.currentUser} />
-          </Route>
-          <Route path="/bands/:bandId">
-            <Band />
-          </Route>
-          <Route path="/" exact>
-            <Home currentUser={state.currentUser}/>
-          </Route>
-          <Route component={NotFound} />
-        </Switch>
+        <AnimatePresence>
+          <Switch location={location} key={location.pathname}>
+            <Route path="/users/:userId/app">
+              <ApplicationList />
+            </Route>
+            <Route path="/users/:userId">
+              <UserProfile />
+            </Route>
+            <Route path="/auth">
+              <LoginRegister setState={setState} />
+            </Route>
+            <Route path="/search">
+              <Search currentUser={state.currentUser} />
+            </Route>
+            <Route path="/bands/new">
+              <CreateBandForm currentUser={state.currentUser} />
+            </Route>
+            <Route path="/bands/manage">
+              <BandManage currentUser={state.currentUser} />
+            </Route>
+            <Route path="/bands/:bandId">
+              <Band />
+            </Route>
+            <Route path="/" exact>
+              <motion.div>
+                <Home currentUser={state.currentUser}/>
+              </motion.div>
+            </Route>
+            <Route component={NotFound} />
+          </Switch>
+        </AnimatePresence>
         <Footer />
-      </Router>
     </main>
   );
 }

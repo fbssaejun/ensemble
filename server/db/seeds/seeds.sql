@@ -50,21 +50,21 @@ VALUES ('Empty', 'User', 'none@none.com', 'somedude', '12345'),
 
 
 
-INSERT INTO bands (leader_id, name, description, featured)
+INSERT INTO bands (leader_id, name, description, featured, band_image)
 VALUES
-(10, 'Oasis', 'WE LOVE FAMILY DRAMA',TRUE),
-(3, 'Guns N'' Roses', 'We shoot flowers',TRUE),
-(1, 'Coldplay', 'We have rainbow colored pianos',FALSE),
-(16, 'AC/DC', 'Highway to HEAVEN',TRUE),
-(1, 'Red Hot Chili Peppers', 'WE DO NOT LIKE SPICY FOOD',TRUE),
-(12, 'Polyphia', 'Polyester clothes are nice',TRUE),
-(26, 'Racer X', 'Racing to the top of the chart!',TRUE),
-(30, 'Chon', 'Idk this band',TRUE),
-(34, 'Periphery', 'This one either',FALSE),
-(6, 'Megadeth', 'People with short hair not accepted',FALSE),
-(48, 'test1', 'bleh',FALSE),
-(48, 'test2', 'bleh',FALSE),
-(48, 'all empty spots', 'empty',FALSE);
+(10, 'Oasis', 'WE LOVE FAMILY DRAMA',TRUE, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTJ9Xo4hTHKhsEEQDJ_X2nskW2KJwfn31WRQ&usqp=CAU'),
+(3, 'Guns N'' Roses', 'We shoot flowers',TRUE, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDLMgh5j-8vATs1psaaL_MbRaHM4QH96bOTQ&usqp=CAU'),
+(1, 'Coldplay', 'We have rainbow colored pianos',FALSE, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSWJo-KK_lGeeSL-Mq2sZ66MQaFVf-EyarESJ1Oz4tgdXuw8qsNu_U0Plw93zHFSt3rnk&usqp=CAU'),
+(16, 'AC/DC', 'Highway to HEAVEN',TRUE, 'https://media.newyorker.com/photos/59095f7eebe912338a374b3a/master/w_2560%2Cc_limit/Michaud-ACDC.jpg'),
+(1, 'Red Hot Chili Peppers', 'WE DO NOT LIKE SPICY FOOD',TRUE, 'https://junkee.com/wp-content/uploads/2019/02/330e12cfdf1ece78f3a80437944efea81.jpg'),
+(12, 'Polyphia', 'Polyester clothes are nice',TRUE, 'https://www.metalsucks.net/wp-content/uploads/2019/02/polyphia-2019-1000x512.jpg'),
+(26, 'Racer X', 'Racing to the top of the chart!',TRUE, 'https://img.discogs.com/S9dV1tB5jGemM8qXn5wO6CzYhE4=/600x406/smart/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/A-292457-1511350648-3269.jpeg.jpg'),
+(30, 'Chon', 'Idk this band',TRUE, 'https://c8d8q6i8.stackpathcdn.com/wp-content/uploads/2020/12/CHON-Contact-Information.jpg'),
+(34, 'Periphery', 'This one either',FALSE, 'https://i2.wp.com/metalinjection.net/wp-content/uploads/2019/06/periphery-2019.jpg?fit=955%2C500&ssl=1'),
+(6, 'Megadeth', 'People with short hair not accepted',FALSE, 'https://www.gannett-cdn.com/-mm-/10f78fdfcafb6017b37c1e8f512a0aba2d9b5b25/c=90-814-5276-3744/local/-/media/2016/01/18/USATODAY/USATODAY/635887292620421830-Megadeth-s01-0057-final.jpg?width=3200&height=1808&fit=crop&format=pjpg&auto=webp'),
+(48, 'test1', 'bleh',FALSE, null),
+(48, 'test2', 'bleh',FALSE, null),
+(48, 'all empty spots', 'empty',FALSE, null);
 
 
 INSERT INTO instruments (name)

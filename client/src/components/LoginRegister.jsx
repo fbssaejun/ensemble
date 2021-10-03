@@ -27,7 +27,7 @@ export default function LoginRegister(props) {
 
   useEffect(() => {
     const signInButton = document.getElementById('signIn');
-    const container = document.getElementById('container');
+    const container = document.getElementById('container-login');
     const signUpButton = document.getElementById('signUp');
   
   
@@ -77,7 +77,7 @@ export default function LoginRegister(props) {
   }
 
   return (
-      <div class="container" id="container">
+      <div class="container-login" id="container-login">
         <div class="form-container sign-up-container">
           <form onSubmit={createNewUser}>
             <h1>Create Account</h1>

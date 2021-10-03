@@ -24,6 +24,14 @@ export default function MyBand(props) {
     })
   }
 
+  // const leaveBand = (spotId) => {
+  //   axios.patch(`/api/spots/${spotId}`).then((results) => {
+  //     const deletedSpot = results.data.result.rows[0];
+  //     const newBands = cachedBands.filter((band) => band.id !== deletedSpot.band_id)
+  //     setCachedBands((prev) => [...newBands])
+  //   })
+  // }
+
   return (
     <div>
       <h2>Band Name: {name}</h2>

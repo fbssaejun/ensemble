@@ -1,6 +1,9 @@
 import axios from "axios";
 import { useState } from "react";
 import classnames from 'classnames';
+import { Link } from "react-router-dom";
+
+import './SpotApplicationListItem.scss';
 
 export default function SpotApplicationListItem(props) {
   const { application } = props;
@@ -34,19 +37,30 @@ export default function SpotApplicationListItem(props) {
     'application-status--rejected' : acceptedStatus!== null && !acceptedStatus
   })
 
+  const bandURL = `/bands/${application.band_id}`;
+
   return (
     <div className="band-application">
       <span className={statusClassName}></span>
       <Link to={bandURL}>
-        <span className="info-container">
-          <h1 className="band-name">{bandName}</h1>
-          <h5 className="band-info">
-            Applying for spot: {title} <br/>
-            Instrument: {instrument} <br/>
-            Spot Description: {description} <br/>
-            My message: {message}
-          </h5>
-        </span>
+        <div className="app-info-and-buttons">
+          <span className="info-container">
+            <h1 className="user-name">{application.username}</h1>
+            <h5 className="user-info">
+              Applying for spot: {application.spot_title} <br/>
+              Instrument: {application.instrument_name} <br/>
+              My message: {application.message}
+            </h5>
+          </span>
+          <span className="acc-rej-buttons">
+            <button className="app-button--accept" onClick={(event) => {
+              event.preventDefault();
+              applicationUpdate(true)}}>Accept</button>
+            <button className="app-button--reject" onClick={(event) => {
+              event.preventDefault();
+              applicationUpdate(false)}}>Reject</button>
+          </span>
+        </div>
       </Link>
     </div>
     // <div>

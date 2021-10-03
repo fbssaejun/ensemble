@@ -62,7 +62,7 @@ export default function FormSpot(props) {
       <label for="enter-username">Have any member in mind?</label>
       <input type="text" placeholder="Empty Spot / Enter Username" id="enter-username" onChange={({ target }) => setUsername(target.value)} /> <br/>
       <br/><br/>
-      <button className="delete-button" type="button" onClick={props.onDelete}><i class="far fa-trash-alt"></i></button>
+      <button className="delete-button-form" type="button" onClick={props.onDelete}><i class="far fa-trash-alt"></i></button>
     </div>
   )
 }

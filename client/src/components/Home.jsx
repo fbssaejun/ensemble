@@ -71,7 +71,7 @@ export default function Home() {
                 }}         
               >
               <div>
-                <img src={bands.band_image} width="20px" height="20px"/>
+                <img src={bands.band_image} width="200px" height="100px"/>
                 <h2>{bands.name}</h2>
                 <h3>{bands.description}</h3>
               </div>

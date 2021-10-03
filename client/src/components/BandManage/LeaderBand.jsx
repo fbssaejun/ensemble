@@ -7,7 +7,11 @@ import axios from 'axios';
 
 import './LeaderBand.scss';
 
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Modal from '@mui/material/Modal';
 import { styled } from '@mui/system';
 
@@ -46,7 +50,7 @@ export default function LeaderBand(props) {
 
   return (
     <div className="leader-band-item">
-      <div>
+      <div className="band-name-edit-button">
         <h2>{name}</h2>
         <button onClick={handleOpen}>Edit</button>
         <Modal
@@ -65,7 +69,20 @@ export default function LeaderBand(props) {
           </div>
         </Modal>
       </div>
-      <SpotList bandId={bandId} currentUser={currentUser} spots={spots} setSpots={setSpots}/>
+      <div className="spot-list-accordion">
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon/>}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+          >
+            <Typography></Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <SpotList bandId={bandId} currentUser={currentUser} spots={spots} setSpots={setSpots}/>
+          </AccordionDetails>
+        </Accordion>
+      </div>
     </div>
   )
 }

@@ -4,9 +4,23 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
-// import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 import './MyBand.scss';
+
+const HorizontalAccordion = ({children}) => {
+  const [isOpen, setIsOpen] = useState(false)
+  let collapsed = isOpen ? "" : "collapsed";
+
+  return (
+    <div className='horizontal-accordion'>
+      <div className={`horizontal-accordion-content ${collapsed}`}>
+        {children}
+      </div>
+      <div onClick={() => setIsOpen(!isOpen)} className={`horizontal-accordion-control ${collapsed}`}><span>&lt;</span></div>
+    </div>
+  );
+}
 
 export default function MyBand(props) {
   const [spots, setSpots] = useState([]);
@@ -32,28 +46,34 @@ export default function MyBand(props) {
 
   return (
     <div className="my-band-item">
-      <h2>{name}</h2>
-      {mySpot.length && <h3>My Spot: {mySpot[0].instrument_name}</h3>}
-      <button type="button" onClick={(event)=>{
-        event.preventDefault();
-        leaveBand(mySpot[0].id)
-      }}>Leave Band</button>
-      <Accordion>
-        <AccordionSummary
-          expandIcon="V"
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <Typography>Accordion 1</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
+      <div>
+        <h2>{name}</h2>
+        {mySpot.length && <h3>My Spot: {mySpot[0].instrument_name}</h3>}
+      </div>
+      <HorizontalAccordion>
+        <button type="button" onClick={(event)=>{
+          event.preventDefault();
+          leaveBand(mySpot[0].id)
+        }}>Leave Band
+        </button>
+      </HorizontalAccordion>
+      
     </div>
   )
-
+  
 }
+//  <Accordion>
+//   <AccordionSummary
+//     expandIcon={<ExpandMoreIcon/>}
+//     aria-controls="panel1a-content"
+//     id="panel1a-header"
+//   >
+//   </AccordionSummary>
+//   <AccordionDetails>
+//     <button type="button" onClick={(event)=>{
+//       event.preventDefault();
+//       leaveBand(mySpot[0].id)
+//     }}>Leave Band
+//     </button>
+//   </AccordionDetails>
+// </Accordion> 

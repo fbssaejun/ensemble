@@ -18,7 +18,7 @@ export default function Application (props) {
       <span className={statusClassName}></span>
       <Link to={bandURL}>
         <span className="info-container">
-          <h1 className="band-name">{bandName}</h1>
+          <h3 className="band-name">{bandName}</h3>
           <h5 className="band-info">
             Applying for spot: {title} <br/>
             Instrument: {instrument} <br/>

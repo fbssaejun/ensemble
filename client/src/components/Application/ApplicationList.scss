@@ -1,6 +1,10 @@
 @import '../../appVariables.scss';
 
 .application-list-container {
-  margin-top: 12vh;
-  width: fit-content;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 40%;
 }

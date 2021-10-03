@@ -1,11 +1,11 @@
-import { Fragment } from "react"
 
 export default function MyBand(props) {
 
-  
   return (
-    <Fragment>
+    <div className="profile-band">
+      <img src={props.image}/>
       <h4>{props.name}</h4>
-    </Fragment>
+      <h6>{props.description}</h6>
+    </div>
   )
 }

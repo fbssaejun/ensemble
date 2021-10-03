@@ -97,6 +97,7 @@ export default function UserResultList(props) {
         return (<Grid align="center" item xs={boxSize}>
         <UserResult
           key={index}
+          userId={user.id}
           firstName={user.first_name}
           lastName={user.last_name}
           username={user.username}
@@ -116,6 +117,7 @@ export default function UserResultList(props) {
         return (<Grid align="center" item xs={boxSize}>
           <UserResult 
             key={index}
+            userId={user.id}
             firstName={user.first_name}
             lastName={user.last_name}
             username={user.username}
@@ -140,6 +142,7 @@ export default function UserResultList(props) {
         return (<Grid align="center" item xs={boxSize}>
           <UserResult
             key={index}
+            userId={user.id}
             firstName={user.first_name}
             lastName={user.last_name}
             username={user.username}

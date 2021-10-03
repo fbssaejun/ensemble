@@ -27,7 +27,7 @@ function App() {
   return (
     <main className="layout">
         <Navbar currentUser={state.currentUser} setState={setState} />
-        <AnimatePresence>
+        <AnimatePresence exitBeforeEnter initial={false}>
           <Switch location={location} key={location.pathname}>
             <Route path="/users/:userId/app">
               <ApplicationList />
@@ -39,7 +39,13 @@ function App() {
               <LoginRegister setState={setState} />
             </Route>
             <Route path="/search">
-              <Search currentUser={state.currentUser} />
+              <motion.div
+                initial={{ opacity: 0}}
+                animate={{ opacity: 1}}
+                exit={{ opacity: 0}}
+              >
+                <Search currentUser={state.currentUser} />
+              </motion.div>
             </Route>
             <Route path="/bands/new">
               <CreateBandForm currentUser={state.currentUser} />
@@ -55,7 +61,7 @@ function App() {
                 initial={{ opacity: 0, y:"-100%" }}
                 animate={{ opacity: 1, y:"0" }}
                 exit={{ opacity: 0, y:"-100%" }}
-                >
+              >
                 <Home currentUser={state.currentUser}/>
               </motion.div>
             </Route>

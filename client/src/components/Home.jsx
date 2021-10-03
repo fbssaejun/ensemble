@@ -4,8 +4,8 @@ import trumpet from "./trumpet.jpeg";
 import axios from 'axios';
 import { useHistory, Link } from 'react-router-dom';
 
-// import ReactPlayer from "react-player";
-// import homeVideo from "./home-video.mp4";
+import ReactPlayer from "react-player";
+import homeVideo from "./home-video.mp4";
 
 export default function Home(props) {
 
@@ -47,12 +47,12 @@ export default function Home(props) {
 
   return (
     <Fragment className="home-component">
-      {/* <div className="vimeo-video">
-   
-         <video width="100%" height="500" controls autoplay>
+
+      <div className="ensemble-video">
+        <video id="bgvideo" autoplay="autoplay" loop muted>
           <source src={homeVideo} type="video/mp4"/>
         </video> 
-      </div> */}
+      </div>
 
       <div className="main">
         <h2>Featured Bands</h2>

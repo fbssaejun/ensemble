@@ -1,8 +1,8 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import SpotApplication from './SpotApplication'
+import SpotApplicationListItem from './SpotApplicationListItem'
 
-export default function ShowSpotApplications(props) {
+export default function SpotApplicationList(props) {
   const [applications, setApplications] = useState([]);
   const { spotId } = props;
 
@@ -13,7 +13,7 @@ export default function ShowSpotApplications(props) {
   }, [])
 
   const applicationArr = applications.map((application) => {
-    return <SpotApplication application={application}/>
+    return <SpotApplicationListItem application={application}/>
   })
 
   return (

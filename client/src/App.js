@@ -40,9 +40,9 @@ function App() {
             </Route>
             <Route path="/search">
               <motion.div
-                initial={{ opacity: 0}}
-                animate={{ opacity: 1}}
-                exit={{ opacity: 0}}
+                initial={{ opacity: 0, y:"-100%" }}
+                animate={{ opacity: 1, y:"0" }}
+                exit={{ opacity: 0, y:"-100%" }}
               >
                 <Search currentUser={state.currentUser} />
               </motion.div>
@@ -58,9 +58,9 @@ function App() {
             </Route>
             <Route path="/" exact>
               <motion.div
-                initial={{ opacity: 0, y:"-100%" }}
-                animate={{ opacity: 1, y:"0" }}
-                exit={{ opacity: 0, y:"-100%" }}
+                initial={{ opacity: 0}}
+                animate={{ opacity: 1}}
+                exit={{ opacity: 0}}
               >
                 <Home currentUser={state.currentUser}/>
               </motion.div>

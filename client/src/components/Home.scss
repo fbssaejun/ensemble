@@ -58,11 +58,16 @@
 
 .slide {
   display: inline-block;
-  height: 10em;
+  height: relative;
   width: 100%;
   border-radius: 40px;
   border: none;
   background-color: blanchedalmond;
+
+  img {
+    margin-top: 2em;
+    border-radius: 10%;
+  }
 }
 
 /* Buttons */

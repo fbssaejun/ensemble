@@ -1,4 +1,5 @@
 import MyBand from "./MyBand";
+import './MyBandList.scss';
 
 /* eslint-disable no-unused-vars */
 export default function MyBandList(props) {
@@ -23,7 +24,7 @@ export default function MyBandList(props) {
   })
 
   return (
-    <div>
+    <div className="my-band-list">
       <h1>My Bands</h1>
       {myBandArr}
     </div>

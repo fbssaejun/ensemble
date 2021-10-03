@@ -12,9 +12,15 @@ module.exports = (db) => {
   });
 
   router.get('/bands/:id', (req, res) => {
+
     const query = `
-    SELECT * FROM spots WHERE spots.band_id = $1;
+    SELECT spots.*, users.profile_image, users.username, instruments.instrument_image FROM spots
+    LEFT JOIN instruments ON instruments.id = spots.instrument_id
+    LEFT JOIN users ON users.id = spots.user_id
+    WHERE spots.band_id = $1
+    ORDER BY user_id;
     `;
+
     db.query(query, [req.params.id]).then((results) => {
       res.json(results.rows);
     });
@@ -39,6 +45,22 @@ module.exports = (db) => {
     db.query(query, [spotId]).then((results) => {
       return res.status(200).send({
         message: `spot ${spotId} removed`,
+        result: results,
+      });
+    });
+  });
+
+  router.patch('/:id', (req, res) => {
+    const spotId = req.params.id;
+    const { userId } = req.body;
+    console.log('patch spot_applications userid:', userId);
+    const query = `UPDATE spots SET user_id = NULL WHERE spots.id = $1 RETURNING *;`;
+
+    db.query(query, [spotId]).then((results) => {
+      const updateUserAppQuery = `DELETE FROM spot_applications WHERE user_id = $1`;
+      db.query(updateUserAppQuery, [userId]);
+      return res.status(200).send({
+        message: `spot ${spotId} updated`,
         result: results,
       });
     });

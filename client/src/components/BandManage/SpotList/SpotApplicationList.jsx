@@ -2,6 +2,8 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import SpotApplicationListItem from './SpotApplicationListItem'
 
+import './SpotApplicationList.scss';
+
 export default function SpotApplicationList(props) {
   const [applications, setApplications] = useState([]);
   const { spotId } = props;
@@ -17,7 +19,7 @@ export default function SpotApplicationList(props) {
   })
 
   return (
-    <div>
+    <div className="spot-application-list-container">
       <h1>show spot applications</h1>
       {applicationArr}
     </div>

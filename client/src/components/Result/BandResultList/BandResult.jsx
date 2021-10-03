@@ -1,19 +1,21 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import SpotList from './SpotList'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Divider from '@mui/material/Divider'
 import Typography from '@mui/material/Typography';
-
+import SpotList from './SpotList'
+import Box from "@mui/material/Box"
 
 
 export default function BandResult(props) {
   const [spots, setSpots] = useState([]);
   const { bandId } = props;
 
-  //axios get all the spots for this band
+  //axios get all the spots for this band. Uncomment if you suck
+  // and go back to the old ways
+
   useEffect(() => {
     axios.get(`/api/spots/bands/${bandId}`).then((results) => {
       console.log("Spot Information:", results.data)
@@ -23,7 +25,7 @@ export default function BandResult(props) {
   
   return (
     <Card className="single-band-result" sx={{ maxWidth: 400, maxHeight:700 }}>
-      <CardContent>
+      <CardContent >
         <CardMedia
           component="img"
           height="140"
@@ -35,7 +37,9 @@ export default function BandResult(props) {
           {props.name}
         </Typography>
         <Divider variant="middle" />
-      <SpotList spots={spots} currentUser={props.currentUser}></SpotList>
+      <Box>
+        <SpotList bandId={bandId} currentUser={props.currentUser} />
+      </Box>
       </CardContent>
     </Card>
   );

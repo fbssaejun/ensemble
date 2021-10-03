@@ -10,7 +10,9 @@ export default function Application (props) {
     'application-status--accepted' : acceptedStatus,
     'application-status--rejected' : acceptedStatus!== null && !acceptedStatus
   })
+
   const bandURL = `/bands/${bandId}`;
+  
   return (
     <div className="user-application">
       <span className={statusClassName}></span>

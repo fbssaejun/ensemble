@@ -16,8 +16,16 @@ export default function MyBand(props) {
   })
 
 
+  // const leaveBand = (spotId) => {
+  //   axios.delete(`/api/spots/${spotId}`).then((results) => {
+  //     const deletedSpot = results.data.result.rows[0];
+  //     const newBands = cachedBands.filter((band) => band.id !== deletedSpot.band_id)
+  //     setCachedBands((prev) => [...newBands])
+  //   })
+  // }
+
   const leaveBand = (spotId) => {
-    axios.delete(`/api/spots/${spotId}`).then((results) => {
+    axios.patch(`/api/spots/${spotId}`, {userId:currentUser.id}).then((results) => {
       const deletedSpot = results.data.result.rows[0];
       const newBands = cachedBands.filter((band) => band.id !== deletedSpot.band_id)
       setCachedBands((prev) => [...newBands])

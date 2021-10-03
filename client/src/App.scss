@@ -1,7 +1,8 @@
 @import './appVariables.scss';
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
 
 main {
+  font-family: 'Montserrat', sans-serif;
   text-align: center;
   align-items: center;
   justify-content: center;

@@ -1,6 +1,6 @@
 import { useState  } from "react";
 import axios from 'axios';
-import ShowSpotApplications from "./ShowSpotApplications";
+import SpotApplicationList from "./SpotApplicationList";
 import { Avatar } from "@mui/material";
 
 import './Spot.scss';
@@ -54,7 +54,6 @@ export default function EmptySpot (props) {
       </div>
       <div className="applications-show-button">
         <button onClick={handleOpen}>Apps</button>
-        {/* {showApplications && <ShowSpotApplications spotId={spot.id} />}   */}
         <Modal
           open={open}
           onClose={handleClose}
@@ -62,7 +61,7 @@ export default function EmptySpot (props) {
         >
           <div className="show-apps-modal">
             <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-              <ShowSpotApplications spotId={spot.id} />
+              <SpotApplicationList spotId={spot.id} />
             </Typography>
           </div>
         </Modal>

@@ -1,13 +1,78 @@
 
-
-.user-profile-content{
-
-  margin-top:100px;
-
+.user-profile {
+  display:flex;
+  margin: 5em 3em;
+  justify-content: space-evenly;
 }
 
-.MuiPaper-root{
+.user-info-container {
   display: flex;
+  justify-content: space-between;
+  border:2px solid black;
+  width: 70%;
+  margin-right: 3em;
+  padding-top: 1em;
   flex-direction: column;
-  align-items: center
+  height: 40em;
+  
+  img {
+    border-radius: 50%;
+    object-fit: fill;
+   }
 }
+
+.profile-right {
+  display:flex;
+  flex-direction: column;
+  margin: auto;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+
+.profile-band-container {
+  display:flex;
+  border:2px solid black;
+  justify-content: center;
+}
+
+.inst-genre-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.profile-application-container {
+  display:flex;
+  border:2px solid black;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 10vh;
+}
+
+.inst-avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.avatar-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+
+.inst-genre-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  .MuiChip-root {
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+}
+

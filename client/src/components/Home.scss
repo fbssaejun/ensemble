@@ -12,6 +12,18 @@
   }
 }
 
+.ensemble-video{
+  display: block;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+}
+
+#bgvideo {
+  width: 100%; 
+  min-height: 100%;
+}
+
 
 .content-text {
   font-size: 35px;

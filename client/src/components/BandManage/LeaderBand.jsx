@@ -60,7 +60,7 @@ export default function LeaderBand(props) {
                 setCachedBands={setCachedBands} 
                 onClose={handleClose} 
                 bandInfo={props}
-                />
+              />
             </Typography>
           </div>
         </Modal>

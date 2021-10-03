@@ -50,6 +50,22 @@ module.exports = (db) => {
     });
   });
 
+  router.patch('/:id', (req, res) => {
+    const spotId = req.params.id;
+    const { userId } = req.body;
+    console.log('patch spot_applications userid:', userId);
+    const query = `UPDATE spots SET user_id = NULL WHERE spots.id = $1 RETURNING *;`;
+
+    db.query(query, [spotId]).then((results) => {
+      const updateUserAppQuery = `DELETE FROM spot_applications WHERE user_id = $1`;
+      db.query(updateUserAppQuery, [userId]);
+      return res.status(200).send({
+        message: `spot ${spotId} updated`,
+        result: results,
+      });
+    });
+  });
+
   router.post('/new', (req, res) => {
     const { bandId, username, instrumentId, title, description } = req.body;
     const query = `

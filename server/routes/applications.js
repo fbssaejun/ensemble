@@ -19,9 +19,10 @@ module.exports = (db) => {
   router.get('/owner/:id', (req, res) => {
     const spotId = req.params.id;
     const query = `
-      SELECT users.username, spot_applications.*, bands.id AS band_id FROM spot_applications 
+      SELECT users.username, spot_applications.*, spots.title AS spot_title, instruments.name AS instrument_name, bands.id AS band_id FROM spot_applications 
       LEFT JOIN users ON users.id = spot_applications.user_id
       LEFT JOIN spots ON spots.id = spot_applications.spot_id
+      LEFT JOIN instruments ON spots.instrument_id = instruments.id
       LEFT JOIN bands ON bands.id = spots.band_id
       WHERE spot_id = $1;
     `;

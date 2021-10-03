@@ -1,0 +1,39 @@
+.add-spot-item-container {
+  align-self: center;
+}
+
+.add-spot-button {
+  border-radius: 50%;
+  border-style: solid;
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+}
+
+.add-spot-form-close-button {
+  display: flex;
+  justify-content: end;
+  margin-right: 1em;
+}
+
+.add-spot-form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-spot-form-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 400px;
+  background-color: whitesmoke;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
+    0 4px 4px rgba(0, 0, 0, 0.12), 0 8px 8px rgba(0, 0, 0, 0.12), 0 16px 16px rgba(0, 0, 0, 0.12);
+  border-radius: 10px;
+}
+
+.add-spot-form-title {
+  align-self: center;
+}

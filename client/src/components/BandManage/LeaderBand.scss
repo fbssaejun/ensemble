@@ -2,6 +2,7 @@
 
 .leader-band-item {
   display: flex;
+  flex-direction: column;
   margin-left: 10em;
   margin-right: 10em;
   margin-bottom: 1em;
@@ -10,9 +11,9 @@
   box-shadow: 0 0.25px 0.25px rgba(0, 0, 0, 0.12), 0 0.5px 0.5px rgba(0, 0, 0, 0.12),
     0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12);
   transition: 0.1s ease-in;
-  &:hover {
-    transform: scale(1.05);
-  }
+  // &:hover {
+  //   transform: scale(1.05);
+  // }
 }
 
 .edit-band-form-modal {
@@ -21,9 +22,9 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 400px;
-  height: 500px;
+  height: 600px;
   background-color: whitesmoke;
-  box-shadow: 0 0.25px 0.25px rgba(0, 0, 0, 0.12), 0 0.5px 0.5px rgba(0, 0, 0, 0.12),
-    0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
+    0 4px 4px rgba(0, 0, 0, 0.12), 0 8px 8px rgba(0, 0, 0, 0.12), 0 16px 16px rgba(0, 0, 0, 0.12);
   border-radius: 10px;
 }

@@ -12,7 +12,7 @@ const mappedSpots = spots.map((spot) => {
 
 
   return (
-    <div className="spot-list">
+    <div className="spot-list-container">
       {mappedSpots}
       <AddSpotItem bandId={bandId} spots={spots} setSpots={setSpots} />
     </div>

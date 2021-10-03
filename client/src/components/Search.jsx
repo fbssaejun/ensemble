@@ -7,6 +7,7 @@ import './Search.scss';
 
 import { useTransition, animated } from 'react-spring';
 
+
 export default function Search(props) {
 
   const [searchTerm, setSearchTerm] = useState("");
@@ -70,9 +71,7 @@ export default function Search(props) {
         searchOption={searchOption}
         />
       </animated.div>) : '') }
-      
     </div>
-
   )
 }
 

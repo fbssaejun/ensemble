@@ -73,7 +73,7 @@ VALUES
 ('Vocal', 'https://cdn0.iconfinder.com/data/icons/rock-and-roll-7/64/09-karaoke-singer-sing-speaker-microphone-technology-music-1024.png'),
 ('Bass', 'https://cdn2.iconfinder.com/data/icons/music-indigo-vol-1/256/Bass-1024.png'),
 ('Drums', 'https://cdn3.iconfinder.com/data/icons/music-ultra/60/Music_Ultra_012_-_Drums-1024.png'),
-('Piano/Keyboard', 'https://cdn0.iconfinder.com/data/icons/electronics-and-devices-13/50/20-1024.png'),
+('Keyboard', 'https://cdn0.iconfinder.com/data/icons/electronics-and-devices-13/50/20-1024.png'),
 ('Violin', 'https://cdn2.iconfinder.com/data/icons/activity-5/50/1F3BB-violin--1024.png'),
 ('Cello', 'https://cdn2.iconfinder.com/data/icons/unigrid-phantom-devices-vol-3/60/017_141_cello_violincello_violin_music_instrument_audio_sound-1024.png');
 

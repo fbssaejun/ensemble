@@ -1,39 +1,16 @@
 
 
-import Card from '@mui/material/Card';
-import Avatar from '@mui/material/Avatar';
-import CardContent from '@mui/material/CardContent';
-import CardHeader from '@mui/material/CardHeader';
-import Typography from '@mui/material/Typography';
-import Paper from '@mui/material/Paper';
 
 export default function UserProfile(props) {
 
-  const testImage = "https://cdn2.bulbagarden.net/upload/4/49/Ash_Pikachu.png"
-  const centerAdjust = {
-    display: "flex",
-    "direction": "column",
-    "align-items": "center",
-  }
+  const { userInfo } = props;
 
   return(
-      <Card>
-        <CardHeader
-          avatar={<Avatar alt="Profile Pic" src={testImage} sx={{ width: 140, height: 140 }} />}
-        />
-        <CardContent profile>
-          <Typography gutterBottom variant="h6" component="div">
-            CEO / CO-FOUNDER
-          </Typography>
-          <Typography gutterBottom variant="h4" component="div">
-            Alec Thompson
-          </Typography>
-          {/* <p className={props.description}>
-            Don{"'"}t be scared of the truth because we need to restart the
-            human foundation in truth And I love you like Kanye loves Kanye
-            I love Rick Owens’ bed design but the back is...
-          </p> */}
-        </CardContent>
-      </Card>
+      <div>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Kanye_West_at_the_2009_Tribeca_Film_Festival_%28cropped%29.jpg/1200px-Kanye_West_at_the_2009_Tribeca_Film_Festival_%28cropped%29.jpg" width="200px" height="200px"/>
+          <h4>{userInfo.first_name} {userInfo.last_name}</h4>
+          <h4>Username: {userInfo.username}</h4>
+          <h4>Email: {userInfo.email}</h4>
+      </div>
   );
 }

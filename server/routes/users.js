@@ -33,13 +33,14 @@ module.exports = (db) => {
     // particular instrument/genre and their name, instead of returning
     // the user_id and (genre_id/instrument_id).
 
-    query_inst = `
-    SELECT user_instrument.instrument_id AS id,instruments.name AS name
+    const query_inst = `
+    SELECT user_instrument.instrument_id AS id, instruments.name AS name,
+    instruments.instrument_image
     FROM user_instrument
     LEFT JOIN instruments ON instruments.id = user_instrument.instrument_id
     WHERE user_id = $1;
     `
-    query_genre = `
+    const query_genre = `
     SELECT user_genre.genre_id AS id, genres.name AS name 
     FROM user_genre
     LEFT JOIN genres ON genres.id = user_genre.genre_id

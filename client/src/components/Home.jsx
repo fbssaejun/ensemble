@@ -1,10 +1,8 @@
 import { Fragment, useEffect, useState, useRef } from "react";
 import "./Home.scss";
-import trumpet from "./trumpet.jpeg";
 import axios from 'axios';
 import { useHistory, Link } from 'react-router-dom';
 
-import ReactPlayer from "react-player";
 import homeVideo from "./home-video.mp4";
 
 export default function Home(props) {

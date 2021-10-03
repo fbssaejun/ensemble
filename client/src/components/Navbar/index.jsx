@@ -2,13 +2,14 @@ import React from 'react';
 import './Navbar.scss'
 import { Link } from 'react-router-dom';
 import Dashboard from './Dashboard';
+import logo from './ensemble.png';
 
 export default function Navbar(props) {
 
   return (
     <header>
       <nav>
-          <Link to="/"><h2>Ensemble</h2></Link>
+          <Link to="/"><img src={logo} className="logo" width="120px" height="30px" alt="logo"/></Link>
           <div className="search-bar">
             <Link to="/search">Begin Your Search</Link>
           </div>

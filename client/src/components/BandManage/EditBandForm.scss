@@ -1,6 +1,28 @@
-.edit-band-form {
+@import '../../appVariables.scss';
+
+.edit-band-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  flex-direction: column;
+}
+
+.edit-form-title {
+  align-self: center;
+}
+
+.edit-band-form-inputs {
+  background-color: whitesmoke;
+  margin-top: 2em;
+}
+
+.edit-band-form-close-button {
+  display: flex;
+  justify-content: end;
+  margin-right: 1em;
+}
+
+.band-form-bottom-buttons {
+  display: flex;
+  width: 100%;
+  margin-top: 3em;
+  justify-content: space-evenly;
 }

@@ -1,5 +1,7 @@
-import { Fragment } from "react"
 import axios from "axios";
+import { Avatar } from "@mui/material";
+
+import './Spot.scss';
 
 export default function FilledSpot(props) {
   const { spots, spot, setSpots, currentUser } = props;
@@ -10,13 +12,21 @@ export default function FilledSpot(props) {
       setSpots((prev) => [...newSpots])
     })
   }
+
+  const testImage = "https://cdn2.bulbagarden.net/upload/4/49/Ash_Pikachu.png"
   
   return (
-    <Fragment>
-      <h1>User Spot: {spot.user_id}</h1>
-      {currentUser.id !== spot.user_id && <button onClick={(event)=>{
-        event.preventDefault();
-        deleteSpot(spot.id)}}> x </button>}
-    </Fragment>
+    <div className="spot-container--filled">
+      <div className="delete-spot-button">
+        <span></span>
+        <button className="delete-button" onClick={(event)=>{
+          event.preventDefault();
+          deleteSpot(spot.id)}}>&#215;</button>
+      </div>
+      <div className="profile-avatar">
+        <Avatar alt="Profile Pic" src={testImage} sx={{ width: 50, height: 50 }} />
+      </div>
+      <div></div>
+    </div>
   );
 }

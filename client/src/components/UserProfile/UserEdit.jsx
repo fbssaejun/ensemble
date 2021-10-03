@@ -7,7 +7,7 @@ import Stack from '@mui/material/Stack';
 
 
 export default function UserEdit(props) {
-  const { userId } = useParams();
+  const { userId } = props;
   const history = useHistory();
 
   // defaultInst and defaultGenre is to get initial user
@@ -43,7 +43,6 @@ export default function UserEdit(props) {
 
       setAllInst([...inst]);
       setAllGenre([...genre]);
-
 
     })
 

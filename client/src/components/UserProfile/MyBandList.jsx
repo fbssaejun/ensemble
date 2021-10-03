@@ -28,34 +28,36 @@ export default function MyBandList (props) {
   }
 
   useEffect(() => {
-    // Thing that I'm trying to do
-    axios.get(`/api/bands/users/${userId}`)
-    .then((results)=> {
-      const userBandInfo = ownerFilter(results.data);
-      setMyBands(() => [...userBandInfo.my])
-      setPartBands(() => [...userBandInfo.part])
-    })
+    // // Thing that I'm trying to do
+    // axios.get(`/api/bands/users/${userId}`)
+    // .then((results)=> {
+    //   const userBandInfo = ownerFilter(results.data);
+    //   setMyBands(() => [...userBandInfo.my])
+    //   setPartBands(() => [...userBandInfo.part])
+    // })
 
     // Thing that works for just leader bands
-    // axios.get(`/api/bands/leader-bands/${userId}`).then((results) => {
-    //   setMyBands(() => [...results.data])
-    // })
+    axios.get(`/api/bands/leader-bands/${userId}`).then((results) => {
+      setMyBands(() => [...results.data])
+    })
   }, [])
   
 
-  const deleteBand = (bandId) => {
-    axios.delete(`/api/bands/${bandId}`).then((results) => {
-      const newBands = myBands.filter((band) => band.id !== results.data.result.rows[0].id)
-      setMyBands(() => [...newBands])
-    });
-  }
+  // const deleteBand = (bandId) => {
+  //   axios.delete(`/api/bands/${bandId}`).then((results) => {
+  //     const newBands = myBands.filter((band) => band.id !== results.data.result.rows[0].id)
+  //     setMyBands(() => [...newBands])
+  //   });
+  // }
   
   const bandArr = myBands.map((band) => {
-    return <MyBand key={band.id} onDelete={() => deleteBand(band.id)} name={band.name}/>
+    return <MyBand key={band.id} name={band.name}/>
   })
 
   return (
     <div>
+      <h2>This is user's bands</h2>
       {bandArr}
-    </div>)
+    </div>
+    )
   }

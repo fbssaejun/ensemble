@@ -2,8 +2,6 @@ import MyBand from "./MyBand";
 import { Fragment, useEffect, useState } from "react";
 import axios from 'axios';
 
-import Card from '@mui/material/Card'
-
 export default function MyBandList (props) {
   const [myBands, setMyBands] = useState([]);
   const [partBands, setPartBands] = useState([]);
@@ -51,13 +49,12 @@ export default function MyBandList (props) {
   // }
   
   const bandArr = myBands.map((band) => {
-    return <MyBand key={band.id} name={band.name}/>
+    return <MyBand key={band.id} name={band.name} image={band.band_image} description={band.description}/>
   })
 
   return (
-    <div>
-      <h2>This is user's bands</h2>
+    <Fragment>
       {bandArr}
-    </div>
+      </Fragment>
     )
   }

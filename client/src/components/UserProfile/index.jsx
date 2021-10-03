@@ -80,7 +80,7 @@ export default function UserProfile(props) {
         <Avatar
           alt={obj.name}
           src={obj.instrument_image}
-          sx={{ width: 70, height: 70 }}
+          sx={{ width: 50, height: 40 }}
           name="avatar"
           id="avatar"
         />
@@ -107,20 +107,19 @@ export default function UserProfile(props) {
                 {instAvatar}
               </div>
 
-            <div className="genre-container">
               <h5>Genre</h5>
+            <div className="genre-container">
                 <Stack direction="row" spacing={1}>
                 {genreTags}
                 </Stack>
-                <button onClick={() => handleOpen()}>Open User Setting</button>
             </div>
-            
           </div>
-
+            <button class="edit-button name noselect" onClick={() => handleOpen()}>Edit</button>            
         </div>
 
       <div className="profile-right">
 
+      <h5>Bands</h5>
         <div className="profile-band-container">
           <MyBandList userId={userId} />
         </div>

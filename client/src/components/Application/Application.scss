@@ -2,17 +2,20 @@
 
 .user-application {
   display: flex;
-  margin-left: 10em;
-  margin-right: 10em;
-  margin-bottom: 1em;
+  margin: 3vh auto;
+  justify-content: center; 
   background-color: whitesmoke;
   border-radius: 10px;
   box-shadow: 0 0.25px 0.25px rgba(0, 0, 0, 0.12), 0 0.5px 0.5px rgba(0, 0, 0, 0.12),
     0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12);
+    
   transition: 0.1s ease-in;
   &:hover {
     transform: scale(1.01);
   }
+
+  width: 20vw;
+  height: 20vh;
 }
 
 .info-container {

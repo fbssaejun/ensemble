@@ -3,17 +3,19 @@
   display:flex;
   margin: 5em 3em;
   justify-content: space-evenly;
+  align-items: center;
 }
 
 .user-info-container {
   display: flex;
   justify-content: space-between;
-  border:2px solid black;
   width: 70%;
   margin-right: 3em;
   padding-top: 1em;
   flex-direction: column;
   height: 40em;
+  align-items: center;
+
   
   img {
     border-radius: 50%;
@@ -32,14 +34,27 @@
 
 .profile-band-container {
   display:flex;
-  border:2px solid black;
+  // border:2px solid black;
   justify-content: center;
+  flex-direction: row;
+
+  .profile-band {
+    margin: 10px auto;
+    img {
+      width:150px;
+      border-radius: 10px;
+    }
+  }
 }
 
 .inst-genre-container{
   display: flex;
   justify-content: center;
   flex-direction: column;
+
+  h5 {
+    margin: 0;
+  }
 }
 
 .profile-application-container {
@@ -48,14 +63,16 @@
   justify-content: center;
   flex-direction: column;
   margin-top: 10vh;
+  flex-wrap: wrap;
+  align-items:center;
 }
 
 .inst-avatar {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
   flex-direction: column;
+  margin-right: 2vw;
 }
 
 .avatar-container {
@@ -63,16 +80,58 @@
   justify-content: center;
   flex-direction: row;
   align-items: center;
+  height: 17vh;
+  p {
+    margin: 0;
+  }
 }
 
-.inst-genre-container {
+.genre-container {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  margin-top: 3vh;
 
   .MuiChip-root {
     margin-right: 10px;
     margin-bottom: 10px;
   }
+}
+
+
+//Edit button
+
+.noselect {
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+		-webkit-tap-highlight-color: transparent;
+}
+
+.edit-button {
+	width: 100px;
+	height: 30px;
+	cursor: pointer;
+	font-size: 20px;
+	font-weight: bold;
+	color: black;
+	background: white;
+	border: 2px solid black;
+	box-shadow: 5px 5px 0 black,
+		-5px -5px 0 black,
+		-5px 5px 0 black,
+		5px -5px 0 black;
+	transition: 500ms ease-in-out;
+}
+
+.edit-button:hover {
+	box-shadow: 10px 5px 0 black, -10px -5px 0 black;
+}
+
+.edit-button:focus {
+	outline: none;
 }
 

@@ -107,7 +107,9 @@ export default function Home(props) {
         <div className="content">
           <span className="content-text">Search for bands and their members from a wide range of genre and instruments</span>
           <button className="about-button">
+          {props.currentUser ? 
             <span><Link to={`/search`}>Search For Bands</Link></span>
+          : <Link to={`/auth`}>Search For Bands</Link>}
           </button>       
         </div>
       </div>
@@ -116,7 +118,9 @@ export default function Home(props) {
         <div className="content">
           <span className="content-text">Create a band of your own and form your dream band</span>
           <button className="about-button">
+            {props.currentUser ? 
             <span><Link to={`/bands/new`}>Create A Band</Link></span>
+            : <Link to={`/auth`}>Create A Band</Link>}
           </button>        
           </div>
         <div className="picture">
@@ -131,7 +135,9 @@ export default function Home(props) {
         <div className="content">
           <span className="content-text">View your bands, edit and invite people to your band</span>
           <button className="about-button">
+          {props.currentUser ?
             <span><Link to={`/bands/manage`}>My Bands</Link></span>
+           : <Link to={`/auth`}>My Bands</Link> }
           </button>        
         </div>
       </div>
@@ -140,7 +146,9 @@ export default function Home(props) {
         <div className="content">
           <span className="content-text">Apply for bands that you would like to participate in</span>
           <button className="about-button">
+            {props.currentUser ? 
             <span><Link to={`/users/${props.currentUser.id}/app`}>My Applications</Link></span>
+            : <Link to={`/auth`}>My Applications</Link>}
           </button>
             </div>
         <div className="picture">

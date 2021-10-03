@@ -74,5 +74,6 @@ export default function SpotApplicationListItem(props) {
     //     event.preventDefault();
     //     applicationUpdate(false)}}>Reject</button>
     // </div>
+    
   )
 }

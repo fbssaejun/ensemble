@@ -18,9 +18,21 @@ main {
 }
 
 footer {
+  display:flex;
+  justify-content: center;
   background-color:burlywood;
   color: white;
   bottom: 0;
   width: 100%;
-  height:10em;
+  height:9em;
+
+  .fab {
+    margin-left : 30px;
+    font-size: 15px;
+
+    &:hover {
+      transform: scale(1.3);
+    }
+  }
+
 }

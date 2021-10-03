@@ -47,7 +47,7 @@ function App() {
             <Band />
           </Route>
           <Route path="/" exact>
-            <Home />
+            <Home currentUser={state.currentUser}/>
           </Route>
           <Route component={NotFound} />
         </Switch>

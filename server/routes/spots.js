@@ -12,9 +12,13 @@ module.exports = (db) => {
   });
 
   router.get('/bands/:id', (req, res) => {
+
     const query = `
-    SELECT * FROM spots WHERE spots.band_id = $1;
+    SELECT spots.*, users.profile_image, users.username FROM spots
+    LEFT JOIN users ON users.id = spots.user_id
+    WHERE spots.band_id = $1;
     `;
+
     db.query(query, [req.params.id]).then((results) => {
       res.json(results.rows);
     });

@@ -1,6 +1,8 @@
 import { Fragment, useState, useEffect } from "react";
 import axios from "axios";
 import TestSpotListItem from "./TestSpotListItem"
+import AvatarGroup from '@mui/material/AvatarGroup';
+
 
 export default function SpotList (props) {
   const [spots, setSpots] = useState([]);
@@ -14,8 +16,9 @@ export default function SpotList (props) {
   }, [bandId])
 
 
-  const mappedSpots = spots.map((spot) => {
+  const mappedSpots = spots.map((spot, index) => {
     return <TestSpotListItem
+      key={index}
       spot={spot}
       currentUser={props.currentUser}
     />

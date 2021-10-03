@@ -20,7 +20,8 @@ CREATE TABLE users (
 
 CREATE TABLE instruments (
   id SERIAL PRIMARY KEY NOT NULL,
-  name VARCHAR(255) NOT NULL
+  name VARCHAR(255) NOT NULL,
+  instrument_image VARCHAR(255)
 );
 
 CREATE TABLE genres (

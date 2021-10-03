@@ -123,12 +123,13 @@
     align-items: center;
     cursor: pointer;
     text-transform: uppercase;
-    margin: 15px auto;
+    margin: auto;
+    margin-top: 40px;
     height: 60px;
     width: 210px;
     opacity: 1;
     background-color: #ffffff;
-    border: 1px solid rgba(22, 76, 167, 0.6);
+    border: 1px solid gold;
   }
   .about-button span {
     color: #164ca7;

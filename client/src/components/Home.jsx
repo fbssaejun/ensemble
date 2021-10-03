@@ -114,7 +114,7 @@ export default function Home(props) {
 
       <div className="home-container">
         <div className="content">
-          <span className="content-text">Create a band of your own and form your own dream band</span>
+          <span className="content-text">Create a band of your own and form your dream band</span>
           <button className="about-button">
             <span><Link to={`/bands/new`}>Create A Band</Link></span>
           </button>        
@@ -138,7 +138,7 @@ export default function Home(props) {
 
       <div className="home-container">
         <div className="content">
-          <span className="content-text">Apply for bands that you would like to participate in, and check your status</span>
+          <span className="content-text">Apply for bands that you would like to participate in</span>
           <button className="about-button">
             <span><Link to={`/users/${props.currentUser.id}/app`}>My Applications</Link></span>
           </button>

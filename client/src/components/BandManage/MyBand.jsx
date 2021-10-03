@@ -1,5 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+// import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
 import './MyBand.scss';
 
 export default function MyBand(props) {
@@ -32,6 +38,21 @@ export default function MyBand(props) {
         event.preventDefault();
         leaveBand(mySpot[0].id)
       }}>Leave Band</button>
+      <Accordion>
+        <AccordionSummary
+          expandIcon="V"
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography>Accordion 1</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            malesuada lacus ex, sit amet blandit leo lobortis eget.
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
     </div>
   )
 

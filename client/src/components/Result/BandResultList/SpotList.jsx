@@ -9,7 +9,7 @@ export default function SpotList (props) {
 
   useEffect(() => {
     axios.get(`/api/spots/bands/${bandId}`).then((results) => {
-      console.log("Spot Information:", results.data)
+      // console.log("Spot Information:", results.data)
       setSpots(() => [...results.data]);
     }).catch((e)=>{console.log("Error Message:", e)})
   }, [bandId])

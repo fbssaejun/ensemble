@@ -13,7 +13,6 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Modal from '@mui/material/Modal';
-import { styled } from '@mui/system';
 
 
 export default function LeaderBand(props) {
@@ -34,17 +33,16 @@ export default function LeaderBand(props) {
   }, [])
 
 
-  const Backdrop = styled('div')`
-  z-index: -1;
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0);
-  -webkit-tap-highlight-color: transparent;
-  `;
-
+  // const Backdrop = styled('div')`
+  // z-index: -1;
+  // position: absolute;
+  // right: 0;
+  // bottom: 0;
+  // top: 0;
+  // // left: 0;
+  // background-color: rgba(0, 0, 0, 0);
+  // -webkit-tap-highlight-color: transparent;
+  // `;
 
 
   return (
@@ -55,7 +53,7 @@ export default function LeaderBand(props) {
         <Modal
           open={open}
           onClose={handleClose}
-          BackdropComponent={Backdrop}
+          // BackdropComponent={Backdrop}
         >
           <div className="edit-band-form-modal">
             <Typography id="modal-modal-description" sx={{ mt: 2 }}>

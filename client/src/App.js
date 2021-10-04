@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
+import Chat from './components/Chat';
 import LoginRegister from './components/LoginRegister';
 import UserProfile from './components/UserProfile';
 import NotFound from './components/NotFound';
@@ -24,6 +25,7 @@ function App() {
     <main className="layout">
       <Router>
         <Navbar currentUser={state.currentUser} setState={setState} />
+        {state.currentUser && <Chat />}
         <Switch>
           <Route path="/users/:userId/app">
             <ApplicationList />
@@ -47,7 +49,7 @@ function App() {
             <Band />
           </Route>
           <Route path="/" exact>
-            <Home currentUser={state.currentUser}/>
+            <Home currentUser={state.currentUser} />
           </Route>
           <Route component={NotFound} />
         </Switch>

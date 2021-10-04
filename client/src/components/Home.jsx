@@ -48,11 +48,11 @@ export default function Home(props) {
   return (
     <Fragment className="home-component">
 
-      <div className="ensemble-video">
+      {/* <div className="ensemble-video">
         <video id="bgvideo" autoplay="autoplay" loop muted>
           <source src={homeVideo} type="video/mp4"/>
         </video> 
-      </div>
+      </div> */}
 
       <div className="main">
         <h2>Featured Bands</h2>

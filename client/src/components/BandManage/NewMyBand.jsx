@@ -46,12 +46,12 @@ export default function NewMyBand(props) {
 
   return (
     <div className="my-spot-band">
-      <h2>{name}</h2>
+      <h3>{name}</h3>
       <div className="my-spot-band-image">
         <button className="leave-band-button" onClick={()=>handleOpen()}>&#215;</button>
         <img src={bandImage}/>
       </div>
-      {mySpot.length && <h3>Role Title: <br/> {mySpot[0].title}</h3>}
+      {mySpot.length && <h5>Title: <br/> {mySpot[0].title}</h5> }
       <Modal
         open={open}
         onClose={handleClose}

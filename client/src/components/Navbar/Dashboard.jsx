@@ -1,10 +1,13 @@
 import { useState } from "react";
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import React from 'react'
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+
+import  defaultUserImage from '../UserProfile/default-user-image.png'
+
 
 export default function Dashboard(props) {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -33,8 +36,12 @@ export default function Dashboard(props) {
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
-      >
+      > 
+      {props.currentUser.profile_image ? 
         <img src={props.currentUser.profile_image} className="profile"/>
+        :
+        <img src={defaultUserImage} className="profile"/>
+      }
       </Button>
       <Menu
         id="basic-menu"

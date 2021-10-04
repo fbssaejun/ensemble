@@ -18,7 +18,6 @@ import { styled } from '@mui/system';
 
 export default function LeaderBand(props) {
   const [spots, setSpots] = useState([]);
-  // const [showEditBandForm, setShowEditBandForm] = useState(false);
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
     setOpen(true);
@@ -51,8 +50,8 @@ export default function LeaderBand(props) {
   return (
     <div className="leader-band-item">
       <div className="band-name-edit-button">
-        <h2>{name}</h2>
-        <button onClick={handleOpen}>Edit</button>
+        <h3>{name}</h3>
+        <button className="edit-band-button edit" onClick={handleOpen}>Edit</button>
         <Modal
           open={open}
           onClose={handleClose}
@@ -70,7 +69,7 @@ export default function LeaderBand(props) {
         </Modal>
       </div>
       <div className="spot-list-accordion">
-        <Accordion>
+        <Accordion className="leader-band-accordian">
           <AccordionSummary
             expandIcon={<ExpandMoreIcon/>}
             aria-controls="panel1a-content"

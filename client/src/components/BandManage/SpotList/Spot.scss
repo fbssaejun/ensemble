@@ -79,7 +79,7 @@
   background-color: transparent;
   border: 2px solid goldenrod;
   border-radius: 0.6em;
-  color: goldenrod;
+  color: black;
   cursor: pointer;
   display: flex;
   align-self: center;
@@ -95,7 +95,7 @@
 
   &:hover,
   &:focus {
-    color: #fff;
+    color: black;
     outline: 0;
   }
 }

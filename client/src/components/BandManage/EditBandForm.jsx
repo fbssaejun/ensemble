@@ -99,15 +99,15 @@ export default function EditBandForm(props) {
     <div className="edit-band-container">
       <div className="edit-band-form-close-button">
         <span></span>
-        <button onClick={props.onClose}>X</button>
+        <button className="delete-button" onClick={props.onClose}>X</button>
       </div>
-      <h1 className="edit-form-title">Change Band Info</h1>
+      <h2 className="edit-form-title">Change Band Info</h2>
       <form className="edit-band-form-inputs">
         <label>Band Name</label>
         <input placeholder="Enter new band name" value={nameVal} onChange={({target}) => setNameVal(target.value)}></input>
         <label>Description</label>
         <input placeholder="Enter new description" value={descrVal} onChange={({target}) => setDescrVal(target.value)}></input>
-        <label>Image Link</label>
+        <label>Image URL</label>
         <input placeholder="Enter new image URL" value={imageVal} onChange={({target}) => setImageVal(target.value)}></input>
         <label>Band Genre</label>
         {(allGenre.length !== 0) && <Autocomplete
@@ -131,11 +131,15 @@ export default function EditBandForm(props) {
           <input id="featured" type="checkbox" checked={featuredVal} onChange={() => setFeaturedVal((prev) => !prev)}></input>
         </div>
         <div className="band-form-bottom-buttons">
-          <span><button type="button" onClick={(event) => {
+          <span><button type="button" 
+            className="edit-band-button second"
+            onClick={(event) => {
             event.preventDefault();
             submitEditForm()
           }}>Submit</button></span>
-          <span><button onClick={(event) => {
+          <span><button 
+            className="edit-band-button third"
+            onClick={(event) => {
             event.preventDefault();
             deleteBand(bandId);
           }

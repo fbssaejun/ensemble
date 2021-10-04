@@ -6,15 +6,17 @@
   margin-left: 10em;
   margin-right: 10em;
   margin-bottom: 1em;
-  background-color: grey;
   border-radius: 10px;
-  box-shadow: 0 0.25px 0.25px rgba(0, 0, 0, 0.12), 0 0.5px 0.5px rgba(0, 0, 0, 0.12),
-    0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 10px rgba(0,0,0,0.25), 
+  0 5px 5px rgba(0,0,0,0.22);
+  background-image: url();
 }
 
 .band-name-edit-button {
   display: flex;
-  align-self: center;
+  align-items: center;
+  text-align: center;
+  justify-content: space-evenly;
 }
 
 .edit-band-form-modal {
@@ -22,14 +24,52 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 400px;
-  height: 600px;
+  width: 350px;
+  height: 500px;
   background-color: whitesmoke;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
     0 4px 4px rgba(0, 0, 0, 0.12), 0 8px 8px rgba(0, 0, 0, 0.12), 0 16px 16px rgba(0, 0, 0, 0.12);
   border-radius: 10px;
 }
 
-// .spot-list-accordion {
-//   // border-radius: 10px;
-// }
+
+.edit-band-button {
+  align-items: center;
+  justify-content: center;
+  width: 1.5vw;
+  height: 1vh;
+  background-color: transparent;
+  border: 2px solid black;
+  border-radius: 0.6em;
+  color: black;
+  cursor: pointer;
+  display: flex;
+  align-self: center;
+  font-size: 9px;
+  line-height: 1;
+  padding: 1.2em 2em;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+
+  &:hover,
+  &:focus {
+    color: black;
+    outline: 0;
+  }
+}
+
+//BUTTON 1
+.edit {
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  &:hover {
+    box-shadow: 0 0 40px 40px grey inset;
+  }
+}
+
+#panel1a-header {
+  // background-color:black;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+

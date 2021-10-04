@@ -8,19 +8,19 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 import './MyBand.scss';
 
-// const HorizontalAccordion = ({children}) => {
-//   const [isOpen, setIsOpen] = useState(false)
-//   let collapsed = isOpen ? "" : "collapsed";
+const HorizontalAccordion = ({children}) => {
+  const [isOpen, setIsOpen] = useState(false)
+  let collapsed = isOpen ? "" : "collapsed";
 
-//   return (
-//     <div className='horizontal-accordion'>
-//       <div className={`horizontal-accordion-content ${collapsed}`}>
-//         {children}
-//       </div>
-//       <div onClick={() => setIsOpen(!isOpen)} className={`horizontal-accordion-control ${collapsed}`}><span>&lt;</span></div>
-//     </div>
-//   );
-// }
+  return (
+    <div className='horizontal-accordion'>
+      <div className={`horizontal-accordion-content ${collapsed}`}>
+        {children}
+      </div>
+      <div onClick={() => setIsOpen(!isOpen)} className={`horizontal-accordion-control ${collapsed}`}><span>&lt;</span></div>
+    </div>
+  );
+}
 
 export default function MyBand(props) {
   const [spots, setSpots] = useState([]);
@@ -55,14 +55,14 @@ export default function MyBand(props) {
         <h2>{name}</h2>
         {mySpot.length && <h3>My Spot: {mySpot[0].instrument_name}</h3>}
       </div>
-      {/* <HorizontalAccordion>
+      <HorizontalAccordion>
         <button type="button" onClick={(event)=>{
           event.preventDefault();
           leaveBand(mySpot[0].id)
         }}>Leave Band
         </button>
-      </HorizontalAccordion> */}
-      <button> Leave <br/> Band </button>
+      </HorizontalAccordion>
+      {/* <button> Leave <br/> Band </button> */}
 
     </div>
   )

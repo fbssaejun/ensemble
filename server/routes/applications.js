@@ -48,7 +48,6 @@ module.exports = (db) => {
   });
 
   router.patch('/:id', (req, res) => {
-    console.log('updated accepted status');
     const { user_id, spot_id, decision } = req.body;
     const applicationId = req.params.id;
     const query = `

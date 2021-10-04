@@ -77,6 +77,7 @@ export default function LoginRegister(props) {
   }
 
   return (
+      <Fragment>
       <div class="container-login" id="container-login">
         <div class="form-container sign-up-container">
           <form onSubmit={createNewUser}>
@@ -126,5 +127,7 @@ export default function LoginRegister(props) {
           </div>
         </div>
       </div>
+      <div className="footer-push-down" />
+      </Fragment>
   );
 }

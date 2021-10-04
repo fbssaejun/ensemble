@@ -15,11 +15,12 @@
   flex-direction: column;
   height: 40em;
   align-items: center;
-
   
   img {
     border-radius: 50%;
     object-fit: fill;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+    0 10px 10px rgba(0,0,0,0.22);
    }
 }
 
@@ -34,15 +35,23 @@
 
 .profile-band-container {
   display:flex;
-  // border:2px solid black;
   justify-content: center;
   flex-direction: row;
+  object-fit: fill;
 
   .profile-band {
     margin: 10px auto;
+
+    &:hover {
+      transform: scale(1.1);
+      cursor: pointer;
+    }
+
     img {
-      width:150px;
+      width:40vh;
       border-radius: 10px;
+      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+      0 10px 10px rgba(0,0,0,0.22);
     }
   }
 }
@@ -59,12 +68,14 @@
 
 .profile-application-container {
   display:flex;
-  border:2px solid black;
+  // border:2px solid black;
   justify-content: center;
-  flex-direction: column;
-  margin-top: 10vh;
+  flex-direction: row;
+  margin-top: 2vh;
   flex-wrap: wrap;
   align-items:center;
+  object-fit: fill;
+
 }
 
 .inst-avatar {
@@ -101,37 +112,70 @@
 
 //Edit button
 
-.noselect {
-  -webkit-touch-callout: none;
-    -webkit-user-select: none;
-     -khtml-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
-		-webkit-tap-highlight-color: transparent;
-}
-
 .edit-button {
-	width: 100px;
-	height: 30px;
-	cursor: pointer;
-	font-size: 20px;
-	font-weight: bold;
-	color: black;
-	background: white;
-	border: 2px solid black;
-	box-shadow: 5px 5px 0 black,
-		-5px -5px 0 black,
-		-5px 5px 0 black,
-		5px -5px 0 black;
-	transition: 500ms ease-in-out;
+  color: black;
+  position: relative;
+  outline: none;
+  text-decoration: none;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  margin: auto;
+  margin-top: 40px;
+  height: 60px;
+  width: 210px;
+  opacity: 1;
+  background-color: khaki;
+  border: 1px solid gold;
 }
-
+.edit-button span {
+  color: #164ca7;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.7px;
+}
 .edit-button:hover {
-	box-shadow: 10px 5px 0 black, -10px -5px 0 black;
+  animation: rotate 0.7s ease-in-out both;
+}
+.edit-button:hover span {
+  animation: storm 0.7s ease-in-out both;
+  animation-delay: 0.06s;
 }
 
-.edit-button:focus {
-	outline: none;
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+  25% {
+    transform: rotate(3deg) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: rotate(-3deg) translate3d(0, 0, 0);
+  }
+  75% {
+    transform: rotate(1deg) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
 }
-
+@keyframes storm {
+  0% {
+    transform: translate3d(0, 0, 0) translateZ(0);
+  }
+  25% {
+    transform: translate3d(4px, 0, 0) translateZ(0);
+  }
+  50% {
+    transform: translate3d(-3px, 0, 0) translateZ(0);
+  }
+  75% {
+    transform: translate3d(2px, 0, 0) translateZ(0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) translateZ(0);
+  }
+}

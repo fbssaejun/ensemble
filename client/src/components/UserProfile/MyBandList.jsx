@@ -49,7 +49,7 @@ export default function MyBandList (props) {
   // }
   
   const bandArr = myBands.map((band) => {
-    return <MyBand key={band.id} name={band.name} image={band.band_image} description={band.description}/>
+    return <MyBand key={band.id} id={band.id} name={band.name} image={band.band_image} description={band.description}/>
   })
 
   return (

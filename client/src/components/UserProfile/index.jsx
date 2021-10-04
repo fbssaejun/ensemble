@@ -114,7 +114,7 @@ export default function UserProfile(props) {
                 </Stack>
             </div>
           </div>
-            <button class="edit-button name noselect" onClick={() => handleOpen()}>Edit</button>            
+            <button className="edit-button" onClick={() => handleOpen()}>Edit</button>             
         </div>
 
       <div className="profile-right">
@@ -124,8 +124,8 @@ export default function UserProfile(props) {
           <MyBandList userId={userId} />
         </div>
 
+          <h5>Applications</h5>
         <div className="profile-application-container">
-          <h1>Applications</h1>
           <ApplicationList />
         </div>
 
@@ -157,9 +157,3 @@ export default function UserProfile(props) {
   )
 }
 
-
-
-// <div className="user-profile-content">
-//   {userInfo && <h1>{userInfo.first_name} {userInfo.last_name}</h1>}
-//   <MyBandList userId={userId} />
-// </div>) 

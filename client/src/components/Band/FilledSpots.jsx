@@ -20,7 +20,7 @@ export default function FilledSpot(props) {
             id="avatar"
           />
         </IconButton>
-        <span className="avatar-name">{"test name"} </span>
+        <span className="avatar-name">{obj.username}</span>
       </div>
     )
   })

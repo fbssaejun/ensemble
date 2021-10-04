@@ -94,3 +94,22 @@
   align-items: center;
   flex-direction: column;
 }
+
+
+.profile-band-page {
+  margin: 10px auto;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  top: 200px;
+
+  img {
+    width:40vh;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+    0 10px 10px rgba(0,0,0,0.22);
+  }
+}

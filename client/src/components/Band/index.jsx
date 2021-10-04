@@ -52,13 +52,16 @@ export default function Band (props) {
     return retObj;
   };
 
-  (sortSpot(spots))
+  console.log(band);
 
   return (
     <div className="band-page-main">
 
       <div id="wallpaper-image-band"></div>
       <div className="band-profile-content">
+        <div className="profile-band-page">
+          <img src={band.band_image}/>
+        </div>
         <h1 className="band-page-title">{band.name}</h1>
         <Stack direction="row" spacing={1}>
           {genreTags}

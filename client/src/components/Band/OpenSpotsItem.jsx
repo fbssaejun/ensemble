@@ -43,13 +43,13 @@ export default function OpenSpotItem(props) {
       }}>
         <Avatar
           alt={spot.name}
-          src={spot.profile_image}
+          src={spot.instrument_image}
           sx={{ width: 50, height: 50 }}
           name="avatar"
           id="avatar"
         />
       </IconButton>
-      <span className="avatar-name">{"test name"}</span>
+      <span className="avatar-name">{spot.title}</span>
     </div>
     <Modal
       open={open}

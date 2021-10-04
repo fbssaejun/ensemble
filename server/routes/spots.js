@@ -14,7 +14,8 @@ module.exports = (db) => {
   router.get('/bands/:id', (req, res) => {
 
     const query = `
-    SELECT spots.*, users.profile_image, users.username, instruments.instrument_image FROM spots
+    SELECT spots.*, users.profile_image, users.username, users.profile_image,
+    instruments.instrument_image FROM spots
     LEFT JOIN instruments ON instruments.id = spots.instrument_id
     LEFT JOIN users ON users.id = spots.user_id
     WHERE spots.band_id = $1

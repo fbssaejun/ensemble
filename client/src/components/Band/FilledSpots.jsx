@@ -5,7 +5,7 @@ export default function filledSpot(props) {
 
   const filledSpotsAvatar = filledSpots.map((obj) => {
     return(
-      <div className="inst-avatar">
+      <div className="filled-avatar">
         <Avatar
           alt={obj.name}
           src={obj.profile_image}

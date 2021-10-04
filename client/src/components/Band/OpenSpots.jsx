@@ -5,7 +5,7 @@ export default function openSpot(props) {
 
   const openSpotsAvatar = openSpots.map((obj) => {
     return(
-      <div className="inst-avatar">
+      <div className="open-avatar">
         <Avatar
           alt={obj.name}
           src={obj.profile_image}

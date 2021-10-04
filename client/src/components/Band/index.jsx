@@ -57,22 +57,28 @@ export default function Band (props) {
     <div className="band-page-main">
 
       <div id="wallpaper-image-band"></div>
+      <div className="band-profile-content">
         <h1 className="band-page-title">{band.name}</h1>
         <Stack direction="row" spacing={1}>
           {genreTags}
         </Stack>
         <h4>{band.description}</h4>
+      </div>
 
       <div className="spots">
-          <div className="filled-spots">
+
             <h5>Filled filledSpots</h5>
+          <div className="filled-spots">
             <FilledSpots filledSpots={sortSpot(spots).filled} />
           </div>
-          <div className="open-spots">
+
             <h5>Open spots</h5>
+          <div className="open-spots">
             <OpenSpots openSpots={sortSpot(spots).open} />
           </div>
+
       </div>
+
     </div>
   ) 
 

@@ -8,29 +8,34 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 import './MyBand.scss';
 
-const HorizontalAccordion = ({children}) => {
-  const [isOpen, setIsOpen] = useState(false)
-  let collapsed = isOpen ? "" : "collapsed";
+// const HorizontalAccordion = ({children}) => {
+//   const [isOpen, setIsOpen] = useState(false)
+//   let collapsed = isOpen ? "" : "collapsed";
 
-  return (
-    <div className='horizontal-accordion'>
-      <div className={`horizontal-accordion-content ${collapsed}`}>
-        {children}
-      </div>
-      <div onClick={() => setIsOpen(!isOpen)} className={`horizontal-accordion-control ${collapsed}`}><span>&lt;</span></div>
-    </div>
-  );
-}
+//   return (
+//     <div className='horizontal-accordion'>
+//       <div className={`horizontal-accordion-content ${collapsed}`}>
+//         {children}
+//       </div>
+//       <div onClick={() => setIsOpen(!isOpen)} className={`horizontal-accordion-control ${collapsed}`}><span>&lt;</span></div>
+//     </div>
+//   );
+// }
 
 export default function MyBand(props) {
   const [spots, setSpots] = useState([]);
   const { name, description, image, bandId, currentUser, featured, cachedBands, setCachedBands } = props;
+
+
+
 
   useEffect(()=> {
     axios.get(`/api/spots/users/${currentUser.id}`).then((results) => {
       setSpots(results.data);
     })
   }, [])
+
+
 
   const mySpot = spots.filter((spot) => {
     return spot.band_id === bandId;
@@ -50,14 +55,15 @@ export default function MyBand(props) {
         <h2>{name}</h2>
         {mySpot.length && <h3>My Spot: {mySpot[0].instrument_name}</h3>}
       </div>
-      <HorizontalAccordion>
+      {/* <HorizontalAccordion>
         <button type="button" onClick={(event)=>{
           event.preventDefault();
           leaveBand(mySpot[0].id)
         }}>Leave Band
         </button>
-      </HorizontalAccordion>
-      
+      </HorizontalAccordion> */}
+      <button> Leave <br/> Band </button>
+
     </div>
   )
   

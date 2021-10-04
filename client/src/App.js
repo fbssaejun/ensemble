@@ -29,9 +29,6 @@ function App() {
         <Navbar currentUser={state.currentUser} setState={setState} />
         <AnimatePresence exitBeforeEnter initial={false}>
           <Switch location={location} key={location.pathname}>
-            <Route path="/users/:userId/app">
-              <ApplicationList />
-            </Route>
             <Route path="/users/:userId">
               <UserProfile />
             </Route>

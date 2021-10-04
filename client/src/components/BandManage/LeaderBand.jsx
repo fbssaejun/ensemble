@@ -51,8 +51,8 @@ export default function LeaderBand(props) {
   return (
     <div className="leader-band-item">
       <div className="band-name-edit-button">
-        <h2>{name}</h2>
-        <button onClick={handleOpen}>Edit</button>
+        <h3>{name}</h3>
+        <button className="edit-band-button edit" onClick={handleOpen}>Edit</button>
         <Modal
           open={open}
           onClose={handleClose}

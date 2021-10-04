@@ -1,6 +1,7 @@
 import axios from "axios";
-import { useState } from "react"
-
+import { useState, useEffect } from "react"
+import Autocomplete from "@mui/material/Autocomplete";
+import TextField from "@mui/material/TextField";
 import './EditBandForm.scss'
 
 export default function EditBandForm(props) {
@@ -11,10 +12,44 @@ export default function EditBandForm(props) {
   const [imageVal, setImageVal] = useState(image);
   const [featuredVal, setFeaturedVal] = useState(featured)
 
+  const [allGenre, setAllGenre] = useState([]);
+  const [bandGenre, setBandGenre] = useState([]);
+  const [defaultGenre, setDefaultGenre] = useState([]);
+
+  useEffect(() => {
+
+    Promise.all([
+      axios.get(`/api/bands/${bandId}/edit`),
+      axios.get('/api/genres')
+    ])
+    .then((all) => {
+      const bandGenreInfo = all[0].data;
+      const genre = all[1].data;
+
+      setDefaultGenre([...bandGenreInfo]);
+      setBandGenre([...bandGenreInfo])
+      setAllGenre([...genre]);
+
+      console.log("genre", genre)
+      console.log("bandGenre", bandGenreInfo)
+      console.log("bandID", bandId)
+
+    })
+
+
+  },[]);
+
+
   const submitEditForm = () => {
     // event.preventDefault();
 
-    axios.patch(`/api/bands/${bandId}`, {name: nameVal, description: descrVal, band_image: imageVal, featured: featuredVal}).then((results) => {
+    axios.patch(`/api/bands/${bandId}`, {
+        name: nameVal,
+        description: descrVal,
+        band_image: imageVal,
+        featured: featuredVal,
+        bandGenre: bandGenre
+        }).then((results) => {
       const updatedBand = results.data.result.rows[0];
       let updatedBandIndex = 0;
       for (let i=0; i < cachedBands.length; i++) {
@@ -34,6 +69,31 @@ export default function EditBandForm(props) {
       setCachedBands(() => newBands);
     });
   }
+
+
+  const preSelected = (bandOptions, allOptions) => {
+    const retArr = [];
+
+    // First, take the bandOptions array (which is an
+    // array of objects with id and name of item)
+    // and convert it to an object with id as the key.
+
+    const bandOptionsObj = bandOptions.reduce(
+    (obj, item) => Object.assign(obj, { [item.id]: item.name }), {});
+
+    // Then, use for loop to check which of allOptions is already
+    // in the bandOptionsObj by looking for the id value.
+
+    for (const item of allOptions) {
+      if(bandOptionsObj[item.id]) {
+        retArr.push(item)
+      }
+    }
+
+    return retArr;
+
+  };
+
   
   return(
     <div className="edit-band-container">
@@ -49,6 +109,23 @@ export default function EditBandForm(props) {
         <input placeholder="Enter new description" value={descrVal} onChange={({target}) => setDescrVal(target.value)}></input>
         <label>Image Link</label>
         <input placeholder="Enter new image URL" value={imageVal} onChange={({target}) => setImageVal(target.value)}></input>
+        <label>Band Genre</label>
+        {(allGenre.length !== 0) && <Autocomplete
+            multiple
+            onChange={(event, value) => setBandGenre(value)}
+            id="tags-outlined"
+            options={allGenre}
+            getOptionLabel={(option) => option.name}
+            defaultValue={preSelected(defaultGenre, allGenre)}
+            Genres
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                placeholder="Add More Genres"
+              />
+            )}
+          />
+          }
         <div className="featured-checkbox">
           <label for="featured"> Featured</label><br/>
           <input id="featured" type="checkbox" checked={featuredVal} onChange={() => setFeaturedVal((prev) => !prev)}></input>

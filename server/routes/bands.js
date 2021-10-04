@@ -8,6 +8,23 @@ module.exports = (db) => {
     });
   });
 
+
+  router.get('/:id/edit', (req,res) => {
+
+    const query_genre = `
+    SELECT band_genre.genre_id AS id, genres.name AS name 
+    FROM band_genre
+    LEFT JOIN genres ON genres.id = band_genre.genre_id
+    WHERE band_id = $1;
+    `;
+
+    db.query(query_genre, [req.params.id])
+    .then(results => {
+      res.json(results.rows)
+    });
+  })
+
+
   router.get('/leader-bands/:id', (req, res) => {
     const query = `SELECT * FROM bands WHERE bands.leader_id = $1;`;
     db.query(query, [req.params.id]).then((results) => {
@@ -99,6 +116,33 @@ module.exports = (db) => {
       req.body.featured,
       bandId,
     ]).then((results) => {
+
+      db.query(`DELETE FROM band_genre WHERE band_id = $1;`, [bandId])
+      .then(results => {
+
+        const genreUpdate = req.body.bandGenre;
+
+        let insert_genre = `
+        INSERT INTO band_genre(band_id, genre_id)
+        VALUES
+        `;
+
+        for (const genre of genreUpdate) {
+          insert_genre += `(${bandId}, ${genre.id}), `
+        }
+
+        insert_genre = insert_genre.substring(0, insert_genre.length - 2) + ';';
+
+        // If no genre is added, set insert statement to empty string
+        if (genreUpdate.length === 0) {
+          insert_genre = ""
+        }
+
+        db.query(insert_genre).then(result => {
+        })
+
+      })
+
       return res.status(200).send({
         message: `band ${bandId} updated`,
         result: results,

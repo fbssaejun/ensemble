@@ -194,5 +194,56 @@
   }
 
 
+  //Floating arrow
+
+ 
+
+.fa { color: white; text-decoration: none; }
+
+.arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  margin: 8% 0;
+  position: absolute;
+  top: 65vh;
+  left: 50%;
+  z-index: 1;
+
+  .scroll-down {
+    color: white;
+    font-size: 15px;
+  }
+}
+.bounce {
+  -moz-animation: bounce 2s infinite;
+  -webkit-animation: bounce 2s infinite;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+.begin-search {
+  position: absolute;
+  top:65vh;
+  left:47%;
+  color:black;
+  background-color: white;
+  padding: 20px 30px;
+  border-radius: 30px;
+}
+
 
 

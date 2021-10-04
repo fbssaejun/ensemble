@@ -52,9 +52,16 @@ export default function Home(props) {
         </video> 
       </div>
 
-      <div className="main">
-        <h2>Featured Bands</h2>
-        <div className="slideshow">
+        <a href="/search" className="begin-search">Begin your Search</a>
+
+      <div class="arrow bounce">
+        <span className="scroll-down">Scroll Down</span >
+        <a class="fa fa-arrow-down fa-2x" href="#featured"></a>
+      </div>
+
+      <div className="main" id="featured">
+        <h2 >Featured Bands</h2>
+        <div className="slideshow" >
           <div
             className="slideshowSlider"
             style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}

@@ -61,6 +61,13 @@
 }
 
 
+.open-spot-container {
+  display:flex;
+  flex-direction:row;
+  justify-content: space-evenly;
+}
+
+
 .open-spots {
   display:flex;
   flex-direction: column;

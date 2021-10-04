@@ -67,13 +67,13 @@ export default function Band (props) {
 
       <div className="spots">
 
-            <h5>Filled filledSpots</h5>
           <div className="filled-spots">
+            <h5>Filled filledSpots</h5>
             <FilledSpots filledSpots={sortSpot(spots).filled} />
           </div>
 
-            <h5>Open spots</h5>
           <div className="open-spots">
+            <h5>Open spots</h5>
             <OpenSpots openSpots={sortSpot(spots).open} />
           </div>
 

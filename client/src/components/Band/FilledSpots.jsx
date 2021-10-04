@@ -13,7 +13,7 @@ export default function filledSpot(props) {
           name="avatar"
           id="avatar"
         />
-        <p>{obj.name}</p>
+        <span className="avatar-name">{"test name"} </span>
       </div>
     )
   })

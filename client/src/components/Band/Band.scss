@@ -37,11 +37,16 @@
   justify-content: space-evenly;
   align-items: center;
   margin-bottom: 15vh;
+  width:100%;
+
+  .avatar-name {
+    margin: 0 auto;
+    margin-right: 10px;
+  }
+
 }
 
 .filled-spots {
-  border: 1px solid black;
-  width: 100%;
   display:flex;
   flex-direction: column;
   justify-content: center;
@@ -49,15 +54,36 @@
   width: 50%;
 }
 
-.filled-spots-container {
+.filled-spot-container {
   display:flex;
   flex-direction:row;
-  justify-content: space-between;
-
+  justify-content: space-evenly;
 }
 
 
 .open-spots {
-  border: 1px solid black;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 50%;
+}
+
+
+.MuiAvatar-root {
+  margin-right: 10px;
+}
+
+.filled-avatar {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.open-avatar {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }

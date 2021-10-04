@@ -1,20 +1,14 @@
 import Avatar from '@mui/material/Avatar';
+import IconButton from "@mui/material/IconButton";
+import OpenSpotsItem from './OpenSpotsItem'
 
-export default function openSpot(props) {
-  const { openSpots } = props
+export default function NewOpenSpot(props) {
+  const { openSpots, currentUser } = props
 
-  const openSpotsAvatar = openSpots.map((obj) => {
+
+  const openSpotsAvatar = openSpots.map((spot) => {
     return(
-      <div className="open-avatar">
-        <Avatar
-          alt={obj.name}
-          src={obj.profile_image}
-          sx={{ width: 50, height: 50 }}
-          name="avatar"
-          id="avatar"
-        />
-        <span className="avatar-name">{"test name"}</span>
-      </div>
+      <OpenSpotsItem spot={spot} currentUser={currentUser} />
     )
   })
 

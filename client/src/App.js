@@ -54,7 +54,7 @@ function App() {
               <BandManage currentUser={state.currentUser} />
             </Route>
             <Route path="/bands/:bandId">
-              <Band />
+              <Band currentUser={state.currentUser} />
             </Route>
             <Route path="/" exact>
               <motion.div

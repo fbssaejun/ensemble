@@ -10,6 +10,7 @@ import OpenSpots from './OpenSpots';
 
 export default function Band (props) {
   const { bandId } = useParams();
+  const { currentUser } = props;
   const [band, setBand] = useState({});
   const [spots, setSpots] = useState([]);
   const [bandGenre, setBandGenre] = useState([]);
@@ -68,13 +69,13 @@ export default function Band (props) {
       <div className="spots">
 
           <div className="filled-spots">
-            <h5>Filled filledSpots</h5>
+            <h5>Current Members</h5>
             <FilledSpots filledSpots={sortSpot(spots).filled} />
           </div>
 
           <div className="open-spots">
             <h5>Open spots</h5>
-            <OpenSpots openSpots={sortSpot(spots).open} />
+            <OpenSpots currentUser={currentUser} openSpots={sortSpot(spots).open} />
           </div>
 
       </div>

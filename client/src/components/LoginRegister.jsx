@@ -87,12 +87,12 @@ export default function LoginRegister(props) {
               <a href="#" className="social"><i class="fab fa-linkedin-in"></i></a>
             </div>
             <span>or use your email for registration</span>
-              <input type="text" placeholder="First Name" onChange={({ target }) => setFirstName(target.value)} />
-              <input type="text" placeholder="Last Name" onChange={({ target }) => setLastName(target.value)} />
-              <input type="text" placeholder="Username" onChange={({ target }) => setNewUsername(target.value)} />
-              <input type="email" placeholder="Email" onChange={({ target }) => setNewEmail(target.value)} />
-              <input type="password" placeholder="Password" onChange={({ target }) => setNewPass(target.value)} />
-              <input type="password" placeholder="Password Confirmation" onChange={({ target }) => setNewPassConf(target.value)} />
+              <input type="text" placeholder="First Name" onChange={({ target }) => setFirstName(target.value)} required/>
+              <input type="text" placeholder="Last Name" onChange={({ target }) => setLastName(target.value)} required/>
+              <input type="text" placeholder="Username" onChange={({ target }) => setNewUsername(target.value)} required/>
+              <input type="email" placeholder="Email" onChange={({ target }) => setNewEmail(target.value)} required/>
+              <input type="password" placeholder="Password" onChange={({ target }) => setNewPass(target.value)} required/>
+              <input type="password" placeholder="Password Confirmation" onChange={({ target }) => setNewPassConf(target.value)} required/>
             <button className="signin-signup">Sign Up</button>
           </form>
         </div>
@@ -105,8 +105,8 @@ export default function LoginRegister(props) {
               <a href="#" className="social"><i class="fab fa-linkedin-in"></i></a>
             </div>
             <span>or use your account</span>
-            <input type="email" placeholder="Email" onChange={({ target }) => setUserEmail(target.value)} />
-            <input type="password" placeholder="Password" onChange={({ target }) => setUserPassword(target.value)} />
+            <input type="email" placeholder="Email" onChange={({ target }) => setUserEmail(target.value)} required/>
+            <input type="password" placeholder="Password" onChange={({ target }) => setUserPassword(target.value)} required/>
             <a href="#">Forgot your password?</a>
             <button className="signin-signup">Sign In</button>
           </form>

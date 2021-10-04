@@ -1,4 +1,5 @@
 import MyBand from "./MyBand";
+import NewMyBand from './NewMyBand'
 import './MyBandList.scss';
 
 /* eslint-disable no-unused-vars */
@@ -9,8 +10,10 @@ export default function MyBandList(props) {
     return band.leader_id !== currentUser.id;
   })
 
+  console.log(cachedBands)
+
   const myBandArr = myBands.map(band => {
-    return <MyBand 
+    return <NewMyBand 
       key={band.id}
       cachedBands={cachedBands}
       setCachedBands={setCachedBands}
@@ -19,14 +22,17 @@ export default function MyBandList(props) {
       description={band.description}
       image={band.band_image}
       currentUser={currentUser}
+      bandImage={band.band_image}
       featured={band.featured}
     />
   })
 
   return (
     <div className="my-band-list">
-      <h1>My Bands</h1>
-      {myBandArr}
+      <h1>The Bands You Joined</h1>
+      <div className="my-band-list-container">
+        {myBandArr}
+      </div>
     </div>
   )
 }

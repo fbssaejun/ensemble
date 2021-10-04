@@ -176,12 +176,15 @@ VALUES
 (5, 42, 1, 'Lead Guitarist', 'Album generator, released 12 solo albums and seven EPs.'),
 
 --Test Spots
-(11, 48, 1, 'test guitar', 'blahblah'),
 (11, 12, 1, 'test guitar2', 'haha guitar tim henson'),
 (11, null, 1, 'test guitar3', 'we want a third guitarist hehe'),
-(12, 48, 1, 'test guitar', 'blahblah'),
 (12, 13, 1, 'test guitar2', 'haha guitar scott'),
-(12, null, 1, 'test guitar3', 'we want a third guitarist haha');
+(12, null, 1, 'test guitar3', 'we want a third guitarist haha'),
+(11, 48, 1, 'A Guitarist', 'blahblah'),
+(12, 48, 1, 'Yet Another Guitarist', 'blahblah'),
+(5, 48, 1, 'Seriously Another One?', 'blahblah'),
+(10, 48, 1, 'Bruh Stop', 'blahblah');
+
 
 
 INSERT INTO user_instrument(user_id, instrument_id)

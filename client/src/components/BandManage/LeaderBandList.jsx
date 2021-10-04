@@ -28,7 +28,7 @@ export default function LeaderBandList (props) {
 
   return (
     <div className="leader-band-list">
-      <h1>Manage Bands</h1>
+      <h1>The Bands You Started</h1>
       {myBandArr}
     </div>
   )

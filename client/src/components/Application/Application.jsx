@@ -20,10 +20,10 @@ export default function Application (props) {
         <span className="info-container">
           <h3 className="band-name">{bandName}</h3>
           <h5 className="band-info">
-            Applying for spot: {title} <br/>
-            Instrument: {instrument} <br/>
-            Spot Description: {description} <br/>
-            My message: {message}
+            Applying for: <span>{title}</span> <br/>
+            Instrument: <span>{instrument}</span> <br/>
+            Spot Description: <span>{description}</span><br/>
+            My message: <span>{message}</span>
           </h5>
         </span>
       </Link>

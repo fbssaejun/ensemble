@@ -2,20 +2,30 @@
 
 .user-application {
   display: flex;
-  margin: 3vh auto;
+  margin: 1vw auto;
   justify-content: center; 
+  margin-left: 1vw;
   background-color: whitesmoke;
   border-radius: 10px;
-  box-shadow: 0 0.25px 0.25px rgba(0, 0, 0, 0.12), 0 0.5px 0.5px rgba(0, 0, 0, 0.12),
+  box-shadow: 0 0.25px 0.25px rgba(141, 134, 134, 0.12), 0 0.5px 0.5px rgba(0, 0, 0, 0.12),
     0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12);
     
-  transition: 0.1s ease-in;
-  &:hover {
-    transform: scale(1.01);
-  }
+    transition: 0.1s ease-in;
+    &:hover {
+      transform: scale(1.01);
+    }
+    
+    width: 16vw;
+    height: 17vh;
 
-  width: 20vw;
-  height: 20vh;
+    span {
+      font-size: 10px;
+      color:grey
+    }
+
+    h5{
+      color: Black;
+    }
 }
 
 .info-container {
@@ -23,8 +33,11 @@
   flex-direction: column;
   flex-grow: 10;
   align-items: start;
-  padding-left: 1rem;
-  padding-right: 3rem;
+
+  h3 {
+    margin: 1vh auto;
+    color:black;
+  }
 }
 
 .band-name {

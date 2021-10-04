@@ -53,7 +53,7 @@ export default function EmptySpot (props) {
         <Avatar alt="Profile Pic" src={testImage} sx={{ width: 50, height: 50 }} />
       </div>
       <div className="applications-show-button">
-        <button onClick={handleOpen}>Apps</button>
+        <button className="status-button first" onClick={handleOpen}>status</button>
         <Modal
           open={open}
           onClose={handleClose}

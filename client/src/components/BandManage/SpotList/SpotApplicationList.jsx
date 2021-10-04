@@ -20,7 +20,7 @@ export default function SpotApplicationList(props) {
 
   return (
     <div className="spot-application-list-container">
-      <h1>show spot applications</h1>
+      <h2>Spot applications</h2>
       {applicationArr}
     </div>
   )

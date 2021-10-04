@@ -20,12 +20,15 @@ export default function BandManage(props) {
   
   return (
     <div className="all-band-lists-container">
-      <span>
+
+      <div className="manage-bands-container">
         <LeaderBandList cachedBands={cachedBands} setCachedBands={setCachedBands} currentUser={currentUser} />
-      </span>
-      <span>
+      </div>
+      
+      <div className="involved-bands-container">
         <MyBandList cachedBands={cachedBands} setCachedBands={setCachedBands} currentUser={currentUser} />
-      </span>
+      </div>
+
     </div>
   );
 }

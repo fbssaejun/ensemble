@@ -1,14 +1,14 @@
 @import '../../../appVariables.scss';
 
 .band-application {
+  text-align: center;
   display: flex;
-  margin-left: 1em;
-  margin-right: 1em;
-  margin-bottom: 1em;
+  margin: 1em 1em;
+  justify-content: space-between;
   background-color: whitesmoke;
   border-radius: 10px;
-  box-shadow: 0 0.25px 0.25px rgba(0, 0, 0, 0.12), 0 0.5px 0.5px rgba(0, 0, 0, 0.12),
-    0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+  0 10px 10px rgba(0,0,0,0.22);
   transition: 0.1s ease-in;
   &:hover {
     transform: scale(1.01);
@@ -57,6 +57,7 @@
 
 .app-info-and-buttons {
   display: flex;
+  margin-right: 6vw;
 }
 
 .acc-rej-buttons {
@@ -67,8 +68,71 @@
 
 .app-button {
   &--accept {
+    align-items: center;
+    justify-content: center;
+    width: 1.5vw;
+    height: 1vh;
+    box-sizing: border-box;
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid green;
+    border-radius: 0.6em;
+    color: black;
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+    font-size: 9px;
+    line-height: 1;
+    margin: 0 auto;
+    margin-left: 5px;
+    padding: 1.2em 2em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+
   }
 
   &--reject {
+    align-items: center;
+    justify-content: center;
+    width: 1.5vw;
+    height: 1vh;
+    box-sizing: border-box;
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid red;
+    border-radius: 0.6em;
+    color: red;
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+    font-size: 9px;
+    line-height: 1;
+    margin: 0 auto;
+    margin-left: 5px;
+    padding: 1.2em 2em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+
+  }
+}
+
+
+
+//BUTTON 1
+.second {
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  &:hover {
+    box-shadow: 0 0 40px 40px rgb(8, 192, 8) inset;
+  }
+}
+
+.third {
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  &:hover {
+    box-shadow: 0 0 40px 40px salmon inset;
   }
 }

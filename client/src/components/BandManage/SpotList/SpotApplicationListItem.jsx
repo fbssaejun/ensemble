@@ -53,10 +53,10 @@ export default function SpotApplicationListItem(props) {
             </h5>
           </span>
           <span className="acc-rej-buttons">
-            <button className="app-button--accept" onClick={(event) => {
+            <button className="app-button--accept second" onClick={(event) => {
               event.preventDefault();
               applicationUpdate(true)}}>Accept</button>
-            <button className="app-button--reject" onClick={(event) => {
+            <button className="app-button--reject third" onClick={(event) => {
               event.preventDefault();
               applicationUpdate(false)}}>Reject</button>
           </span>

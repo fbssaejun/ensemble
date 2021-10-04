@@ -23,9 +23,15 @@
     // background: peachpuff;
     & > span {
       transition: var(--animation-speed);
+      font-size: 30px;
+      font-weight: bold;
+      cursor: pointer;
       transform: rotate(0deg);
     }
     &.collapsed > span {
+      font-size: 30px;
+      font-weight: bold;
+      cursor: pointer;
       transform: rotate(180deg);
     }
   }

@@ -53,18 +53,21 @@ export default function AddSpotItem(props) {
             <div className="add-spot-form-container">
               <div className="add-spot-form-close-button">
                 <span></span>
-                <button onClick={handleClose}>X</button>
+                <button className="delete-button" onClick={handleClose}>X</button>
               </div>
               <h1 className="add-spot-form-title">Add a spot</h1>
-              <form onSubmit={(event) => {event.preventDefault();
+              <form 
+              className="add-spot-form"
+              onSubmit={(event) => {event.preventDefault();
                 addSpot(bandId);
                 setShowSpotForm(!showSpotForm);
+                
               }}>
                 <input type="text" placeholder="Username" value={username} onChange={({target}) => setUsername(target.value)}></input>
                 <input type="text" placeholder="instrument" value={instrumentId} onChange={({target}) => setInstrumentId(target.value)}></input>
                 <input type="text" placeholder="title" value={title} onChange={({target}) => setTitle(target.value)}></input>
                 <input type="text" placeholder="description" value={description} onChange={({target}) => setDescription(target.value)}></input>
-                <button>Add</button>
+                <button className="add-spot-form-submit-button fourth">Add</button>
               </form>
             </div>
           </Typography>

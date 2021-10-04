@@ -84,7 +84,7 @@ export default function NewUserEdit(props) {
               )}
             />
           </Stack>
-        <button>Submit Me!</button>
+          <button className="edit-button">Submit</button>             
       </form>
     </Fragment>
   );

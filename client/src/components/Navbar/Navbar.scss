@@ -10,8 +10,8 @@ nav {
   position: fixed;
   top: 0;
   color: black;
-  // border-bottom: 2px solid black;
-  
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+  0 10px 10px rgba(0,0,0,0.22);  
 
   a {
     padding: 1rem;
@@ -52,6 +52,12 @@ nav {
     border: 1px solid black;
     background-color: lightblue;
   }
+}
+
+.search-and-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
@@ -101,9 +107,6 @@ nav {
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
-
-
-
 
 //Darkmode
 .theme-toggle {

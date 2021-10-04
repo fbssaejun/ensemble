@@ -38,7 +38,8 @@ export default function EmptySpot (props) {
   -webkit-tap-highlight-color: transparent;
   `;
 
-  
+  console.log("this is spots", spot);
+
   const testImage = "https://cdn2.bulbagarden.net/upload/1/1b/Pok%C3%A9mon_hunter_Garbodor.png"
 
   return (
@@ -50,7 +51,7 @@ export default function EmptySpot (props) {
           deleteSpot(spot.id)}}>&#215;</button>
       </div>
       <div className="profile-avatar">
-        <Avatar alt="Profile Pic" src={testImage} sx={{ width: 50, height: 50 }} />
+        <Avatar alt={spot.title} src={spot.instrument_image ? spot.instrument_image : "/" } sx={{ width: 50, height: 50 }} />
       </div>
       <div className="applications-show-button">
         <button className="status-button first" onClick={handleOpen}>status</button>

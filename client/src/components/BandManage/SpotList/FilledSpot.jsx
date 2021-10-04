@@ -13,7 +13,7 @@ export default function FilledSpot(props) {
     })
   }
 
-  const testImage = "https://cdn2.bulbagarden.net/upload/4/49/Ash_Pikachu.png"
+  // const testImage = "https://cdn2.bulbagarden.net/upload/4/49/Ash_Pikachu.png"
   
   return (
     <div className="spot-container--filled">
@@ -24,7 +24,7 @@ export default function FilledSpot(props) {
           deleteSpot(spot.id)}}>&#215;</button>
       </div>
       <div className="profile-avatar">
-        <Avatar alt="Profile Pic" src={testImage} sx={{ width: 50, height: 50 }} />
+        <Avatar alt={spot.username} src={spot.profile_image ? spot.profile_image : "/"} sx={{ width: 50, height: 50 }} />
       </div>
       <span>{spot.title}</span>
     </div>

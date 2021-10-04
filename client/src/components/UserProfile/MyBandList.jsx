@@ -53,8 +53,14 @@ export default function MyBandList (props) {
   })
 
   return (
+  <Fragment>
+    {myBands.length ?
     <Fragment>
       {bandArr}
-      </Fragment>
+    </Fragment>
+    :
+    <p>You don't have any related bands</p>
+    }
+  </Fragment>
     )
   }

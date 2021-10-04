@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Fragment } from 'react';
 import MyBandList from './MyBandList';
 import axios from 'axios';
 import UserInfo from './UserInfo'
@@ -101,18 +101,35 @@ export default function UserProfile(props) {
           <UserInfo userInfo={userInfo}/>
 
           <div className="inst-genre-container">
-
+          {userInst.length ? 
+          <Fragment>
             <h5>Instruments</h5> 
               <div className="avatar-container">
                 {instAvatar}
               </div>
+          </Fragment>
+          : 
+          <Fragment>
+            <h5>Instruments</h5> 
+            <p>You have no instruments</p>
+          </Fragment>
+          }
 
+          {userGenre.length ?
+          <Fragment>
               <h5>Genre</h5>
             <div className="genre-container">
                 <Stack direction="row" spacing={1}>
                 {genreTags}
                 </Stack>
             </div>
+          </Fragment>
+          :
+          <Fragment>
+            <h5>Genre</h5> 
+            <p>You have no genre</p>
+          </Fragment>
+          }
           </div>
             <button className="edit-button" onClick={() => handleOpen()}>Edit</button>             
         </div>
@@ -120,6 +137,7 @@ export default function UserProfile(props) {
       <div className="profile-right">
 
       <h5>Bands</h5>
+      
         <div className="profile-band-container">
           <MyBandList userId={userId} />
         </div>

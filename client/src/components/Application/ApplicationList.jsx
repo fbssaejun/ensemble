@@ -1,6 +1,6 @@
 import axios from "axios";
 import Application from "./Application";
-import { useState, useEffect, } from 'react';
+import { useState, useEffect, Fragment} from 'react';
 import { useParams } from 'react-router-dom';
 
 import './ApplicationList.scss'
@@ -30,8 +30,21 @@ export default function ApplicationList (props) {
   })
 
   return (
-    <div className="application-list-container">
-      {applicationArr}
-    </div>
+  <Fragment>
+  {applications.length ?   
+    <Fragment>
+      <div className="application-list-container">
+        {applicationArr}
+      </div>
+    </Fragment>
+  :
+    <Fragment>
+      <div className="application-list-container">
+      <p>You don't have any applications</p>
+      </div>
+    </Fragment>
+  }
+  </Fragment>
   );
+
 }

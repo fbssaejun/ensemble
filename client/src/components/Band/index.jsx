@@ -1,56 +1,95 @@
 import { useParams } from 'react-router-dom';
 import { Fragment, useState, useEffect } from 'react'
 import axios from 'axios';
-import Spot from './Spot'
-import CircularProgress from '@mui/material/CircularProgress';
-import Box from '@mui/material/Box';
+import "./Band.scss"
+import Chip from '@mui/material/Chip';
+import Stack from '@mui/material/Stack';
+
+import FilledSpots from './FilledSpots';
+import OpenSpots from './OpenSpots';
 
 export default function Band (props) {
   const { bandId } = useParams();
-  const [band, setBand] = useState({})
-  const [spots, setSpots] = useState([])
+  const [band, setBand] = useState({});
+  const [spots, setSpots] = useState([]);
+  const [bandGenre, setBandGenre] = useState([]);
 
   useEffect(() => {
+
     Promise.all([
       axios.get(`/api/bands/${bandId}`),
-      axios.get("/api/spots")
+      axios.get(`/api/spots/bands/${bandId}`),
+      axios.get(`/api/genres/bands/${bandId}`)
     ]).then((all) => {
+
       setBand(all[0].data[0]);
       setSpots(all[1].data);
+      setBandGenre(all[2].data);
+
     })
   }, [])
 
-  const getSpots = (spots) => {
-    const spotsArr = []
-    for(const spot of spots) {
-      if (spot.band_id === Number(bandId)) {
-        spotsArr.push(spot);
+  console.log(spots)
+
+  const genreTags = bandGenre.map((obj) => {
+    return <Chip label={obj.name} />
+  })
+
+
+  const sortSpot = (spotArr) => {
+    const retObj = {
+      filled:[],
+      open:[]
+    }
+    for (const spot of spotArr) {
+      if(spot.user_id === null) {
+        retObj.open.push(spot);
+      } else {
+        retObj.filled.push(spot);
       }
     }
-    return spotsArr;
-  }
+    return retObj;
+  };
 
-  const filledSpots = getSpots(spots);
-  const bandSpots = filledSpots.map(spot => { 
-    return <Spot key={spot.id} title={spot.title} />
-  });
+  (sortSpot(spots))
 
-  // Checks that API data has loaded correctly
-  const dataReady = (band, bandSpots) => {
-    // Check band is an object, not null
-    // Check bandSpot array is filled
-    return band && (bandSpots.length !== 0)
-  }
+  return (
+    <div className="band-page-main">
 
-  return !dataReady(band, bandSpots) ? (
-    <Box sx={{ display: 'flex' }}>
-      <CircularProgress />
-    </Box>
-  ) : (
-    <Fragment>
-      <h1>{band.name}</h1>
-      {bandSpots}
-    </Fragment>
+      <div id="wallpaper-image-band"></div>
+        <h1 className="band-page-title">{band.name}</h1>
+        <Stack direction="row" spacing={1}>
+          {genreTags}
+        </Stack>
+        <h4>{band.description}</h4>
+
+      <div className="spots">
+          <div className="filled-spots">
+            <h5>Filled filledSpots</h5>
+            <FilledSpots filledSpots={sortSpot(spots).filled} />
+          </div>
+          <div className="open-spots">
+            <h5>Open spots</h5>
+            <OpenSpots openSpots={sortSpot(spots).open} />
+          </div>
+      </div>
+    </div>
   ) 
 
 }
+
+
+ // const getSpots = (spots) => {
+  //   const spotsArr = []
+  //   for(const spot of spots) {
+  //     if (spot.band_id === Number(bandId)) {
+  //       spotsArr.push(spot);
+  //     }
+  //   }
+  //   return spotsArr;
+  // }
+
+  // const filledSpots = getSpots(spots);
+  // const bandSpots = filledSpots.map(spot => { 
+  //   return <Spot key={spot.id} title={spot.title} />
+  // });

@@ -114,6 +114,7 @@ export default function EditBandForm(props) {
             multiple
             onChange={(event, value) => setBandGenre(value)}
             id="tags-outlined"
+            sx={{ minWidth: "100%" }}
             options={allGenre}
             getOptionLabel={(option) => option.name}
             defaultValue={preSelected(defaultGenre, allGenre)}

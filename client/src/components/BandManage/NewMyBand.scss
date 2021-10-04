@@ -1,10 +1,13 @@
 .my-spot-band{
-  border: solid black;
   margin: 30px 20px;
+  width: 200px;
 }
 
 .my-spot-band-image {
   margin: 10px auto;
+  justify-content: center;
+  align-items: center;
+  display:flex;
 
   img {
     width:10vw;

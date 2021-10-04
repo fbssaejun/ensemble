@@ -1,6 +1,9 @@
+const http = require('http');
+const socket = require('./socket');
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+const httpServer = http.Server(app);
 const PORT = process.env.PORT || 8081;
 const db = require('./db/index');
 
@@ -8,6 +11,13 @@ const db = require('./db/index');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static('public'));
+
+//Handle webSocket Connections
+socket.start(httpServer);
+
+httpServer.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}/`);
+});
 
 // ROUTERS
 const loginApiRoutes = require('./routes/login');
@@ -28,8 +38,6 @@ const applicationsApiRoutes = require('./routes/applications');
 app.use('/api/applications', applicationsApiRoutes(db));
 const signupApiRoutes = require('./routes/signup');
 app.use('/api/signup', signupApiRoutes(db));
-
-
 
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console

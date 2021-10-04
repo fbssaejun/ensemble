@@ -95,5 +95,6 @@ io.on('connection', (socket) => {
     const from = message.fromUser;
     const text = message.message;
     io.to(destSocket).emit('private', { text, from });
+    console.log('users after msg send', users);
   });
 });

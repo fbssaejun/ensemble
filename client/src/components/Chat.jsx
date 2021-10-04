@@ -3,7 +3,7 @@ import io from 'socket.io-client';
 import './Chat.scss';
 
 export default function Chat(props) {
-  const [notify, setNotify] = useState("");
+  const [notify, setNotify] = useState([]);
   const [status, setStatus] = useState({});
   const [message, setMessage] = useState("");
   const [toUser, setToUser] = useState("");
@@ -27,13 +27,16 @@ export default function Chat(props) {
   useEffect(() => {
     const socket = io("/");
     if(currentUser) {
-      socket.emit('send-username', currentUser.username);
+      console.log("the user is logged in")
       socket.on('connect', (event) => {
         console.log("connected", event);
+        socket.emit('send-username', currentUser.username);
       });
 
+
       socket.on('notify', msg => {
-        setNotify(prev => msg);
+        setNotify(prev =>[...prev, msg]);
+        // notify.length && console.log(notify)
       });
       
       socket.on('private', msg => {

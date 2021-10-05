@@ -111,8 +111,14 @@ export default function Results(props) {
               </Select>
             </FormControl>
             <span className="available-open-spots-checkbox">
-              <label> Available? </label>
-              <Checkbox checked={checkAvailable} onChange={() => setCheckAvailable(!checkAvailable)} />
+              <label> Availability </label>
+              {/* <Checkbox checked={checkAvailable} onChange={() => setCheckAvailable(!checkAvailable)} /> */}
+
+              <div class="container-search">
+                <input type="checkbox" id="cbtest" checked={checkAvailable} onChange={() => setCheckAvailable(!checkAvailable)}/>
+                <label for="cbtest" class="check-box"></label> 
+              </div>
+
             </span>
             {bandResult.length !== 0 && <BandResultList
               bands={bandResult}

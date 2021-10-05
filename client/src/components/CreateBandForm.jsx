@@ -180,10 +180,15 @@ export default function CreateBandForm(props) {
             Would you like to feature your band?
           </label>
 
-            <div id="container">
+            {/* <div id="container">
               <input type="checkbox" name="check" checked={bandFeatured} onChange={() => setBandFeatured(!bandFeatured)}/>
               <label for="check"><div></div></label>
-            </div>
+            </div> */}
+
+          <div class="container">
+              <input type="checkbox" id="cbtest" checked={bandFeatured} onChange={() => setBandFeatured(!bandFeatured)}/>
+              <label for="cbtest" class="check-box"></label> 
+          </div>
 
           <p className="create-band-title">Band Leader</p>
           <div class="form__group field">

@@ -92,7 +92,9 @@ function App() {
               <LoginRegister setState={setState} />
           </Route>
           <Route path="/search">
+            <motion.div initial="i" animate="a" exit="e" variants={swipeDownTransition} transition={extendTransition}>
               <Search currentUser={state.currentUser} />
+            </motion.div>
           </Route>
           <Route path="/bands/new">
             <motion.div initial="i" animate="a" exit="e" variants={swipeUpTransition} transition={extendTransition}>

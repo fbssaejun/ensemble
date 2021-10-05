@@ -74,6 +74,7 @@ export default function Search(props) {
         searchOption={searchOption}
         />
       </animated.div>) : '') }
+      <div className="search-page-footer-down"></div>
     </div>
   )
 }

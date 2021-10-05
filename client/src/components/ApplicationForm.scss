@@ -1,0 +1,43 @@
+
+.band-application-label{
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.band-application-message{
+  resize:none;
+  width: 25vw;
+  height:60px;
+
+}
+
+.band-appplication-button-container{
+  display:flex;
+}
+
+.band-application-button {
+  align-items: center;
+  justify-content: center;
+  width: 1.5vw;
+  height: 1vh;
+  background-color: transparent;
+  border: 2px solid black;
+  border-radius: 0.6em;
+  color: black;
+  cursor: pointer;
+  display: flex;
+  align-self: center;
+  font-size: 12px;
+  line-height: 1;
+  padding: 1.2em 2em;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  margin: 10px 20px;
+
+  &:hover,
+  &:focus {
+    color: black;
+    outline: 0;
+  }
+}

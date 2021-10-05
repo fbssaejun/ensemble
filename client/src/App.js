@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
+import Chat from './components/Chat';
 import LoginRegister from './components/LoginRegister';
 import UserProfile from './components/UserProfile';
 import NotFound from './components/NotFound';
@@ -12,7 +13,7 @@ import CreateBandForm from './components/CreateBandForm';
 import BandManage from './components/BandManage/index';
 import Footer from './components/Footer';
 import './App.scss';
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion';
 
 function App() {
   const [state, setState] = useState({
@@ -22,50 +23,40 @@ function App() {
   });
 
   const location = useLocation();
-  console.log(location)
+  console.log(location);
 
   return (
     <main className="layout">
-        <Navbar currentUser={state.currentUser} setState={setState} />
-        <AnimatePresence exitBeforeEnter initial={false}>
-          <Switch location={location} key={location.pathname}>
-            <Route path="/users/:userId">
-              <UserProfile />
-            </Route>
-            <Route path="/auth">
-              <LoginRegister setState={setState} />
-            </Route>
-            <Route path="/search">
-              <motion.div
-                initial={{ opacity: 0, y:"-100%" }}
-                animate={{ opacity: 1, y:"0" }}
-                exit={{ opacity: 0, y:"-100%" }}
-              >
-                <Search currentUser={state.currentUser} />
-              </motion.div>
-            </Route>
-            <Route path="/bands/new">
-              <CreateBandForm currentUser={state.currentUser} />
-            </Route>
-            <Route path="/bands/manage">
-              <BandManage currentUser={state.currentUser} />
-            </Route>
-            <Route path="/bands/:bandId">
-              <Band currentUser={state.currentUser} />
-            </Route>
-            <Route path="/" exact>
-              <motion.div
-                initial={{ opacity: 0}}
-                animate={{ opacity: 1}}
-                exit={{ opacity: 0}}
-              >
-                <Home currentUser={state.currentUser}/>
-              </motion.div>
-            </Route>
-            <Route component={NotFound} />
-          </Switch>
-        </AnimatePresence>
-        <Footer />
+      <Navbar currentUser={state.currentUser} setState={setState} />
+      {state.currentUser && <Chat />}
+      <Switch>
+        <Route path="/users/:userId/app">
+          <ApplicationList />
+        </Route>
+        <Route path="/users/:userId">
+          <UserProfile />
+        </Route>
+        <Route path="/auth">
+          <LoginRegister setState={setState} />
+        </Route>
+        <Route path="/search">
+          <Search currentUser={state.currentUser} />
+        </Route>
+        <Route path="/bands/new">
+          <CreateBandForm currentUser={state.currentUser} />
+        </Route>
+        <Route path="/bands/manage">
+          <BandManage currentUser={state.currentUser} />
+        </Route>
+        <Route path="/bands/:bandId">
+          <Band />
+        </Route>
+        <Route path="/" exact>
+          <Home currentUser={state.currentUser} />
+        </Route>
+        <Route component={NotFound} />
+      </Switch>
+      <Footer />
     </main>
   );
 }

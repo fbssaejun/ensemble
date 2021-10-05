@@ -1,7 +1,9 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const app = express();
+const server = require('http').createServer(app);
+const io = require('socket.io')(server);
 const PORT = process.env.PORT || 8081;
+const bodyParser = require('body-parser');
 const db = require('./db/index');
 
 // Express Configuration
@@ -29,9 +31,70 @@ app.use('/api/applications', applicationsApiRoutes(db));
 const signupApiRoutes = require('./routes/signup');
 app.use('/api/signup', signupApiRoutes(db));
 
-
-
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   // eslint-disable-next-line no-console
   console.log(`Express seems to be listening on port ${PORT} so that's pretty good 👍`);
+});
+
+//Handle webSocket Connections
+
+const users = {};
+let connected = 0;
+
+const getUser = function (username) {
+  for (const user in users) {
+    if (users[user] === username) {
+      return user;
+    }
+  }
+};
+
+const getUsersList = () => {
+  return Object.keys(users);
+};
+
+const sendStatus = function () {
+  const active = Object.keys(users).length;
+  const status = { connected, active };
+  console.log(status);
+  io.emit('status', status);
+};
+
+io.on('connection', (socket) => {
+  socket.on('send-username', (username) => {
+    users[username] = socket.id;
+    console.log(users);
+    io.to(socket.id).emit('notify', `Signed in: ${username}`);
+    io.emit('users-list', getUsersList());
+    connected++;
+    sendStatus(io);
+  });
+
+  socket.on('disconnect', () => {
+    console.log(socket.id, 'LOGGED OUT');
+    connected--;
+
+    const user = getUser(socket.id);
+    if (user) {
+      delete users[user];
+    }
+    io.emit('users-list', getUsersList());
+    sendStatus();
+  });
+
+  socket.on('chat', (message) => {
+    console.log('got chat', message);
+    console.log('users after chat', users, 'from:', message.fromUser);
+
+    const destSocket = users[message.toUser];
+    if (!destSocket) {
+      server.to(socket.id).emit('status', msg.to + ' is not active');
+      return;
+    }
+    const from = message.fromUser;
+    const text = message.message;
+    const chatHistory = message.chatHistory;
+    io.to(destSocket).emit('private', { from: from, text: text });
+    console.log('users after msg send', users);
+  });
 });

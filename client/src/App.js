@@ -41,30 +41,34 @@ function App() {
     },
   };
 
-  const swipeUpTransition = {
+  const swipeDownTransition = {
     i:{
       opacity: 0,
-      y: "-100vh"
+      y: "-100%"
     },
     a:{
-      opacity: 1
+      opacity: 1,
+      y:"0"
     },
-    export:{
+    e:{
       opacity: 0,
-      y: "100vh"
+      y: "100%"
     },
   };
 
-  const swpieDownTransition = {
+  const swipeUpTransition = {
     i:{
-      opacity: 0
+      opacity: 0,
+      y: "100%"
     },
     a:{
-      opacity: 1
+      opacity: 1,
+      y:"0"
     },
     e:{
-      opacity: 0
-    },
+      opacity: 0,
+      y: "-100%"
+    }
   };
 
   const location = useLocation();
@@ -80,24 +84,28 @@ function App() {
             <ApplicationList />
           </Route>
           <Route path="/users/:userId">
-            <UserProfile />
-          </Route>
-          <Route path="/auth">
-            <motion.div initial="i" animate="a" exit="e" variants={swipeUpTransition} transition={extendTransition}>
-              <LoginRegister setState={setState} />
+            <motion.div initial="i" animate="a" exit="e" variants={swipeDownTransition} transition={extendTransition}>
+              <UserProfile />
             </motion.div>
           </Route>
+          <Route path="/auth">
+              <LoginRegister setState={setState} />
+          </Route>
           <Route path="/search">
-            <Search currentUser={state.currentUser} />
+              <Search currentUser={state.currentUser} />
           </Route>
           <Route path="/bands/new">
-            <CreateBandForm currentUser={state.currentUser} />
+            <motion.div initial="i" animate="a" exit="e" variants={swipeUpTransition} transition={extendTransition}>
+              <CreateBandForm currentUser={state.currentUser} />
+            </motion.div>
           </Route>
           <Route path="/bands/manage">
             <BandManage currentUser={state.currentUser} />
           </Route>
           <Route path="/bands/:bandId">
-            <Band />
+            <motion.div initial="i" animate="a" exit="e" variants={swipeDownTransition} transition={extendTransition}>
+              <Band />
+            </motion.div>
           </Route>
           <Route path="/" exact>
             <motion.div initial="i" animate="a" exit="e" variants={fadeTransition} transition={extendTransition}>

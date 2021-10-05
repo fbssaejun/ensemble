@@ -21,11 +21,6 @@ export default function Navbar(props) {
             alt="logo"
           />
         </Link>
-          <div class="theme-toggle">
-            <input type="checkbox" />
-              <div class="toggle-body"></div>
-              <div class="celestial-body"></div>
-          </div>
         {!props.currentUser ? (
           <Fragment>
           <div className="search-bar">

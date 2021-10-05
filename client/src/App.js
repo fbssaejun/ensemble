@@ -26,7 +26,7 @@ function App() {
   });
 
   const extendTransition = {
-    duration: 1
+    duration: 0.5
   };
 
   const fadeTransition = {
@@ -104,7 +104,7 @@ function App() {
           </Route>
           <Route path="/bands/:bandId">
             <motion.div initial="i" animate="a" exit="e" variants={swipeDownTransition} transition={extendTransition}>
-              <Band />
+              <Band currentUser={state.currentUser} />
             </motion.div>
           </Route>
           <Route path="/" exact>

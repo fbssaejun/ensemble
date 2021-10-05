@@ -24,29 +24,29 @@ export default function Home(props) {
     }
   }
 
-  useEffect(() => {
+  // useEffect(() => {
 
 
-    axios.get('/api/bands/featured').then((results) => {
-      setFeaturedBands(results.data)
-    });
+  //   axios.get('/api/bands/featured').then((results) => {
+  //     setFeaturedBands(results.data)
+  //   });
 
-    resetTimeout();
-    timeoutRef.current = setTimeout(
-      () =>
-        setIndex((prevIndex) =>
-          prevIndex === featuredBands.length - 1 ? 0 : prevIndex + 1
-        ),
-      delay
-    );
+  //   resetTimeout();
+  //   timeoutRef.current = setTimeout(
+  //     () =>
+  //       setIndex((prevIndex) =>
+  //         prevIndex === featuredBands.length - 1 ? 0 : prevIndex + 1
+  //       ),
+  //     delay
+  //   );
 
-    return () => {
-      resetTimeout();
-    };
-  }, [index]);
+  //   return () => {
+  //     resetTimeout();
+  //   };
+  // }, [index]);
 
   return (
-    <Fragment className="home-component">
+    <div className="home-component">
 
       {/* <div className="ensemble-video">
         <video id="bgvideo" autoplay="autoplay" loop muted>
@@ -55,14 +55,14 @@ export default function Home(props) {
       </div> */}
 
       <div className="main">
-        <h2>Featured Bands</h2>
+        {/* <h2>Featured Bands</h2>
         <div className="slideshow">
           <div
             className="slideshowSlider"
             style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
           >
             {featuredBands.map((bands, index) => (
-              <Fragment>
+              <span>
               <button
                 className="slide"
                 key={index}        
@@ -76,7 +76,7 @@ export default function Home(props) {
                 <h3>{bands.description}</h3>
               </div>
               </button>
-              </Fragment>
+              </span>
             ))}
           </div>
 
@@ -91,7 +91,7 @@ export default function Home(props) {
               ></div>
             ))}
           </div>
-        </div>
+        </div> */}
         <div className="explore-text">
           <h6>Looking for a band?</h6>
           <p><b>Explore and join according to your favorite genre, instrument and people</b></p>
@@ -156,6 +156,6 @@ export default function Home(props) {
         </div>
       </div>
   
-    </Fragment>
+    </div>
   );
 }

@@ -156,7 +156,7 @@ export default function Home(props) {
           <span className="content-text">Apply for bands that you would like to participate in</span>
           <button className="about-button">
             {props.currentUser ? 
-            <span><Link to={`/users/${props.currentUser.id}/app`}>My Applications</Link></span>
+            <span><Link to={`/users/${props.currentUser.id}`}>My Applications</Link></span>
             : <Link to={`/auth`}>My Applications</Link>}
           </button>
             </div>

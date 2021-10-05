@@ -1,21 +1,36 @@
+@import '../appVariables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+$primary: black;
+$secondary: gold;
+$white: #fff;
+$gray: #9b9b9b;
+
 .create-band-form {
   display: flex;
   margin: 5em auto;
   justify-content: center;
+  background-color: $background-color;
+  padding-top: 10vh;
+}
+
+.create-band-title {
+  font-weight: 600;
+  font-size: larger;
 }
 
 .select-instrument {
   width: 100%;
 }
 
-
-
 //Input
-
-$primary: black;
-$secondary: gold;
-$white: #fff;
-$gray: #9b9b9b;
+.form-group-band {
+  padding-bottom: 3em;
+  padding-top: 1em;
+  border-radius: 10px;
+  box-shadow: 0 0.25px 0.25px rgba(141, 134, 134, 0.12), 0 0.5px 0.5px rgba(0, 0, 0, 0.12),
+    0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12);
+}
 .form__group {
   position: relative;
   padding: 15px 0 0;
@@ -63,36 +78,45 @@ $gray: #9b9b9b;
     transition: 0.2s;
     font-size: 1rem;
     color: black;
-    font-weight:700;    
+    font-weight: 700;
   }
-  padding-bottom: 6px;  
+  padding-bottom: 6px;
   font-weight: 700;
   border-width: 3px;
-  border-image: linear-gradient(to right, $primary,$secondary);
+  border-image: linear-gradient(to right, $primary, $secondary);
   border-image-slice: 1;
 }
 /* reset input */
-.form__field{
-  &:required,&:invalid { box-shadow:none; }
+.form__field {
+  &:required,
+  &:invalid {
+    box-shadow: none;
+  }
 }
 
-
-//Buttons 
+//Buttons
 
 .submit-button {
   margin-top: 50px;
-  display:flex;
+  display: flex;
   justify-content: space-between;
 }
 
 //=== Drawing effect
 
-@mixin btn-border-drawing($color: #ccc, $hover: black, $width: 2px, $vertical: top, $horizontal: left, $duration: 0.25s) {
+@mixin btn-border-drawing(
+  $color: #ccc,
+  $hover: black,
+  $width: 2px,
+  $vertical: top,
+  $horizontal: left,
+  $duration: 0.25s
+) {
   box-shadow: inset 0 0 0 $width $color;
   color: $color;
   transition: color $duration $duration/3;
   position: relative;
-  
+
   &::before,
   &::after {
     border: 0 solid transparent;
@@ -100,29 +124,30 @@ $gray: #9b9b9b;
     content: '';
     pointer-events: none;
     position: absolute;
-    width: 0; height: 0;
-    
-    #{$vertical}: 0; 
+    width: 0;
+    height: 0;
+
+    #{$vertical}: 0;
     #{$horizontal}: 0;
   }
 
   &::before {
     $h-side: if($horizontal == 'left', 'right', 'left');
-    
+
     border-#{$vertical}-width: $width;
     border-#{$h-side}-width: $width;
   }
-  
+
   &::after {
     $v-side: if($vertical == 'top', 'bottom', 'top');
-    
+
     border-#{$v-side}-width: $width;
     border-#{$horizontal}-width: $width;
   }
-  
+
   &:hover {
     color: $hover;
-    
+
     &::before,
     &::after {
       border-color: $hover;
@@ -130,15 +155,19 @@ $gray: #9b9b9b;
       width: 100%;
       height: 100%;
     }
-    
-    &::before { transition-delay: 0s, 0s, $duration; }
-    
-    &::after { transition-delay: 0s, $duration, 0s; }
+
+    &::before {
+      transition-delay: 0s, 0s, $duration;
+    }
+
+    &::after {
+      transition-delay: 0s, $duration, 0s;
+    }
   }
 }
 
 .draw-border {
-  @include btn-border-drawing(grey, gold, 4px, bottom, right);
+  @include btn-border-drawing(grey, #e4ba4d, 4px, bottom, right);
 }
 
 //=== Button styling, semi-ignore
@@ -150,12 +179,16 @@ $gray: #9b9b9b;
   font: 700 1.2rem 'Roboto Slab', sans-serif;
   padding: 1em 2em;
   letter-spacing: 0.05rem;
-  
-  &:focus { outline: 2px dotted #55d7dc; }
+  // width: 150px;
+
+  &:focus {
+    outline: 2px dotted #55d7dc;
+  }
 }
 
-
-
+.button-spacer {
+  width: 1em;
+}
 //Delete
 
 .delete-button-form {
@@ -174,18 +207,18 @@ $gray: #9b9b9b;
   }
 }
 
-
 //Checkbox
 
 #container {
   margin: 0 auto;
+  margin-top: 1em;
   display: block;
   width: 42px;
   height: 42px;
-  border: solid 1px rgba(0,0,10,0.5);
+  border: solid 1px rgba(0, 0, 10, 0.5);
   border-radius: 5px;
   position: relative;
-  
+
   & label {
     height: 40px;
     width: 40px;
@@ -194,19 +227,19 @@ $gray: #9b9b9b;
     position: absolute;
     top: 0;
     left: 0;
-    
+
     & div {
       height: 20px;
       width: 20px;
-      border: solid 2px rgba(0,0,10,0.6);
+      border: solid 2px rgba(0, 0, 10, 0.6);
       margin: 10px;
       border-radius: 50%;
       transform: rotate(45deg);
-      
+
       transition: all 100ms ease-in-out, border 50ms ease 100ms;
     }
   }
-  
+
   & input {
     height: 40px;
     width: 40px;
@@ -215,7 +248,7 @@ $gray: #9b9b9b;
     z-index: 1;
     position: relative;
     cursor: pointer;
-     
+
     &:checked + label > div {
       border-radius: 0;
       border-top: 0;
@@ -226,13 +259,8 @@ $gray: #9b9b9b;
       margin-top: 3px;
       margin-left: 14px;
       transform: rotate(40deg);
-      
+
       transition: all 150ms ease-in-out;
     }
   }
 }
-
-
-
-
-

@@ -113,9 +113,9 @@ export default function CreateBandForm(props) {
 
   return (
     <div className="create-band-form">
-      <form onSubmit={submitForm}>
-        <div className="form-group-band">
-          <h2>Create a new Band</h2>
+      <form className="form-group-band" onSubmit={submitForm}>
+        <div>
+          <p className="create-band-title">Create a new Band</p>
           <div class="form__group field">
             <label for="name" class="form__label">
               Name
@@ -185,7 +185,7 @@ export default function CreateBandForm(props) {
               <label for="check"><div></div></label>
             </div>
 
-          <h2>Band Leader</h2>
+          <p className="create-band-title">Band Leader</p>
           <div class="form__group field">
             <label for="title" class="form__label">
               Your Title
@@ -256,13 +256,14 @@ export default function CreateBandForm(props) {
           </FormControl>
           <div className="submit-button">
             <button
-              class="btn draw-border"
+              className="btn draw-border"
               type="button"
               onClick={() => addSpot()}
             >
               Add A Spot
             </button>
-            <button class="btn draw-border" type="submit">
+            <div className="button-spacer"></div>
+            <button className="btn draw-border" type="submit">
               Create band
             </button>
           </div>

@@ -1,3 +1,24 @@
+@import '../../appVariables.scss';
+
+.leader-band-list {
+  display: flex;
+  flex-direction: column;
+  width: 35vw;
+  justify-content: center;
+}
+
 .leader-band-items-container {
-  margin-top: 12vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2em;
+  flex: wrap;
+}
+
+.leader-band-list-title {
+  border-radius: 30px;
+  background-color: $color-4;
+  width: fit-content;
+  padding: 10px;
+  align-self: center;
 }

@@ -1,5 +1,4 @@
-import MyBand from "./MyBand";
-import NewMyBand from './NewMyBand'
+import NewMyBand from './MyBand'
 import './MyBandList.scss';
 
 /* eslint-disable no-unused-vars */
@@ -29,7 +28,7 @@ export default function MyBandList(props) {
 
   return (
     <div className="my-band-list">
-      <h1>The Bands You Joined</h1>
+      <h1 className="my-band-list-title">The Bands You Joined</h1>
       <div className="my-band-list-container">
         {myBandArr}
       </div>

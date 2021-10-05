@@ -1,39 +1,26 @@
-.my-band-list{
-  flex-wrap: wrap;
-  display:flex;
-  width:35vw;
+@import '../../appVariables.scss';
+
+.my-band-list {
+  display: flex;
+  flex-direction: column;
+  width: 35vw;
   justify-content: center;
 }
 
-.my-band-list-container{
+.my-band-list-container {
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
   align-items: center;
-  flex-wrap: wrap;
-  flex: 2 0 50%;
+  margin-top: 2em;
+  flex: wrap;
+  width: 35vw;
+  // background-color: red;
 }
 
-
-.leave-band-button {
-  position:relative;
-  left: 82%;
-  margin-bottom: 50%;
-  z-index: 4;
-  border-radius: 50%;
-  text-decoration: none;
-  font: 700 12px/16px sans-serif;
-  background: #555;
-  border: 2px solid #fff;
-  color: #fff;
-  box-shadow: 0 0.25px 0.25px rgba(0, 0, 0, 0.12), 0 0.5px 0.5px rgba(0, 0, 0, 0.12),
-    0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-  -webkit-transition: background 0.5s;
-  transition: background 0.5s;
-}
-.leave-band-button:hover {
-  background: #e54e4e;
-}
-.leave-band-button:active {
-  background: #e54e4e;
+.my-band-list-title {
+  border-radius: 30px;
+  background-color: $color-4;
+  width: fit-content;
+  padding: 10px;
+  align-self: center;
 }

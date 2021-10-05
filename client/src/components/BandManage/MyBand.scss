@@ -1,64 +1,72 @@
-.my-band-item {
+// .my-spot-band {
+//   margin: 30px 20px;
+//   width: 500px;
+// }
+
+.my-spot-band {
   display: flex;
-  flex-direction: row;
-  margin-left: 10em;
-  margin-right: 10em;
-  margin-bottom: 1em;
-  background-color: whitesmoke;
+  flex-direction: column;
+  margin: 1em;
   border-radius: 10px;
+  width: 300px;
+  box-shadow: 0 0.25px 0.25px rgba(0, 0, 0, 0.12), 0 0.5px 0.5px rgba(0, 0, 0, 0.12),
+    0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12), 0 4px 4px rgba(0, 0, 0, 0.12);
+}
+.my-spot-band-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+  }
+}
+.leave-band-button {
+  z-index: 4;
+  align-self: end;
+  margin-right: -10px;
+  margin-bottom: -10px;
+  border-radius: 50%;
+  text-decoration: none;
+  font: 700 12px/16px sans-serif;
+  background: #555;
+  border: 2px solid #fff;
+  color: #fff;
   box-shadow: 0 0.25px 0.25px rgba(0, 0, 0, 0.12), 0 0.5px 0.5px rgba(0, 0, 0, 0.12),
     0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  -webkit-transition: background 0.5s;
+  transition: background 0.5s;
+}
+.leave-band-button:hover {
+  background: #e54e4e;
+}
+.leave-band-button:active {
+  background: #e54e4e;
 }
 
-.horizontal-accordion {
-  --animation-speed: 200ms;
-  // background: red;
+.leave-band-warning {
   display: flex;
-  .horizontal-accordion-control {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 20px;
-    height: 100%;
-    // background: peachpuff;
-    & > span {
-      transition: var(--animation-speed);
-      font-size: 30px;
-      font-weight: bold;
-      cursor: pointer;
-      transform: rotate(0deg);
-    }
-    &.collapsed > span {
-      font-size: 30px;
-      font-weight: bold;
-      cursor: pointer;
-      transform: rotate(180deg);
-    }
-  }
-  .horizontal-accordion-content {
-    position: relative;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  border-radius: 12px;
+  color: rgb(233, 74, 74);
+
+  .leave-buttons {
     display: flex;
     align-items: center;
-    width: 80px;
-    padding: 0.33rem;
-    overflow-x: hidden;
-    box-shadow: inset 2px 0px 6px #888;
-    transition: var(--animation-speed);
-    &.collapsed {
-      margin: 0;
-      padding: 0;
-      width: 0;
-      transition: var(--animation-speed);
-      > * {
-        opacity: 0;
-        transform: translate(-80px);
-        transition: var(--animation-speed);
-      }
-    }
-    > * {
-      opacity: 1;
-      transform: translate(0);
-      transition: var(--animation-speed);
-    }
+    margin: 0 6vw;
   }
+}
+
+.css-1wnsr1i {
+  border-radius: 12px;
+  border: none;
+}
+
+.MuiBox-root {
+  border: none;
 }

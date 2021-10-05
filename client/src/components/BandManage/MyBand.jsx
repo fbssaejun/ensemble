@@ -1,41 +1,24 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
 
-import './MyBand.scss';
+import './MyBand.scss'
 
-const HorizontalAccordion = ({children}) => {
-  const [isOpen, setIsOpen] = useState(false)
-  let collapsed = isOpen ? "" : "collapsed";
-
-  return (
-    <div className='horizontal-accordion'>
-      <div className={`horizontal-accordion-content ${collapsed}`}>
-        {children}
-      </div>
-      <div onClick={() => setIsOpen(!isOpen)} className={`horizontal-accordion-control ${collapsed}`}><span>&lt;</span></div>
-    </div>
-  );
-}
-
-export default function MyBand(props) {
+export default function NewMyBand(props) {
   const [spots, setSpots] = useState([]);
-  const { name, description, image, bandId, currentUser, featured, cachedBands, setCachedBands } = props;
+  const { name, description, image, bandId, currentUser,
+  featured, cachedBands, setCachedBands, bandImage } = props;
 
-
-
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   useEffect(()=> {
     axios.get(`/api/spots/users/${currentUser.id}`).then((results) => {
       setSpots(results.data);
     })
   }, [])
-
-
 
   const mySpot = spots.filter((spot) => {
     return spot.band_id === bandId;
@@ -49,37 +32,50 @@ export default function MyBand(props) {
     })
   }
 
-  return (
-    <div className="my-band-item">
-      <div>
-        <h2>{name}</h2>
-        {mySpot.length && <h3>My Spot: {mySpot[0].instrument_name}</h3>}
-      </div>
-      <HorizontalAccordion>
-        <button type="button" onClick={(event)=>{
-          event.preventDefault();
-          leaveBand(mySpot[0].id)
-        }}>Leave Band
-        </button>
-      </HorizontalAccordion>
-      {/* <button> Leave <br/> Band </button> */}
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+  };
 
+  return (
+    <div className="my-spot-band">
+      <button className="leave-band-button" onClick={()=>handleOpen()}>&#215;</button>
+      <h3>{name}</h3>
+      <div className="my-spot-band-image">
+        <img src={bandImage}/>
+      </div>
+      {mySpot.length && <h5>Title: <br/> {mySpot[0].title}</h5> }
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <div className="leave-band-warning">
+            <h3>Are you sure you want to leave <i><u>{name}</u></i> ? </h3>
+            <div className="leave-buttons">
+              <button 
+              className="app-button--reject third"
+              onClick={(event)=>{
+                event.preventDefault();
+                leaveBand(mySpot[0].id)
+              }}>Leave</button>
+              <button 
+              className="edit-band-button edit"
+              onClick={()=> handleClose()}>Stay</button>
+            </div>
+          </div>
+        </Box>
+      </Modal>
     </div>
   )
   
 }
-//  <Accordion>
-//   <AccordionSummary
-//     expandIcon={<ExpandMoreIcon/>}
-//     aria-controls="panel1a-content"
-//     id="panel1a-header"
-//   >
-//   </AccordionSummary>
-//   <AccordionDetails>
-//     <button type="button" onClick={(event)=>{
-//       event.preventDefault();
-//       leaveBand(mySpot[0].id)
-//     }}>Leave Band
-//     </button>
-//   </AccordionDetails>
-// </Accordion> 

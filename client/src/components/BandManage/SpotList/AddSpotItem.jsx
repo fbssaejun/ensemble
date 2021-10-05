@@ -28,17 +28,6 @@ export default function AddSpotItem(props) {
     })
   }
 
-  const Backdrop = styled('div')`
-  z-index: -1;
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0);
-  -webkit-tap-highlight-color: transparent;
-`;
-
 
   return(
     <div className="add-spot-item-container">
@@ -46,7 +35,6 @@ export default function AddSpotItem(props) {
       <Modal
         open={open}
         onClose={handleClose}
-        BackdropComponent={Backdrop}
       >
         <div className="add-spot-form-modal">          
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>

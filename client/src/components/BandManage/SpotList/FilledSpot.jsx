@@ -26,7 +26,7 @@ export default function FilledSpot(props) {
       <div className="profile-avatar">
         <Avatar alt={spot.username} src={spot.profile_image ? spot.profile_image : "/"} sx={{ width: 50, height: 50 }} />
       </div>
-      <span>{spot.title}</span>
+      <span className="leader-band-spot-title">{spot.title}</span>
     </div>
   );
 }

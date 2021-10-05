@@ -4,9 +4,9 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-  
+
     img {
-      margin-bottom: 20px;
+      // margin-bottom: 20px;
     }
   }
   &--filled {
@@ -14,10 +14,17 @@
   }
 }
 
+.leader-band-spot-title {
+  // display: flex;
+  // max-width: 0px;
+  text-align: center;
+}
+
 .delete-spot-button {
   display: flex;
   width: 100%;
-  margin-left: 15px;
+  margin-left: 8px;
+  margin-bottom: -15px;
   justify-content: space-evenly;
 }
 
@@ -45,9 +52,9 @@
 }
 
 .profile-avatar {
-  margin-top: -15px;
-  margin-right: 0px;
-  margin-bottom: -0.5em;
+  // margin-top: -15px;
+  // margin-right: 0px;
+  // margin-bottom: -0.5em;
 }
 
 .applications-show-button {
@@ -67,7 +74,6 @@
     0 4px 4px rgba(0, 0, 0, 0.12), 0 8px 8px rgba(0, 0, 0, 0.12), 0 16px 16px rgba(0, 0, 0, 0.12);
   border-radius: 10px;
 }
-
 
 .status-button {
   align-items: center;

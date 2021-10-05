@@ -1,6 +1,31 @@
+@import '../../../appVariables.scss';
+
 .spot-application-list-container {
-  margin-top: 5vh;
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+.spot-application-list {
+  // height: ;
+  // border-style: solid;
+  // border-color: black;
+  height: 450px;
+  overflow: auto;
+
+  // overflow-y: hidden;
+
+  margin-bottom: 1em;
+}
+.spot-application-list::-webkit-scrollbar {
+  display: none;
+}
+.confirm-applications-button {
+  border-radius: 15px;
+  border: none;
+  background-color: $color-1;
+  box-shadow: 0 0.25px 0.25px rgba(0, 0, 0, 0.12), 0 0.5px 0.5px rgba(0, 0, 0, 0.12),
+    0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12);
+  padding: 5px;
+  color: white;
 }

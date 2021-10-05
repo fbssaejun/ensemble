@@ -1,5 +1,6 @@
 .add-spot-item-container {
   align-self: center;
+  // margin-bottom: 1px;
 }
 
 .add-spot-button {
@@ -52,7 +53,6 @@
   margin: 0 auto;
 }
 
-
 .add-spot-form-submit-button {
   align-items: center;
   justify-content: center;
@@ -75,6 +75,7 @@
   text-align: center;
   text-transform: uppercase;
   font-family: 'Montserrat', sans-serif;
+  margin-top: 1em;
 }
 
 .fourth {
@@ -83,7 +84,6 @@
     box-shadow: 0 0 40px 40px rgb(8, 192, 8) inset;
   }
 }
-
 
 .css-ix1f03-MuiTypography-root {
   margin: 0;

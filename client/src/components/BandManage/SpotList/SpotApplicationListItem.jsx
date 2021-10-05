@@ -8,17 +8,6 @@ import './SpotApplicationListItem.scss';
 export default function SpotApplicationListItem(props) {
   const { application } = props;
   const [acceptedStatus, setAcceptedStatus] = useState(application.accepted_status);
-  
-  const statusCheck = (status) => {
-   switch(status) {
-     case false:
-      return "Rejected";
-     case true:
-      return "Accepted";
-     default: 
-      return "Pending";
-   }
-  }
 
   const applicationUpdate = (decision) => {
     axios.patch(`/api/applications/${application.id}`, {

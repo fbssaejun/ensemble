@@ -27,17 +27,6 @@ export default function EmptySpot (props) {
     })
   }
 
-  const Backdrop = styled('div')`
-  z-index: -1;
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0);
-  -webkit-tap-highlight-color: transparent;
-  `;
-
   console.log("this is spots", spot);
 
   const testImage = "https://cdn2.bulbagarden.net/upload/1/1b/Pok%C3%A9mon_hunter_Garbodor.png"
@@ -58,7 +47,6 @@ export default function EmptySpot (props) {
         <Modal
           open={open}
           onClose={handleClose}
-          BackdropComponent={Backdrop}
         >
           <div className="show-apps-modal">
             <Typography id="modal-modal-description" sx={{ mt: 2 }}>

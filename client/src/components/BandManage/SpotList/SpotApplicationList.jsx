@@ -6,6 +6,7 @@ import './SpotApplicationList.scss';
 
 export default function SpotApplicationList(props) {
   const [applications, setApplications] = useState([]);
+  const [changed, setChanged] = useState(false);
   const { spotId } = props;
 
   useEffect(() => {
@@ -21,7 +22,13 @@ export default function SpotApplicationList(props) {
   return (
     <div className="spot-application-list-container">
       <h2>Spot applications</h2>
-      {applicationArr}
+      <div className="spot-application-list">
+        {applicationArr.length === 0 && <h5>No Applications Yet!</h5>}
+        {applicationArr}
+      </div>
+      <button onClick={(event)=> {
+        event.preventDefault();
+      }} className="confirm-applications-button">confirm</button>
     </div>
   )
 }

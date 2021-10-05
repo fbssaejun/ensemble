@@ -39,19 +39,21 @@
   display:flex;
   justify-content: center;
   flex-direction: row;
-  object-fit: fill;
-
+  flex-wrap: wrap;
 
   .profile-band {
-    margin: 10px auto;
 
+    margin-right: 1vw;
+    
     &:hover {
       transform: scale(1.1);
       cursor: pointer;
     }
 
     img {
-      width:40vh;
+      width:350px;
+      height: 250px;
+      object-fit: cover;
       border-radius: 10px;
       box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
       0 10px 10px rgba(0,0,0,0.22);

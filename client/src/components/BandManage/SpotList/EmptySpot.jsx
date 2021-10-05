@@ -27,9 +27,9 @@ export default function EmptySpot (props) {
     })
   }
 
-  console.log("this is spots", spot);
+  console.log("this is spot", spot);
 
-  const testImage = "https://cdn2.bulbagarden.net/upload/1/1b/Pok%C3%A9mon_hunter_Garbodor.png"
+
 
   return (
     <div className="spot-container--empty">
@@ -50,7 +50,7 @@ export default function EmptySpot (props) {
         >
           <div className="show-apps-modal">
             <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-              <SpotApplicationList spotId={spot.id} />
+              <SpotApplicationList spots={spots} setSpots={setSpots} spotId={spot.id} />
             </Typography>
           </div>
         </Modal>

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import './SpotApplicationListItem.scss';
 
 export default function SpotApplicationListItem(props) {
-  const { application } = props;
+  const { application, setAcceptedUser } = props;
   const [acceptedStatus, setAcceptedStatus] = useState(application.accepted_status);
 
   const applicationUpdate = (decision) => {
@@ -44,6 +44,7 @@ export default function SpotApplicationListItem(props) {
           <span className="acc-rej-buttons">
             <button className="app-button--accept second" onClick={(event) => {
               event.preventDefault();
+              setAcceptedUser({spotId: application.spot_id, userId: application.user_id, profile_image: application.profile_image});
               applicationUpdate(true)}}>Accept</button>
             <button className="app-button--reject third" onClick={(event) => {
               event.preventDefault();

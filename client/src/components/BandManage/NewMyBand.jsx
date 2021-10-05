@@ -60,8 +60,7 @@ export default function NewMyBand(props) {
       >
         <Box sx={style}>
           <div className="leave-band-warning">
-            <h2>WARNING</h2>
-            <h6>Are you sure you want to leave {name}? We're sad to see you go :(</h6>
+            <h3>Are you sure you want to leave <i>{name}</i> ? </h3>
             <div className="leave-buttons">
               <button onClick={(event)=>{
                 event.preventDefault();

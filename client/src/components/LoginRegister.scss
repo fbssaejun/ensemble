@@ -37,7 +37,7 @@ a {
 .signin-signup {
   border-radius: 20px;
   border: 1px solid white;
-  background-color: #ff4b2b;
+  background-color: #084a66;
   color: #ffffff;
   font-size: 12px;
   font-weight: bold;
@@ -45,10 +45,12 @@ a {
   letter-spacing: 1px;
   text-transform: uppercase;
   transition: transform 80ms ease-in;
+  cursor: pointer;
 }
 
 button:active {
   transform: scale(0.95);
+
 }
 
 button:focus {
@@ -157,9 +159,9 @@ input {
 }
 
 .overlay {
-  background: #ff416c;
-  background: -webkit-linear-gradient(to right, #ff4b2b, #ff416c);
-  background: linear-gradient(to right, #ff4b2b, #ff416c);
+  background: #61a5c2;
+  background: -webkit-linear-gradient(to right, #61a5c2, #084a66);
+  background: linear-gradient(to right, #12506b, #61a5c2);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 0;

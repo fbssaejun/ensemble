@@ -9,7 +9,8 @@ import Stack from '@mui/material/Stack';
 export default function NewUserEdit(props) {
 
   const { userId, userInst, setUserInst, userGenre, setUserGenre, 
-  allInst, allGenre, defaultInst, defaultGenre, handleClose } = props;
+  allInst, allGenre, defaultInst, defaultGenre, setDefaultInst,
+  setDefaultGenre, handleClose } = props;
 
 
   const preSelected = (userOptions, allOptions) => {
@@ -40,8 +41,11 @@ export default function NewUserEdit(props) {
 
     axios.post(`/api/users/${userId}/edit`, {userInst, userGenre})
     .then(results => {
-      handleClose()
+      setDefaultInst(userInst)
+      setDefaultGenre(userGenre)
     })
+
+    handleClose()
   }
 
   return (

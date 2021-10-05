@@ -18,9 +18,9 @@ export default function Application (props) {
       <span className={statusClassName}></span>
       <Link to={bandURL}>
         <span className="info-container">
-          <h3 className="band-name">{bandName}</h3>
+          <p className="band-name">{bandName}</p>
           <h5 className="band-info">
-            Applying for: <span>{title}</span> <br/>
+            Applying for: <span >{title}</span> <br/>
             Instrument: <span>{instrument}</span> <br/>
             Spot Description: <span>{description}</span><br/>
             My message: <span>{message}</span>

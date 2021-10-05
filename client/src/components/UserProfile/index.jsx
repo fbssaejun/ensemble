@@ -55,8 +55,8 @@ export default function UserProfile(props) {
 
   // defaultInst and defaultGenre is to get initial user
   // genre and instrument info
-  const [defaultInst, setDefaultInst] = useState();
-  const [defaultGenre, setDefaultGenre] = useState();
+  const [defaultInst, setDefaultInst] = useState([]);
+  const [defaultGenre, setDefaultGenre] = useState([]);
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -74,7 +74,7 @@ export default function UserProfile(props) {
     p: 4,
   };
 
-  const instAvatar = userInst.map((obj) => {
+  const instAvatar = defaultInst.map((obj) => {
     return(
       <div className="inst-avatar">
         <Avatar
@@ -90,7 +90,7 @@ export default function UserProfile(props) {
   })
 
 
-  const genreTags = userGenre.map((obj) => {
+  const genreTags = defaultGenre.map((obj) => {
     return <Chip label={obj.name} />
   })
 
@@ -101,7 +101,7 @@ export default function UserProfile(props) {
           <UserInfo userInfo={userInfo}/>
 
           <div className="inst-genre-container">
-          {userInst.length ? 
+          {defaultInst.length ? 
           <Fragment>
             <h5>Instruments</h5> 
               <div className="avatar-container">
@@ -115,7 +115,7 @@ export default function UserProfile(props) {
           </Fragment>
           }
 
-          {userGenre.length ?
+          {defaultGenre.length ?
           <Fragment>
               <h5>Genre</h5>
             <div className="genre-container">
@@ -166,6 +166,8 @@ export default function UserProfile(props) {
             allGenre={allGenre}
             defaultInst={defaultInst}
             defaultGenre={defaultGenre}
+            setDefaultInst={setDefaultInst}
+            setDefaultGenre={setDefaultGenre}
             handleClose={handleClose}
           />
         </Box>

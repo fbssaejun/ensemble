@@ -51,7 +51,6 @@ export default function Results(props) {
         <div className="search-results">
           {searchOption ? (
           <div className="user-results">
-            <h1>This is Users</h1>
             <FormControl sx={{ m: 1, minWidth: 100 }}>
               <InputLabel id="user-instrument-label">Instrument</InputLabel>
               <Select
@@ -85,7 +84,6 @@ export default function Results(props) {
             />}
           </div>) : (
           <div className="band-results">
-            <h1>This is Bands</h1>
             <FormControl sx={{ m: 1, minWidth: 100 }}>
               <InputLabel id="band-instrument-label">Instrument</InputLabel>
               <Select
@@ -112,7 +110,10 @@ export default function Results(props) {
               {materialsGenre}
               </Select>
             </FormControl>
-            <Checkbox checked={checkAvailable} onChange={() => setCheckAvailable(!checkAvailable)} />
+            <span className="available-open-spots-checkbox">
+              <label> Available? </label>
+              <Checkbox checked={checkAvailable} onChange={() => setCheckAvailable(!checkAvailable)} />
+            </span>
             {bandResult.length !== 0 && <BandResultList
               bands={bandResult}
               instrument={selectedInstBand}

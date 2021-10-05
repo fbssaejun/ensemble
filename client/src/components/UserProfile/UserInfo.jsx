@@ -15,9 +15,9 @@ export default function UserProfile(props) {
          <img src={defaultUser} width="200px" height="200px"/>
         } */}
           <Avatar alt={userInfo.first_name} src={userInfo.profile_image ? userInfo.profile_image : "/"} sx={{ width: 200, height: 200 }} />
-          <h4>{userInfo.first_name} {userInfo.last_name}</h4>
-          <h4>Username: {userInfo.username}</h4>
-          <h4>Email: {userInfo.email}</h4>
+          <p className="profile-name">{userInfo.first_name} {userInfo.last_name}</p>
+          <p className="profile-desc"><i class="fas fa-user"></i>  {userInfo.username}</p>
+          <p className="profile-desc"><i class="fas fa-envelope-open-text"></i>   {userInfo.email}</p>
       </div>
   );
 }

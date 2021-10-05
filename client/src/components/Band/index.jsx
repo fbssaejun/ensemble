@@ -56,7 +56,6 @@ export default function Band (props) {
 
   return (
     <div className="band-page-main">
-
       <div id="wallpaper-image-band"></div>
       <div className="band-profile-content">
         <div className="profile-band-page">

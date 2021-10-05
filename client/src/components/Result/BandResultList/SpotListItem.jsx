@@ -38,11 +38,12 @@ export default function SpotListItem (props) {
     p: 4,
   };
 
+  console.log(spot)
 
   return (
     <Fragment>
       <IconButton onClick={() => buttonBehavior()}>
-        <Avatar alt={spot.username} src={spot.user_id ? '/' : spot.instrument_image} />
+        <Avatar alt={spot.username} src={spot.user_id ? spot.profile_image : spot.instrument_image} />
       </IconButton>
       
       <Modal

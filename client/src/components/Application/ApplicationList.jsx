@@ -40,7 +40,7 @@ export default function ApplicationList (props) {
   :
     <Fragment>
       <div className="application-list-container">
-      <p>You don't have any applications</p>
+      <p className="profile-desc">You don't have any applications</p>
       </div>
     </Fragment>
   }

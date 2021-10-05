@@ -60,10 +60,13 @@ nav {
 }
 
 .greeting-user-text {
-  color: darkcyan;
+  color: #61a5c2;
   font-style: italic;
-  margin-left: 3px;
+  font-weight: bold;
+  margin-left: 5px;
+  margin-right: 5px;
   font-size: 15px;
+
 }
 
 //Clickable dropdown
@@ -115,94 +118,4 @@ nav {
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {
   display: block;
-}
-
-//Darkmode
-.theme-toggle {
-  position: relative;
-  width: var(--width);
-  height: var(--height);
-  --width: 50px;
-  --height: 30px;
-}
-
-.theme-toggle input[type='checkbox'] {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  z-index: 1;
-  width: var(--width);
-  height: var(--height);
-}
-
-.theme-toggle .toggle-body {
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  width: var(--width);
-  height: var(--height);
-  border: 2px solid #080808;
-  border-radius: var(--height);
-  transition: all 80ms ease-in-out;
-}
-
-.theme-toggle input[type='checkbox'] ~ .toggle-body {
-  background: #1d1d1d;
-  background-image: url('https://cdn.glitch.com/9be3ef5e-cf68-4fac-9bd5-82714468aed6%2F1e7b6b11b5b398711c60f2b71cdf9b03.gif?v=1599237363310');
-  background-size: cover;
-}
-
-.theme-toggle input[type='checkbox']:checked ~ .toggle-body {
-  background: #82dfff /*#EDBCD4*/;
-  background-image: url('');
-  background-size: cover;
-  border-color: #89cbf9 /*#CAAAB7*/;
-}
-
-.theme-toggle input[type='checkbox'] ~ .celestial-body {
-  position: absolute;
-  width: 24px;
-  height: 24px;
-  border: 2px solid #fff08e /*white*/;
-  border-radius: 100%;
-  background: #fff5c4 /*#F0F0FA*/;
-  transition: all 80ms ease-in-out;
-}
-
-.theme-toggle input[type='checkbox']:not(:checked) ~ .celestial-body {
-  top: 3px;
-  left: 3px;
-}
-
-.theme-toggle input[type='checkbox']:checked ~ .celestial-body {
-  top: 3px;
-  left: calc(100% - 27px);
-
-  background: #ff9900 /*#F2E9BD*/;
-  border-color: #ddceb1;
-}
-
-.theme-toggle input[type='checkbox'] ~ .celestial-body::after {
-  content: ' ';
-  opacity: 0;
-  position: absolute;
-  left: -20px;
-  transition: left 0.13s ease-in, opacity 0.15s ease-out;
-}
-
-.theme-toggle input[type='checkbox']:checked ~ .celestial-body::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: -10px;
-  display: block;
-  opacity: 1;
-  width: 20px;
-  height: 20px;
-  background: url('https://cdn.glitch.com/9be3ef5e-cf68-4fac-9bd5-82714468aed6%2FVector%201%20(1).svg?v=1599249814204');
-  background-size: contain;
-  background-position: left;
-  background-repeat: no-repeat;
 }

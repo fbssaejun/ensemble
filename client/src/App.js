@@ -26,7 +26,7 @@ function App() {
   });
 
   const extendTransition = {
-    duration: 1
+    duration: 0.5
   };
 
   const fadeTransition = {
@@ -92,7 +92,9 @@ function App() {
               <LoginRegister setState={setState} />
           </Route>
           <Route path="/search">
+            <motion.div initial="i" animate="a" exit="e" variants={swipeDownTransition} transition={extendTransition}>
               <Search currentUser={state.currentUser} />
+            </motion.div>
           </Route>
           <Route path="/bands/new">
             <motion.div initial="i" animate="a" exit="e" variants={swipeUpTransition} transition={extendTransition}>
@@ -104,7 +106,7 @@ function App() {
           </Route>
           <Route path="/bands/:bandId">
             <motion.div initial="i" animate="a" exit="e" variants={swipeDownTransition} transition={extendTransition}>
-              <Band />
+              <Band currentUser={state.currentUser} />
             </motion.div>
           </Route>
           <Route path="/" exact>

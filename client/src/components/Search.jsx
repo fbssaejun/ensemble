@@ -38,7 +38,7 @@ export default function Search(props) {
   return(
     <div className="search-page">
       <h1 className="searching-for">I am searching for a...</h1>
-      <form>
+      <form className="search-button-form">
         <input type="radio" name="rdo" id="yes" onClick={(prev) => {
           setSearchOption(true);
           setToggleAn(true);
@@ -54,7 +54,7 @@ export default function Search(props) {
       </form>
       {transition((style, item) =>
       item ? (<animated.div style={style}>
-        <form onSubmit={searchField} className="search-btn">
+        <form onSubmit={searchField} className="search-button-form">
           <FormControl sx={{ width: '40ch' }}>
           <TextField
             label="Your Search"
@@ -62,6 +62,9 @@ export default function Search(props) {
             onChange={({ target }) => setSearchTerm(target.value)}
             variant="filled"
           />
+          <button className="search-button">
+            <span> Submit </span>
+          </button>
           </FormControl>
         </form>
         <Result 

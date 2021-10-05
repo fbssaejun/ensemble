@@ -1,3 +1,5 @@
+@import '../appVariables.scss';
+
 div.search-page{
 
 	margin-top: 200px;
@@ -25,7 +27,7 @@ $red: crimson;
 
 	label {
 		cursor: pointer;
-		color: rgba(0,0,0,0.2);
+		color: rgba(0,0,0,1);
 		width: 60px;
 		line-height: 50px;
 		transition: all 0.2s ease;
@@ -71,4 +73,47 @@ label[for=no] {
 			}
 		}
 	}
+}
+
+.search-button-form{
+	background-color: $background-color;
+}
+
+
+// Search button CSS copied from home page
+
+.search-button {
+	background-color: $background-color;
+  position: relative;
+  outline: none;
+  text-decoration: none;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  margin: auto;
+  margin-top: 15px;
+	margin-bottom: 15px;
+  height: 60px;
+  width: 210px;
+  opacity: 1;
+  background-color: $background-color;
+  box-shadow: 0 0.25px 0.25px rgba(141, 134, 134, 0.12), 0 0.5px 0.5px rgba(0, 0, 0, 0.12),
+    0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12);
+  border: 0.5px solid $color-2;
+}
+.search-button span {
+  color: #164ca7;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.7px;
+}
+.search-button:hover {
+  animation: rotate 0.7s ease-in-out both;
+}
+.search-button:hover span {
+  animation: storm 0.7s ease-in-out both;
+  animation-delay: 0.06s;
 }

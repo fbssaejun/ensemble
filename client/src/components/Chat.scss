@@ -1,3 +1,5 @@
+@import '../appVariables.scss';
+
 .chat-window {
   z-index: 500000;
   position: fixed;
@@ -9,6 +11,12 @@
   border-radius: 10px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
     0 4px 4px rgba(0, 0, 0, 0.12), 0 8px 8px rgba(0, 0, 0, 0.12);
+
+  ul,
+  li {
+    margin: 0;
+    padding: 0;
+  }
 }
 
 .bottom-part-of-chat-window {
@@ -17,39 +25,91 @@
 
 .message-box-container {
   // border-style: solid;
+  margin: auto;
+  margin-top: 30px;
+  width: 500px;
+  height: 500px;
 }
 
 .message-input-form {
   position: fixed;
-  bottom: 50px;
-  right: 120px;
-  // border-style: solid;
+  bottom: 70px;
+  right: 100px;
   display: flex;
   background-color: whitesmoke;
-  max-height: 60px;
+  max-height: 50px;
+  width: 600px;
   flex-direction: row;
+  border-radius: 50%;
 }
 
-.message-input-form > * {
+.input-button-spacer {
+  padding: 0.5em;
+}
+
+.users-list-container {
   // border-style: solid;
-  // margin-top: 0;
+  margin-top: 30px;
+  margin-right: 35px;
 }
 
 .users-list {
+  display: flex;
   // border-style: solid;
+  padding-left: 0;
+}
+
+.chat-user-button {
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  // align-self: center;
+  // justify-self: center;
+}
+.send-message-button {
+  padding-top: 5px;
+  padding-bottom: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 5px;
+  border-style: hidden;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
+    0 4px 4px rgba(0, 0, 0, 0.12);
+  transition: 0.1s ease-in;
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 .open-chat-button {
+  z-index: 40000;
   position: fixed;
-  bottom: 50px;
-  right: 120px;
-  width: 50px;
+  bottom: 0px;
+  right: 50px;
+  width: 250px;
   height: 50px;
-  border-radius: 50%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: $color-1;
 }
 
 .close-chat-button {
   width: 50px;
   height: 50px;
   border-radius: 50%;
+}
+
+.chat-box-title {
+  margin: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 20px;
+  width: fit-content;
+  background-color: $color-1;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
+    0 4px 4px rgba(0, 0, 0, 0.12);
+}
+
+.messages-list {
+  list-style-type: none;
 }

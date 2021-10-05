@@ -103,7 +103,7 @@ export default function Home(props) {
         </div>
         <div className="explore-text">
           <h6>Looking for a band?</h6>
-          <p><b>Explore and join according to your favorite genre, instrument and people</b></p>
+          <p>Explore and join according to your favorite genre, instrument and people</p>
         </div>
       </div>
 

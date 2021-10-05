@@ -1,4 +1,7 @@
-import {useState, useEffect, useRef } from 'react';
+import {useState, useEffect, useRef, Fragment } from 'react';
+import SendIcon from '@mui/icons-material/Send';
+import ChatIcon from '@mui/icons-material/Chat';
+
 import './Chat.scss';
 const io = require('socket.io-client');
 
@@ -73,52 +76,45 @@ export default function Chat(props) {
   })
 
   const mappedUserList = filterSelfList.map((user) => {
-    return <button type="button" onClick={() => setToUser(user)}>Chat {user}</button>
+    return <button className="chat-user-button" type="button" onClick={() => setToUser(user)}>Chat {user}</button>
   })
 
   return (
-    open ? 
-    (<div className="chat-window">
-      <button className="close-chat-button" onClick={handleClose}>x</button>
-      <h1>CHAT BOX {notify}</h1>
-      <div className="bottom-part-of-chat-window">
-        <div className="message-box-container">
-          <ul className="messages-list">
-            {mappedChatHistory}
-          </ul>
-          <form onSubmit={(event) => {
-            event.preventDefault();
-            sendMessage();
-          }}className="message-input-form">
-            <input 
-              type="text"
-              placeholder="message"
-              value={message}
-              onChange={({target}) => {
-                const val = target.value;
-                setMessage(val);
-              }
-            }></input>
-            <input 
-              type="text" 
-              placeholder="to user..." 
-              value={toUser} 
-              onChange={({target}) => {
-                const val = target.value;
-                setToUser(val);
-              }  
-            }></input>
-            <button type="submit">Enter</button>
-          </form>
+    <Fragment>
+      {open &&
+      <div className="chat-window">
+        <div className="chat-box-title"><h1>{notify}</h1></div>
+        <div className="bottom-part-of-chat-window">
+          <div className="message-box-container">
+            <ul className="messages-list">
+              {mappedChatHistory}
+            </ul>
+            <form 
+              onSubmit={(event) => {
+                event.preventDefault();
+                sendMessage();
+              }}
+              className="message-input-form">
+              <input 
+                type="text"
+                placeholder="message"
+                value={message}
+                onChange={({target}) => {
+                  const val = target.value;
+                  setMessage(val);
+                }}>
+              </input>
+              <span className="input-button-spacer"></span>
+              <button className="send-message-button" type="submit"><SendIcon/></button>
+            </form>
+          </div>
+          <div className="users-list-container">
+            <ul className="users-list">
+              {mappedUserList}
+            </ul>
+          </div>
         </div>
-        <div className="users-list-container">
-          <ul className="users-list">
-            {mappedUserList}
-          </ul>
-        </div>
-      </div>
-    </div>)
-    :
-    (<button className="open-chat-button" onClick={handleOpen}>+</button>) 
-  )
+      </div>}
+      <button className="open-chat-button" onClick={()=>setOpen(!open)}><ChatIcon/></button>
+    </Fragment>)
 }

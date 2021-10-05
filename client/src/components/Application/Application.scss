@@ -3,29 +3,29 @@
 .user-application {
   display: flex;
   margin: 1vw auto;
-  justify-content: center; 
+  justify-content: center;
   margin-left: 1vw;
-  background-color: whitesmoke;
+  background-color: $background-color;
   border-radius: 10px;
   box-shadow: 0 0.25px 0.25px rgba(141, 134, 134, 0.12), 0 0.5px 0.5px rgba(0, 0, 0, 0.12),
     0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12);
-    
-    transition: 0.1s ease-in;
-    &:hover {
-      transform: scale(1.01);
-    }
-    
-    width: 16vw;
-    height: 17vh;
 
-    span {
-      font-size: 10px;
-      color:grey
-    }
+  transition: 0.1s ease-in;
+  &:hover {
+    transform: scale(1.01);
+  }
 
-    h5{
-      color: Black;
-    }
+  width: 16vw;
+  height: 17vh;
+
+  span {
+    font-size: 10px;
+    color: grey;
+  }
+
+  h5 {
+    color: Black;
+  }
 }
 
 .info-container {
@@ -36,7 +36,7 @@
 
   h3 {
     margin: 1vh auto;
-    color:black;
+    color: black;
   }
 }
 

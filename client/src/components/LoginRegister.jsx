@@ -50,7 +50,12 @@ export default function LoginRegister(props) {
       } else {
         sessionStorage.setItem("id", response.data[0].id);
         sessionStorage.setItem("username", response.data[0].username);
-        props.setState((prev) => ({ ...prev, currentUser: {id: Number(sessionStorage.getItem('id')), username: sessionStorage.getItem('username')} }));
+        sessionStorage.setItem("profile_image", response.data[0].profile_image);
+        props.setState((prev) => ({ ...prev,
+          currentUser: {id: Number(sessionStorage.getItem('id')),
+          username: sessionStorage.getItem('username'),
+          profile_image: sessionStorage.getItem('profile_image')
+        }}));
         history.push('/');
       }
     }).catch(e => console.log(e))

@@ -5,6 +5,7 @@ import React from 'react'
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import Avatar from '@mui/material/Avatar';
 
 import  defaultUserImage from '../UserProfile/default-user-image.png'
 
@@ -37,11 +38,7 @@ export default function Dashboard(props) {
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
       > 
-      {props.currentUser.profile_image ? 
-        <img src={props.currentUser.profile_image} className="profile"/>
-        :
-        <img src={defaultUserImage} className="profile"/>
-      }
+      <Avatar alt={props.currentUser.username} src={props.currentUser.profile_image ? props.currentUser.profile_image : "/"} sx={{ width: 50, height: 50 }} />
       </Button>
       <Menu
         id="basic-menu"

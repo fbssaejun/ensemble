@@ -7,6 +7,8 @@ import logo from "./ensemble.png";
 
 export default function Navbar(props) {
 
+  console.log("INSIDE THE NAV BAR", props.currentUser)
+
   return (
     <header>
       <nav>

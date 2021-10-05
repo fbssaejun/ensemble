@@ -18,7 +18,10 @@ import { AnimatePresence, motion } from 'framer-motion';
 function App() {
   const [state, setState] = useState({
     currentUser: sessionStorage.length
-      ? { id: Number(sessionStorage.getItem('id')), username: sessionStorage.getItem('username') }
+      ? { id: Number(sessionStorage.getItem('id')),
+        username: sessionStorage.getItem('username'),
+        profile_image: sessionStorage.getItem('profile_image')
+      }
       : undefined,
   });
 

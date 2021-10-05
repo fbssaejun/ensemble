@@ -19,12 +19,12 @@ export default function Application (props) {
       <Link to={bandURL}>
         <span className="info-container">
           <p className="band-name">{bandName}</p>
-          <h5 className="band-info">
-            Applying for: <span >{title}</span> <br/>
-            Instrument: <span>{instrument}</span> <br/>
-            Spot Description: <span>{description}</span><br/>
-            My message: <span>{message}</span>
-          </h5>
+          <span className="band-info">
+            Applying for: <span className="application-desc">{title}</span> <br/>
+            Instrument: <span className="application-desc">{instrument}</span> <br/>
+            Spot Description: <span className="application-desc">{description}</span><br/>
+            My message: <span className="application-desc">{message}</span>
+          </span>
         </span>
       </Link>
     </div>

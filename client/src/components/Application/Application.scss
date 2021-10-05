@@ -1,4 +1,6 @@
 @import '../../appVariables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+
 
 .user-application {
   display: flex;
@@ -44,9 +46,7 @@
   color: black;
   margin: 0 auto;
   font-size: 20px;
-  font-weight: 500;
-  text-decoration: underline;
-
+  font-weight: 400;
 }
 
 .band-info {
@@ -54,7 +54,8 @@
   margin-top: 1em;
   margin-bottom: 0;
   text-align: left;
-  font-size: 15px;
+  font-size: 13px;
+  font-weight: 600;
 }
 
 .application-status {
@@ -75,4 +76,16 @@
   &--rejected {
     background-color: #f55d30;
   }
+}
+
+.application-desc{
+  font-weight: 500;
+}
+
+
+.user-application span {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  color: black;
+  line-height: 24px;
 }

@@ -131,7 +131,7 @@ export default function UserProfile(props) {
           </Fragment>
           }
           </div>
-            <button className="edit-button" onClick={() => handleOpen()}>Edit</button>             
+            {sessionStorage.getItem('id') === userId && <button className="edit-button" onClick={() => handleOpen()}>Edit</button>}             
         </div>
 
       <div className="profile-right">

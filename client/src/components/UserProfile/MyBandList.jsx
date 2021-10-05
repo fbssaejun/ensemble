@@ -59,7 +59,7 @@ export default function MyBandList (props) {
       {bandArr}
     </Fragment>
     :
-    <p>You don't have any related bands</p>
+    <p className="profile-desc">You don't have any related bands</p>
     }
   </Fragment>
     )

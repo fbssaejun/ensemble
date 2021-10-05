@@ -9,7 +9,7 @@
     font-family: 'Montserrat';
     color: white;
     width: 100%;
-    padding: 1em;
+    padding: 2em;
     background-color: $color-1;
   }
 }
@@ -66,13 +66,15 @@
 
 .slideshow {
   margin: 50px auto;
+  margin-top: 150px;
   overflow: hidden;
-  max-width: 500px;
+  width: 100%;  
 }
 
 .slideshowSlider {
   white-space: nowrap;
   transition: ease 1000ms;
+  // width: 30vw;
 }
 
 .slide {
@@ -82,15 +84,15 @@
   border: none;
   background: none;
   border-radius: 10px;
-
+  
   &:hover {
     cursor: pointer;
   }
-
+  
   img {
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     margin-top: 1em;
     border-radius: 10px;
+    // box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   }
 }
 
@@ -235,7 +237,7 @@
 .begin-search {
   position: absolute;
   top: 65vh;
-  left: 47%;
+  left: 47.5%;
   color: black;
   background-color: white;
   padding: 20px 30px;

@@ -7,8 +7,6 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Avatar from '@mui/material/Avatar';
 
-import  defaultUserImage from '../UserProfile/default-user-image.png'
-
 
 export default function Dashboard(props) {
   const [anchorEl, setAnchorEl] = useState(null);

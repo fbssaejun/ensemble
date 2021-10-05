@@ -111,7 +111,7 @@ export default function UserProfile(props) {
           : 
           <Fragment>
             <h5>Instruments</h5> 
-            <p>You have no instruments</p>
+            <p className="profile-desc">You have no instruments</p>
           </Fragment>
           }
 
@@ -127,7 +127,7 @@ export default function UserProfile(props) {
           :
           <Fragment>
             <h5>Genre</h5> 
-            <p>You have no genre</p>
+            <p className="profile-desc">You have no genre</p>
           </Fragment>
           }
           </div>

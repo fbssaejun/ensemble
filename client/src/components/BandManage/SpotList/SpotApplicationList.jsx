@@ -4,10 +4,24 @@ import SpotApplicationListItem from './SpotApplicationListItem'
 
 import './SpotApplicationList.scss';
 
+
 export default function SpotApplicationList(props) {
   const [applications, setApplications] = useState([]);
-  const [changed, setChanged] = useState(false);
-  const { spotId } = props;
+  const [acceptedUser, setAcceptedUser] = useState({});
+  const { spotId, spots, setSpots } = props;
+
+  const updateSpots = () => {
+    if (Object.keys(acceptedUser).length !== 0) {
+      const newSpots = [...spots];
+      for(let i = 0; i < newSpots.length; i++) {
+        if (newSpots[i].id === acceptedUser.spotId) {
+          newSpots[i].user_id = acceptedUser.userId;
+          newSpots[i].profile_image = acceptedUser.profile_image;
+        }
+      }
+      setSpots(newSpots);
+    }
+  }
 
   useEffect(() => {
     axios.get(`/api/applications/owner/${spotId}`).then((results) => {
@@ -16,7 +30,7 @@ export default function SpotApplicationList(props) {
   }, [])
 
   const applicationArr = applications.map((application) => {
-    return <SpotApplicationListItem application={application}/>
+    return <SpotApplicationListItem setAcceptedUser={setAcceptedUser} application={application}/>
   })
 
   return (
@@ -28,6 +42,7 @@ export default function SpotApplicationList(props) {
       </div>
       <button onClick={(event)=> {
         event.preventDefault();
+        updateSpots();
       }} className="confirm-applications-button">confirm</button>
     </div>
   )

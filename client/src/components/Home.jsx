@@ -102,8 +102,8 @@ export default function Home(props) {
           </div>
         </div>
         <div className="explore-text">
-          <h6>Looking for a band?</h6>
-          <p>Explore and join according to your favorite genre, instrument and people</p>
+          <h5>Looking for a band?</h5>
+          <h7>Explore and join according to your favorite genre, instrument and people</h7>
         </div>
       </div>
 

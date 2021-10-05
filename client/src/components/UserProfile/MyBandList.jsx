@@ -53,14 +53,14 @@ export default function MyBandList (props) {
   })
 
   return (
-  <Fragment>
+  <div>
     {myBands.length ?
-    <Fragment>
+    <div className="profile-band-container">
       {bandArr}
-    </Fragment>
+    </div>
     :
     <p className="profile-desc">You don't have any related bands</p>
     }
-  </Fragment>
+  </div>
     )
   }

@@ -75,14 +75,14 @@ export default function Home(props) {
                     {!bands.band_image ? (
                       <img
                         src="https://media.istockphoto.com/vectors/fiddler-vector-id452097777?k=20&m=452097777&s=612x612&w=0&h=tEiPg3SQNeclfnvT24V7NFusHxe0291xOKZPBg1Sq-8="
-                        width="650px"
-                        height="350px"
+                        width="1000px"
+                        height="500px"
                       />
                     ) : (
                       <img
                         src={bands.band_image}
-                        width="650px"
-                        height="350px"
+                        width="1000px"
+                        height="500px"
                       />
                     )}
                     <h2>{bands.name}</h2>

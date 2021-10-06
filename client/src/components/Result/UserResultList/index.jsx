@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import UserResult from './UserResult'
 import Grid from '@mui/material/Grid';
-
+import { Box } from '@mui/system';
 
 export default function UserResultList(props) {
   const { genre, instrument, users } = props;
@@ -157,9 +157,11 @@ export default function UserResultList(props) {
   const userSearchContent = resultRender(users)
 
   return (
-    <Grid container justify="center" alignItems="center" rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-      {userSearchContent}
-    </Grid>
+    <Box m={2} pt={3}>
+      <Grid container justify="center" alignItems="center" rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+        {userSearchContent}
+      </Grid>
+    </Box>
 
   );
 

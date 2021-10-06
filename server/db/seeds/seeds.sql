@@ -65,7 +65,8 @@ VALUES
 -- John Mayer's Bands
 (45,'Dead & Company', 'Brining back the good vibes', FALSE, 'https://www.rollingstone.com/wp-content/uploads/2018/06/rs-245845-john-mayer.jpg'), --bandid 11
 (45, 'Greatest Metal Band Ever', 'The best metal band there ever was', TRUE, 'https://thehoya.com/wp-content/uploads/2017/04/johnmayerfacebook.jpg'),
-(45, 'Half of our Hearts', 'Let''s slow dance in a burning room together.', FALSE, 'https://www.gannett-cdn.com/-mm-/c73120083885ca1e452db08002945b402c9bcdf2/c=0-24-5177-2949/local/-/media/2017/07/27/USATODAY/USATODAY/636367272330822754-823287230.jpg?width=660&height=373&fit=crop&format=pjpg&auto=webp');
+(45, 'Half of our Hearts', 'Let''s slow dance in a burning room together.', FALSE, 'https://www.gannett-cdn.com/-mm-/c73120083885ca1e452db08002945b402c9bcdf2/c=0-24-5177-2949/local/-/media/2017/07/27/USATODAY/USATODAY/636367272330822754-823287230.jpg?width=660&height=373&fit=crop&format=pjpg&auto=webp'),
+(44, 'The Jam', 'our goal is to ensemble', FALSE, 'https://www.metalsucks.net/wp-content/uploads/2015/10/Crossing-Rubicon-Band-Photo.jpg');
 
 
 INSERT INTO instruments (name, instrument_image)
@@ -172,8 +173,11 @@ VALUES
 (12, 8, 3, 'Bassist', 'Bassist from Megadeth'),
 (12, 17, 4, 'Drummer', 'Legendary drummer from ACDC'),
 (12, 45, 2, 'Vocalist', 'An aspiring metal band singer'),
-(12, null, 1, 'Guitarist', 'Need a shredder for our sick band');
+(12, null, 1, 'Guitarist', 'Need a shredder for our sick band'),
 
+(11, 45, 2, 'Vocalist', 'An aspiring metal band singer'),
+(13, 45, 2, 'Vocalist', 'An aspiring metal band singer'),
+(14, 44, 1, 'Guitarist', 'Best guitarist evarrrrrr');
 
 INSERT INTO user_instrument(user_id, instrument_id)
 VALUES
@@ -252,13 +256,16 @@ VALUES
 (9, 7),
 (9, 8),
 (9, 15),
-(10, 4);
+(10, 4),
+(11, 6),
+(13, 6),
+(12, 6),
+(14, 6);
 
-
--- INSERT INTO spot_applications(spot_id, user_id, message)
--- VALUES
--- (3, 13, 'please accept'),
--- (3, 14, 'please accept'),
+INSERT INTO spot_applications(spot_id, user_id, message)
+VALUES
+(22, 44, 'Please accept. I have kids to feed...'),
+(27, 44, 'Would love to shred for your band!');
 -- (2, 15, 'please accept'),
 -- (2, 16, 'please accept'),
 -- (2, 17, 'please accept');

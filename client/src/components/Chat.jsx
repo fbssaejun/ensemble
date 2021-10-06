@@ -81,17 +81,18 @@ export default function Chat(props) {
     return user !== currentUser.username;
   })
 
-  const findUserPic = profilePic.find((user) => user.username === filterSelfList[0])
+  const findUserPic = profilePic.find((user) => user.username === filterSelfList[0]);
   console.log("found the user", findUserPic)
 
   const mappedUserList = filterSelfList.map((user) => {
-    return (
-      <IconButton id="chat-user-button" className={userSelected} type="button" onClick={() => {setToUser(user)
-      setSelected((prev) => false)}}>
-        <Avatar src={findUserPic.profile_image}sx={{ width: 50, height: 50, border:(selected ?  "3px solid darkgrey" : "3px solid green") }} />
-      </IconButton>
-    )
-  })
+      return (
+        <IconButton id="chat-user-button" className={userSelected} type="button" onClick={() => {setToUser(user)
+        setSelected((prev) => false)}}>
+          <Avatar alt={currentUser.username} src={findUserPic ? findUserPic.profile_image : '/'} sx={{ width: 50, height: 50, border:(selected ? "3px solid darkgrey" : "3px solid green") }} />
+        </IconButton>
+      )
+    })
+  
 
   return (
     <Fragment>

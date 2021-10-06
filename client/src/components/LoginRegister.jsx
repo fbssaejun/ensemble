@@ -73,9 +73,13 @@ export default function LoginRegister(props) {
       firstName, lastName, newUsername, newEmail, newPass
     })
     .then((response) => {
-      props.setState((prev) => ({ ...prev, currentUser: {id: response.data[0].id, username: newUsername} }));
+      props.setState((prev) => ({ ...prev, currentUser: {id: response.data[0].id,
+        username: newUsername,
+        profile_image: undefined
+      } }));
       sessionStorage.setItem("id", response.data[0].id);
       sessionStorage.setItem("username", newUsername);
+      sessionStorage.setItem("profile_image", undefined)
       history.push(`/`);
     })
 

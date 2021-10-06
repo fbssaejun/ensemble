@@ -1,12 +1,11 @@
 @import '../../appVariables.scss';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
 
-
 .user-application {
   display: flex;
   margin: 1vw auto;
   justify-content: center;
-  background-color: $background-color;
+  background-color: $color-2;
   border-radius: 10px;
   margin-right: 1vw;
   box-shadow: 0 0.25px 0.25px rgba(141, 134, 134, 0.12), 0 0.5px 0.5px rgba(0, 0, 0, 0.12),
@@ -78,10 +77,9 @@
   }
 }
 
-.application-desc{
+.application-desc {
   font-weight: 500;
 }
-
 
 .user-application span {
   font-family: 'Montserrat', sans-serif;

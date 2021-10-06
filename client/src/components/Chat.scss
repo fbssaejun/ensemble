@@ -3,14 +3,14 @@
 .chat-window {
   z-index: 500000;
   position: fixed;
-  bottom: 50px;
+  bottom: 105px;
   right: 50px;
-  width: 700px;
-  height: 700px;
-  background-color: whitesmoke;
+  width: 500px;
+  height: 500px;
+  background-color: $color-2;
   border-radius: 10px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
-    0 4px 4px rgba(0, 0, 0, 0.12), 0 8px 8px rgba(0, 0, 0, 0.12);
+    0 4px 4px rgba(0, 0, 0, 0.12), 0 6px 6px rgba(0, 0, 0, 0.12);
 
   ul,
   li {
@@ -24,23 +24,33 @@
 }
 
 .message-box-container {
-  // border-style: solid;
-  margin: auto;
-  margin-top: 30px;
-  width: 500px;
-  height: 500px;
+  border: 1px dashed #0d3e53;
+  // margin: auto;
+  border-radius: 5px;
+  background-color: $color-2;
+  margin-top: 10px;
+  margin-left: 3em;
+  margin-right: 1em;
+  // margin-bottom: 1em;
+  width: 450px;
+  height: 340px;
 }
 
 .message-input-form {
   position: fixed;
-  bottom: 70px;
+  bottom: 120px;
   right: 100px;
   display: flex;
-  background-color: whitesmoke;
+  background-color: $color-2;
   max-height: 50px;
-  width: 600px;
+  width: 400px;
   flex-direction: row;
-  border-radius: 50%;
+}
+
+.input-message-box {
+  border: 1px solid #0d3e53;
+  background-color: $color-2;
+  border-radius: 5px;
 }
 
 .input-button-spacer {
@@ -49,23 +59,26 @@
 
 .users-list-container {
   // border-style: solid;
-  margin-top: 30px;
-  margin-right: 35px;
+  margin-top: 1em;
+  margin-right: 1em;
 }
 
 .users-list {
   display: flex;
   // border-style: solid;
-  padding-left: 0;
 }
 
 .chat-user-button {
   border-radius: 50%;
-  width: 75px;
-  height: 75px;
-  // align-self: center;
-  // justify-self: center;
+  border: none;
+  width: 50px;
+  height: 50px;
+
+  &--selected {
+    border: 2px solid green;
+  }
 }
+
 .send-message-button {
   padding-top: 5px;
   padding-bottom: 2px;
@@ -73,6 +86,8 @@
   padding-right: 10px;
   border-radius: 5px;
   border-style: hidden;
+  color: white;
+  background-color: $color-1;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
     0 4px 4px rgba(0, 0, 0, 0.12);
   transition: 0.1s ease-in;
@@ -84,24 +99,27 @@
 .open-chat-button {
   z-index: 40000;
   position: fixed;
-  bottom: 0px;
+  bottom: 50px;
   right: 50px;
-  width: 250px;
+  width: 50px;
   height: 50px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  background-color: $color-1;
+  border-radius: 50%;
+  border: hidden;
+  color: white;
+  background-color: $color-6;
 }
 
 .close-chat-button {
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
+    0 4px 4px rgba(0, 0, 0, 0.12);
 }
 
 .chat-box-title {
   margin: auto;
-
+  color: white;
   padding-left: 15px;
   padding-right: 15px;
   border-radius: 20px;
@@ -113,5 +131,18 @@
 }
 
 .messages-list {
-  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-message {
+  display: flex;
+
+  &--right {
+    justify-content: flex-start;
+  }
+
+  &--left {
+    justify-content: flex-end;
+  }
 }

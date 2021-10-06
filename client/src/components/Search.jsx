@@ -55,7 +55,7 @@ export default function Search(props) {
       {transition((style, item) =>
       item ? (<animated.div style={style}>
         <form onSubmit={searchField} className="search-button-form">
-          <FormControl sx={{ width: '40ch' }}>
+          <FormControl sx={{ width: '40ch',  }}>
           <TextField
             label="Your Search"
             id="filled-size-normal"

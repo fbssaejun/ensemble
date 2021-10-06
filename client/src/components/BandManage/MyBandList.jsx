@@ -28,7 +28,7 @@ export default function MyBandList(props) {
 
   return (
     <div className="my-band-list">
-      <h1 className="my-band-list-title">The Bands You Joined</h1>
+      <h1 className="my-band-list-title">Bands I'm involved with</h1>
       <div className="my-band-list-container">
         {myBandArr}
       </div>

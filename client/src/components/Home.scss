@@ -1,10 +1,9 @@
 @import '../appVariables.scss';
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
-
 .main {
   margin-top: 8em;
-  
+
   .explore-text {
     font-family: 'Montserrat';
     color: white;
@@ -15,10 +14,11 @@
 }
 
 .ensemble-video {
+  padding-top: 10vh;
   display: block;
   z-index: 100;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
 }
 
 #bgvideo {
@@ -68,7 +68,7 @@
   margin: 50px auto;
   margin-top: 220px;
   overflow: hidden;
-  width: 100%;  
+  width: 100%;
 }
 
 .slideshowSlider {
@@ -85,11 +85,11 @@
   background: none;
   border-radius: 10px;
   object-fit: cover;
-  
+
   &:hover {
     cursor: pointer;
   }
-  
+
   img {
     margin-top: 1em;
     border-radius: 10px;
@@ -206,7 +206,7 @@
   text-align: center;
   margin: 8% 0;
   position: absolute;
-  top: 65vh;
+  top: 75vh;
   left: 50%;
   z-index: 1;
 
@@ -239,7 +239,7 @@
 
 .begin-search {
   position: absolute;
-  top: 65vh;
+  top: 75vh;
   left: 47.5%;
   color: black;
   background-color: white;

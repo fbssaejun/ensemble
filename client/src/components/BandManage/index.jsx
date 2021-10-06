@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import axios from 'axios';
-import { useEffect, useState } from 'react';
-import LeaderBandList from './LeaderBandList';
-import MyBandList from './MyBandList';
+import axios from "axios";
+import { useEffect, useState } from "react";
+import LeaderBandList from "./LeaderBandList";
+import MyBandList from "./MyBandList";
 
-import './BandManage.scss';
+import "./BandManage.scss";
 
 export default function BandManage(props) {
   const [cachedBands, setCachedBands] = useState([]);
@@ -13,22 +13,30 @@ export default function BandManage(props) {
 
   useEffect(() => {
     axios.get(`/api/bands/users/${currentUser.id}`).then((results) => {
-      setCachedBands(results.data)
-    })
-  }, [])
+      setCachedBands(results.data);
+    });
+  }, []);
 
-  
   return (
-    <div className="all-band-lists-container">
+    <div>
+      <div className="all-band-lists-container">
+        <div className="manage-bands-container">
+          <LeaderBandList
+            cachedBands={cachedBands}
+            setCachedBands={setCachedBands}
+            currentUser={currentUser}
+          />
+        </div>
 
-      <div className="manage-bands-container">
-        <LeaderBandList cachedBands={cachedBands} setCachedBands={setCachedBands} currentUser={currentUser} />
+        <div className="involved-bands-container">
+          <MyBandList
+            cachedBands={cachedBands}
+            setCachedBands={setCachedBands}
+            currentUser={currentUser}
+          />
+        </div>
       </div>
-      
-      <div className="involved-bands-container">
-        <MyBandList cachedBands={cachedBands} setCachedBands={setCachedBands} currentUser={currentUser} />
-      </div>
-
+      <div className="footer-push-down-manage" />
     </div>
   );
 }

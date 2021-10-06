@@ -34,7 +34,7 @@ export default function Chat(props) {
       toUser: toUser,
       fromUser: currentUser.username,
     });
-    setChatHistory((prev) => [...prev, {text: message, sender: "I say:"}]);
+    setChatHistory((prev) => [...prev, {text: message, sender: `I say: `}]);
     setMessage("");
   }
 
@@ -60,7 +60,7 @@ export default function Chat(props) {
       
       socket.current.on('private', (msg) => {
         console.log("GOT BACK PRIVATE MSG", msg)
-        setChatHistory((prev) => [...prev, {text: msg.text, sender: `${msg.from} says:`}]);
+        setChatHistory((prev) => [...prev, {text: msg.text, sender: `${msg.from}: `}]);
       })
 
       axios.get('/api/users/profileimgs/all').then((results) => {

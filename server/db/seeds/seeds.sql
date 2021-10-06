@@ -132,6 +132,8 @@ VALUES
 (6, 14, 3, 'Bassist', 'Got trolled by James Franco.'),
 (6, 15, 4, 'Drummer', 'Has the same name as the bassist.'),
 (6, null, 6, 'Violinist', 'We want an even more classical vibe.'),
+(6, 44, 2, 'Vocal', 'I eat, I sleep, I sing'),
+
 
 --Racer X
 (7, 26, 1, 'Guitarist', 'I can switch between triplets, quadruplets, quintuplets, and sextuplets smoothly'),
@@ -154,6 +156,7 @@ VALUES
 (9, 36, 4, 'Drummer', 'Drummer of Periphery'),
 (9, 37, 2, 'Vocalist', 'Vocalist of Periphery'),
 (9, 38, 1, 'Guitarist', 'I play guitar fast good tones'),
+(9, 44, 3, 'Bassist', 'I just started learning bass!'),
 
 --AC/DC
 (4, 16, 1, 'Guitarist', 'Co-founder, lead guitarist, songwriter and only constant original member of ACDC.'),

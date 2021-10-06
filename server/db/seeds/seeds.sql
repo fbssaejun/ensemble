@@ -161,12 +161,15 @@ VALUES
 (4, 18, 3, 'Bass', 'He started his professional music career in 1967 and had previously been in the English groups Home and Bandit.'),
 (4, 19, 2, 'Vocals', 'one of the founder members of the rock band Geordie formed in Newcastle upon Tyne in 1971.'),
 (4, 20, 1, 'Guitar', 'Scottish musician, and the rhythm guitarist and backing vocalist for the Australian rock & roll band AC/DC.'),
+(4, 45, 1, 'Lead Guitar', 'sick dude that came from nowhere'),
 
 --Red Hot Chili Peppers
 (5, 39, 2, 'Vocalist', 'Takes his shirt off in every music videos'),
 (5, 40, 3, 'Bassist', 'Best bass slapper in the world'),
 (5, 41, 4, 'Drummer', 'Drummer who looks like a mafia boss'),
 (5, 42, 1, 'Guitarist', 'Album generator, released 12 solo albums and seven EPs.'),
+(5, 45, 1, 'Lead Bassist', 'if an instrument has strings, he knows how to play it'),
+
 
 --Test Spots
 

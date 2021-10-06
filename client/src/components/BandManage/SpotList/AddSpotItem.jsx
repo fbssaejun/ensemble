@@ -37,6 +37,7 @@ export default function AddSpotItem(props) {
     }
   }
 
+
   const addSpot = (bandId) => {
     axios.post('/api/spots/new', {
       bandId: bandId,

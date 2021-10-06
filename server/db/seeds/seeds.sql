@@ -64,7 +64,7 @@ VALUES
 
 -- John Mayer's Bands
 (45,'Dead & Company', 'Brining back the good vibes', FALSE, 'https://www.rollingstone.com/wp-content/uploads/2018/06/rs-245845-john-mayer.jpg'), --bandid 11
-(45, 'Greatest Metal Band Ever', 'The best metal band there ever was', TRUE, 'https://thehoya.com/wp-content/uploads/2017/04/johnmayerfacebook.jpg'),
+(45, 'Greatest Metal Band Ever', 'The best metal band there ever was', FALSE, 'https://thehoya.com/wp-content/uploads/2017/04/johnmayerfacebook.jpg'),
 (45, 'Half of our Hearts', 'Let''s slow dance in a burning room together.', FALSE, 'https://www.gannett-cdn.com/-mm-/c73120083885ca1e452db08002945b402c9bcdf2/c=0-24-5177-2949/local/-/media/2017/07/27/USATODAY/USATODAY/636367272330822754-823287230.jpg?width=660&height=373&fit=crop&format=pjpg&auto=webp'),
 (44, 'The Jam', 'our goal is to ensemble', FALSE, 'https://www.metalsucks.net/wp-content/uploads/2015/10/Crossing-Rubicon-Band-Photo.jpg');
 

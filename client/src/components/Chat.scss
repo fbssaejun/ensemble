@@ -128,21 +128,29 @@
   box-shadow: 0 0.25px 0.25px rgba(0, 0, 0, 0.12), 0 0.5px 0.5px rgba(0, 0, 0, 0.12),
     0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12);
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  
 }
 
 .messages-list {
   display: flex;
   flex-direction: column;
+  font-size: 12px;
+  font-weight: bolder;
+  color: black;
+
+  p {
+    font-weight: 600;
+  }
 }
 
 .chat-message {
   display: flex;
 
   &--right {
-    justify-content: flex-start;
+    text-align: right;
   }
 
   &--left {
-    justify-content: flex-end;
+    text-align: left;
   }
 }

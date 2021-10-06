@@ -40,7 +40,7 @@ export default function EmptySpot (props) {
           deleteSpot(spot.id)}}>&#215;</button>
       </div>
       <div className="profile-avatar">
-        <Avatar alt={spot.title} src={spot.instrument_image ? spot.instrument_image : "/" } sx={{ width: 50, height: 50 }} />
+        <Avatar className="spot-avatar" alt={spot.title} src={spot.instrument_image ? spot.instrument_image : "/" } sx={{ width: 50, height: 50 }} />
       </div>
       <div className="applications-show-button">
         <button className="status-button first" onClick={handleOpen}>status</button>

@@ -24,7 +24,7 @@ export default function FilledSpot(props) {
           deleteSpot(spot.id)}}>&#215;</button>
       </div>
       <div className="profile-avatar">
-        <Avatar alt={spot.username} src={spot.profile_image ? spot.profile_image : "/"} sx={{ width: 50, height: 50 }} />
+        <Avatar className="spot-avatar" alt={spot.username} src={spot.profile_image ? spot.profile_image : "/"} sx={{ width: 50, height: 50 }} />
       </div>
       <span className="leader-band-spot-title">{spot.title}</span>
     </div>

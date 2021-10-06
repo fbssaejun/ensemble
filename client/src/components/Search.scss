@@ -1,105 +1,99 @@
 @import '../appVariables.scss';
 
-
 // .searching-for{
 // 	margin-bottom: 10px;
 
 // }
 
-.search-button-form{
-	margin:15px;
+.search-button-form {
+  margin: 15px;
 }
 
-
-.search-page-footer-down{
-	margin-bottom: 200px;
-
+.search-page-footer-down {
+  margin-bottom: 26.8vh;
 }
 
-div.search-page{
-
-	margin-top: 200px;
-	h1 {
-		padding-bottom: 15px;
-	}
-	padding-bottom: 18.8em;
+div.search-page {
+  margin-top: 200px;
+  h1 {
+    padding-bottom: 15px;
+  }
+  padding-bottom: 18.8em;
 }
 
 // Switch
 $green: orange;
 $red: crimson;
 
-
 .switch {
-	position: relative;
-	width: 150px;
-	height: 50px;
-	text-align: center;
-	margin: -30px 0 0 -75px;
-	background: $green;
-	transition: all 0.2s ease;
-	border-radius: 25px;
-	margin: 0px 0px 10px 0px;
+  position: relative;
+  width: 150px;
+  height: 50px;
+  text-align: center;
+  margin: -30px 0 0 -75px;
+  background: $green;
+  transition: all 0.2s ease;
+  border-radius: 25px;
+  margin: 0px 0px 10px 0px;
 
-	label {
-		cursor: pointer;
-		color: rgba(0,0,0,1);
-		width: 60px;
-		line-height: 50px;
-		transition: all 0.2s ease;
-	}
+  label {
+    cursor: pointer;
+    color: rgba(0, 0, 0, 1);
+    width: 60px;
+    line-height: 50px;
+    transition: all 0.2s ease;
+  }
 }
-input[type=radio] {
-	display: none;
+input[type='radio'] {
+  display: none;
 }
-label[for=yes] {
-	position: absolute;
-	left: 10px;
-	height: 20px;
+label[for='yes'] {
+  position: absolute;
+  left: 10px;
+  height: 20px;
 }
-label[for=no] {
-	position: absolute;
-	right: 10px;
+label[for='no'] {
+  position: absolute;
+  right: 10px;
 }
 #no {
-	&:checked {
-		& ~ .switch {
-			background: $red;
-			span {
-				background: #fff;
-				margin-left: -8px;
-				&:after {
-					background: #fff;
-					height: 20px;
-					margin-top: -8px;
-					margin-left: 8px;
-				}
-			}
-			label[for=no] {
-				color: #fff;
-			}
-		}
-	}
+  &:checked {
+    & ~ .switch {
+      background: $red;
+      span {
+        background: #fff;
+        margin-left: -8px;
+        &:after {
+          background: #fff;
+          height: 20px;
+          margin-top: -8px;
+          margin-left: 8px;
+        }
+      }
+      label[for='no'] {
+        color: #fff;
+      }
+    }
+  }
 }
 #yes {
-	&:checked {
-		& ~ .switch {
-			label[for=yes] {
-				color: #fff;
-			}
-		}
-	}
+  &:checked {
+    & ~ .switch {
+      label[for='yes'] {
+        color: #fff;
+      }
+    }
+  }
 }
 
-.search-button-form{
-	background-color: $background-color;
+.search-button-form {
+  background-color: $background-color;
 }
-
 
 // Search button CSS copied from home page
 
 .search-button {
-	background-color: $background-color;
+  background-color: $background-color;
   position: relative;
   outline: none;
   text-decoration: none;
@@ -111,7 +105,7 @@ label[for=no] {
   text-transform: uppercase;
   margin: auto;
   margin-top: 15px;
-	margin-bottom: 15px;
+  margin-bottom: 15px;
   height: 60px;
   width: 210px;
   opacity: 1;

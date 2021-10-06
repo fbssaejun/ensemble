@@ -1,8 +1,11 @@
 import {useState, useEffect, useRef, Fragment } from 'react';
 import SendIcon from '@mui/icons-material/Send';
 import ChatIcon from '@mui/icons-material/Chat';
+import classnames from 'classnames';
+import { Avatar, IconButton } from '@mui/material';
 
 import './Chat.scss';
+import axios from 'axios';
 const io = require('socket.io-client');
 
 
@@ -13,17 +16,15 @@ export default function Chat(props) {
   const [message, setMessage] = useState("");
   const [chatHistory, setChatHistory] = useState([]);
   const [toUser, setToUser] = useState("");
+  const [selected, setSelected] = useState(true);
   const [open, setOpen] = useState(false);
+  const [profilePic, setProfilePic] = useState([]);
   const socket = useRef(null);
   const currentUser = sessionStorage.length ? {id: sessionStorage.getItem('id'), username: sessionStorage.getItem('username')} : undefined;
 
-  const handleOpen = () => {
-    setOpen(true);
-  }
-
-  const handleClose = () => {
-    setOpen(false);
-  }
+  const userSelected = classnames('chat-user-button', {
+    'chat-user-button--selected' : selected
+  })
 
   const sendMessage = () => {
     console.log("emitting...");
@@ -61,6 +62,11 @@ export default function Chat(props) {
         console.log("GOT BACK PRIVATE MSG", msg)
         setChatHistory((prev) => [...prev, {text: msg.text, sender: `${msg.from} says:`}]);
       })
+
+      axios.get('/api/users/profileimgs/all').then((results) => {
+        console.log("USER NAME", results)
+        setProfilePic(() => results.data);
+      })
       
       return () => socket.current.disconnect();
     }
@@ -68,34 +74,42 @@ export default function Chat(props) {
   }, []);
 
   const mappedChatHistory = chatHistory.map((chat) => {
-    return <li>{chat.sender} {chat.text}.</li>
+    return chat.sender.charAt(0) === "I" ? (<div  className="chat-message--right"><p>{chat.sender} {chat.text}.</p></div>) : (<div className="chat-message--left"><p>{chat.sender} {chat.text}.</p></div>)
   })
 
   const filterSelfList = usersList.filter((user) => {
     return user !== currentUser.username;
   })
 
+  const findUserPic = profilePic.find((user) => user.username === filterSelfList[0])
+  console.log("found the user", findUserPic)
+
   const mappedUserList = filterSelfList.map((user) => {
-    return <button className="chat-user-button" type="button" onClick={() => setToUser(user)}>Chat {user}</button>
+    return (
+      <IconButton id="chat-user-button" className={userSelected} type="button" onClick={() => {setToUser(user)
+      setSelected((prev) => false)}}>
+        <Avatar src={findUserPic.profile_image}sx={{ width: 50, height: 50, border:(selected ?  "3px solid darkgrey" : "3px solid green") }} />
+      </IconButton>
+    )
   })
 
   return (
     <Fragment>
       {open &&
       <div className="chat-window">
-        <div className="chat-box-title"><h1>{notify}</h1></div>
+        <div className="chat-box-title"><h4>{notify}</h4></div>
         <div className="bottom-part-of-chat-window">
           <div className="message-box-container">
-            <ul className="messages-list">
+            <div className="messages-list">
               {mappedChatHistory}
-            </ul>
+            </div>
             <form 
               onSubmit={(event) => {
                 event.preventDefault();
                 sendMessage();
               }}
               className="message-input-form">
-              <input 
+              <input className="input-message-box"
                 type="text"
                 placeholder="message"
                 value={message}

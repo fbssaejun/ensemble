@@ -39,7 +39,7 @@ export default function Home(props) {
   }, [index]);
 
   return (
-    <Fragment className="home-component">
+    <Fragment>
       <div className="ensemble-video">
         <video id="bgvideo" autoplay="autoplay" loop muted>
           <source src={homeVideo} type="video/mp4" />

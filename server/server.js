@@ -64,7 +64,7 @@ io.on('connection', (socket) => {
   socket.on('send-username', (username) => {
     users[username] = socket.id;
     console.log(users);
-    io.to(socket.id).emit('notify', `Signed in: ${username}`);
+    io.to(socket.id).emit('notify', `${username}`);
     io.emit('users-list', getUsersList());
     connected++;
     sendStatus(io);

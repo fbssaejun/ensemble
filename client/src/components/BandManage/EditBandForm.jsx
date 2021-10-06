@@ -128,17 +128,17 @@ export default function EditBandForm(props) {
           />
           }
 
-          <label htmlFor="check"> Featured </label><br/>
-          <div id="container">
+          <label htmlFor="check" className="featured-label"> Featured </label>
+          {/* <div id="container">
           <input id="featured" type="checkbox" name="check" checked={featuredVal} onChange={() => setFeaturedVal((prev) => !prev)}></input>
           <label for="check"><div></div></label>
-        </div>
-
-
-        {/* <div id="container">
-          <input type="checkbox" name="check" checked={bandFeatured} onChange={() => setBandFeatured(!bandFeatured)}/>
-          <label for="check"><div></div></label>
         </div> */}
+
+          <div class="container-manage">
+              <input type="checkbox" id="cbtest" checked={featuredVal} onChange={() => setFeaturedVal((prev) => !prev)}/>
+              <label for="cbtest" class="check-box"></label> 
+          </div>
+
 
         <div className="band-form-bottom-buttons">
           <span><button type="button" 

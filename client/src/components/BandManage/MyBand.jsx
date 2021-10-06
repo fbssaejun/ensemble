@@ -51,7 +51,7 @@ export default function NewMyBand(props) {
       <div className="my-spot-band-image">
         <img src={bandImage}/>
       </div>
-      {mySpot.length && <h5>Title: <br/> {mySpot[0].title}</h5> }
+      {mySpot.length && <h5>My Title: <br/> {mySpot[0].title}</h5> }
       <Modal
         open={open}
         onClose={handleClose}

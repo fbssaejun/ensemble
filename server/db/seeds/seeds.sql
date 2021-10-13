@@ -1,7 +1,7 @@
 INSERT INTO users (first_name, last_name, email, username, password, profile_image)
 VALUES ('Eric', 'Clapton', 'none@none.com', 'somedude', '12345', 'https://i.guim.co.uk/img/media/c38d00330b2e2f09e997eb3eeee8c2a886c6601d/0_52_2568_1541/master/2568.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=8c4361989a4ded8611fe40d3fd97d356'),
 ('Slash', '', 'c00lhatz@gmail.com', 'axlrose', '12345', 'https://upload.wikimedia.org/wikipedia/commons/3/3d/Slash%2C_Guitarist_of_Guns_N%27_Roses_in_2017.jpg'), -- Guns N Roses
-('Axl', 'Rose', 'paradise_city@hotmail.com', 'slash', '12345', 'https://townsquare.media/site/366/files/2020/01/GettyImages-535921746.jpg?w=980&q=75'),
+('Axl', 'Rose', 'paradise_city@hotmail.com', 'slassh', '12345', 'https://townsquare.media/site/366/files/2020/01/GettyImages-535921746.jpg?w=980&q=75'),
 ('Duff', 'McKagan', 'cool_beanz@gmail.com', 'b0ssb4ss', '12345', 'https://upload.wikimedia.org/wikipedia/commons/7/77/Duff_McKagan_2012.JPG'),
 ('Rob', 'Gardner', 'bdumtas@gmail.com', 'b0ssdrumz', '12345','https://www.grunge.com/img/gallery/what-every-ex-member-of-guns-n-roses-is-doing-today/rob-gardner-international-man-of-mystery-1582688719.jpg'),
 ('Dave', 'Mustaine', 'holywars@hotmail.com', 'punshment', '12345', 'https://www.rollingstone.com/wp-content/uploads/2019/11/Dave-mustaine.jpg'), -- Megadeth
@@ -45,7 +45,7 @@ VALUES ('Eric', 'Clapton', 'none@none.com', 'somedude', '12345', 'https://i.guim
 
 --DEMO USER!!!!
 
-('Jason', 'Richardson', 'madshredz@gmail.com', 'tendinitis', '12345', 'https://upload.wikimedia.org/wikipedia/commons/4/43/13-04-27_Groezrock_Chelsea_Grin_08.jpg'),
+('Aaron', 'Marshall', 'madshredz@gmail.com', 'intervals', '12345', 'https://pbs.twimg.com/profile_images/1309487686470832128/c3xZDo-j_400x400.jpg'),
 ('John', 'Mayer', 'smooth@groove.com', 'neon', '12345', 'https://media.gq.com/photos/596d76c696d98d4091bcf4df/4:3/w_2663,h_1997,c_limit/John-Mayer-lede-cc.jpg');
 
 
@@ -64,7 +64,7 @@ VALUES
 
 -- John Mayer's Bands
 (45,'Dead & Company', 'Brining back the good vibes', FALSE, 'https://www.rollingstone.com/wp-content/uploads/2018/06/rs-245845-john-mayer.jpg'), --bandid 11
-(45, 'Greatest Metal Band Ever', 'The best metal band there ever was', TRUE, 'https://thehoya.com/wp-content/uploads/2017/04/johnmayerfacebook.jpg'),
+(45, 'Greatest Metal Band Ever', 'The best metal band there ever was', FALSE, 'https://thehoya.com/wp-content/uploads/2017/04/johnmayerfacebook.jpg'),
 (45, 'Half of our Hearts', 'Let''s slow dance in a burning room together.', FALSE, 'https://www.gannett-cdn.com/-mm-/c73120083885ca1e452db08002945b402c9bcdf2/c=0-24-5177-2949/local/-/media/2017/07/27/USATODAY/USATODAY/636367272330822754-823287230.jpg?width=660&height=373&fit=crop&format=pjpg&auto=webp'),
 (44, 'The Jam', 'our goal is to ensemble', FALSE, 'https://www.metalsucks.net/wp-content/uploads/2015/10/Crossing-Rubicon-Band-Photo.jpg');
 

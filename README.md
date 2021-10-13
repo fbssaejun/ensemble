@@ -1,5 +1,4 @@
  <h1 align="center">Ensemble</h1>
-=========
 
 ## Project details
 

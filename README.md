@@ -5,13 +5,14 @@
 
 Ensemble is a social media website designed to connect users with similar musical interest, jam and form bands to play together. Users can create, delete, edit their own bands, apply for open spots in other bands and chat with different users.
 
-### For customers
-1. Allows Users to create an account, 
-2. Users can add, delete, store orders in the cart and checkout with the total price informed.
-3. Once the order is placed, users will be notified with a message on the screen with the checked out price.
-4. Users will receive a text message from the owner according to their order's conditions, whether if it's accepted, rejected or completed.
+## Features
+1. Users can create an account, edit their profile according to their interests in instruments and genres.
+2. Users can search all bands and users from the database, filter through the results with specific genre and instrument. They can also filter bands with availability of open position.
+![](https://github.com/fbssaejun/ensemble/blob/master/client/docs/login-search.gif)
+3. Users can apply for bands that they are interested in, and band owners can either accept, or reject applications.
+4. Users can create, edit, delete their own band. They can specify specific open spots to accept applications from other users(players). Thet can also feature their bands, which will allow their bands to be displayed on the homepage.
+6. Users can chat with different users. 
 
-![](https://github.com/fbssaejun/foodUp/blob/master/public/images/user-path/Landing%20page.png)
 ![](https://github.com/fbssaejun/foodUp/blob/master/public/images/user-path/Menu%20page.png)
 ![](https://github.com/fbssaejun/foodUp/blob/master/public/images/user-path/checkout%20page.png)
 ![](https://github.com/fbssaejun/foodUp/blob/master/public/images/user-path/Complete%20order.png)
